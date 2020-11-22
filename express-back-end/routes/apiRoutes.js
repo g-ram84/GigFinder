@@ -7,6 +7,7 @@ const savedCompaniesDbHelpers = require('../lib/dbHelpers/savedCompaniesDbHelper
 const savedWorkersDbHelpers = require('../lib/dbHelpers/savedWorkersDbHelpers');
 const { app } = require("../server");
 
+
 function apiRoutes(db) {
   const jobsRouter = express.Router();
   const jobRoutes = require("./jobs");
