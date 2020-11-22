@@ -1,38 +1,32 @@
-import React, { Component } from 'react';
+import React from 'react';
 import axios from 'axios';
 import './App.css';
+import AddJob from './views/addJob';
+import Favourites from './views/favourites';
+import Home from './views/home';
+import Job from './views/job';
+import Login from './views/login';
+import Register from './views/register';
+import Results from './views/results';
+import Profile from './views/profile';
+import NavBar from './views/navBar';
+import {Route, Link} from 'react-router-dom';
 
-class App extends Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-      message: 'Click the button to load data!'
-    }
-  }
 
-  fetchData = () => {
-    axios.get('/api/data') // You can simply make your requests to "/api/whatever you want"
-    .then((response) => {
-      // handle success
-      console.log(response.data) // The entire response from the Rails API
-
-      console.log(response.data.message) // Just the message
-      this.setState({
-        message: response.data.message
-      });
-    }) 
-  }
-
-  render() {
+function App() {
     return (
       <div className="App">
-        <h1>{ this.state.message }</h1>
-        <button onClick={this.fetchData} >
-          Fetch Data
-        </button>        
+       <NavBar />
+       <Route exact path='/' compontent={Home} />
+       <Route exact path='/addJob' compontent={AddJob} />
+       <Route exact path='/favourites' compontent={Favourites} />
+       <Route exact path='/job' compontent={Job} />
+       <Route exact path='/login' compontent={Login} />
+       <Route exact path='/profile' compontent={Profile} />
+       <Route exact path='/register' compontent={Register} />
+       <Route exact path='/results' compontent={Results} />   
       </div>
     );
   }
-}
 
 export default App;
