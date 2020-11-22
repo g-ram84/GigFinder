@@ -10,21 +10,23 @@ import Register from './views/register';
 import Results from './views/results';
 import Profile from './views/profile';
 import NavBar from './views/navBar';
-import {Route, Link} from 'react-router-dom';
+import {Route, Link, BrowserRouter as Router} from 'react-router-dom';
 
 
 function App() {
     return (
       <div className="App">
-       <NavBar />
-       <Route exact path='/' compontent={Home} />
-       <Route exact path='/addJob' compontent={AddJob} />
-       <Route exact path='/favourites' compontent={Favourites} />
-       <Route exact path='/job' compontent={Job} />
-       <Route exact path='/login' compontent={Login} />
-       <Route exact path='/profile' compontent={Profile} />
-       <Route exact path='/register' compontent={Register} />
-       <Route exact path='/results' compontent={Results} />   
+      <Router>
+        <NavBar />
+       <Route exact path='/' component={Home} />
+       <Route exact path='/addJob' component={AddJob} />
+       <Route exact path='/favourites' component={Favourites} />
+       <Route exact path='/job' component={Job} />
+       <Route exact path='/login' component={Login} />
+       <Route exact path='/profile' component={Profile} />
+       <Route exact path='/register' component={Register} />
+       <Route exact path='/results' component={Results} />   
+       </Router>
       </div>
     );
   }
