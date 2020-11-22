@@ -8,4 +8,14 @@ const getAllSavedCompanies = function(db) {
       console.log(err);
     });
 };
-exports.getAllSavedCompanies = getAllSavedCompanies;
+
+const getSavedCompaniesByWorkerId = function(worker_id, db) {
+  return db.query(`SELECT * FROM saved_companies WHERE worker_id =$1`, [worker_id])
+    .then((res) => {
+      return res.rows;
+    }).catch(err => {
+      console.log(err);
+    });
+};
+
+module.exports = { getAllSavedCompanies, getSavedCompaniesByWorkerId };

@@ -8,4 +8,13 @@ const getAllJobs = function(db) {
       console.log(err);
     });
 };
-exports.getAllJobs = getAllJobs;
+const getJobById = function(id, db) {
+  return db.query(`SELECT * FROM jobs WHERE id =$1`, [id])
+    .then((res) => {
+      return res.rows;
+    }).catch(err => {
+      console.log(err);
+    });
+};
+
+module.exports = { getAllJobs, getJobById };
