@@ -8,4 +8,12 @@ const getAllEmployers = function(db) {
       console.log(err);
     });
 };
-exports.getAllEmployers = getAllEmployers;
+const getEmployerById = function(id, db) {
+  return db.query(`SELECT * FROM employers WHERE id =$1`, [id])
+    .then((res) => {
+      return res.rows;
+    }).catch(err => {
+      console.log(err);
+    });
+};
+module.exports = { getAllEmployers, getEmployerById };

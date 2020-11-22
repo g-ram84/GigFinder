@@ -8,4 +8,12 @@ const getAllApplications = function(db) {
       console.log(err);
     });
 };
-exports.getAllApplications = getAllApplications;
+const getApplicationById = function(id, db) {
+  return db.query(`SELECT * FROM applications WHERE id =$1`, [id])
+    .then((res) => {
+      return res.rows;
+    }).catch(err => {
+      console.log(err);
+    });
+};
+module.exports = { getAllApplications, getApplicationById };
