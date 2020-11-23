@@ -1,12 +1,13 @@
-@import "styles/mixins.scss";
-@import "styles/variables.scss";
+@import "../styles/mixins.scss";
+@import "../styles/variables.scss";
 
 .button {
-  border-radius: 1rem;
+  border-radius: .5rem;
   border: 0;
   font-size: 1.5rem;
   height: 2rem;
   line-height: 1.2rem;
+  margin-left: 1rem;
   margin-right: 1rem;
   width: 8rem;
   border-width: 2px;
@@ -30,10 +31,21 @@
   background-color: transparent;
 }
 
+.button--primary {
+  color: $primary-color;
+  border-color: $primary-color;
+  background-color: transparent;
+}
+
 .button--confirm {
   color: $confirm-color;
   border-color: $confirm-color;
   background-color: transparent;
+}
+
+.button--primary:hover {
+  color: $white;
+  background-color: $primary-color;
 }
 
 .button--danger:hover {
