@@ -1,12 +1,18 @@
-import React from "react";
+import React, { useContext } from "react";
 import JobListItem from "./jobListItem.js";
 import PropTypes from "prop-types";
+import GigfinderContext from '../context/gigfinder/gigfinderContext.js';
 
 export default function JobList(props) {
+  const gigfinderContext = useContext(GigfinderContext);
+  const { jobs } = gigfinderContext;
+  const temp = gigfinderContext.searchJobs();
   JobList.propTypes = {
     jobs: PropTypes.array.isRequired
   };
-  const jobs = props.jobs.map(job => {
+  
+
+  const myJobs = jobs.map(job => {
     return (
       <JobListItem
         key={job.id}
@@ -27,7 +33,7 @@ export default function JobList(props) {
   return (
     <section>
       <h4>job</h4>
-      <ul>{jobs}</ul>
+      <ul>{myJobs}</ul>
     </section>
   );
  

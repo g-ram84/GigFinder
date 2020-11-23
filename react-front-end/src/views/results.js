@@ -1,10 +1,11 @@
 import React from 'react';
+import JobList from '../components/jobList.js';
 
 
 function Results() {
   return (
     <div>
-      <h1>Everything you wanted - and more!</h1>
+      <JobList />
     </div>
   );
 }
