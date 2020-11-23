@@ -17,4 +17,14 @@ const getJobById = function(id, db) {
     });
 };
 
-module.exports = { getAllJobs, getJobById };
+const searchJobs = function(job_title, db) {
+  return db.query(`SELECT * FROM jobs WHERE tob_title =$1`, [job_title])
+    .then((res) => {
+      return res.rows;
+    }).catch(err => {
+      console.log(err);
+    });
+};
+
+
+module.exports = { getAllJobs, getJobById, searchJobs };
