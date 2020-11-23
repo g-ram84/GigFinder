@@ -10,25 +10,28 @@ import Register from './views/register';
 import Results from './views/results';
 import Profile from './views/profile';
 import NavBar from './views/navBar';
-import {Route, Link, BrowserRouter as Router} from 'react-router-dom';
+import GigfinderState from './context/gigfinder/GigfinderState';
+import { Route, Link, BrowserRouter as Router } from 'react-router-dom';
 
 
 function App() {
-    return (
-      <div className="App">
-      <Router>
-        <NavBar />
-       <Route exact path='/' component={Home} />
-       <Route exact path='/addJob' component={AddJob} />
-       <Route exact path='/favourites' component={Favourites} />
-       <Route exact path='/job' component={Job} />
-       <Route exact path='/login' component={Login} />
-       <Route exact path='/profile' component={Profile} />
-       <Route exact path='/register' component={Register} />
-       <Route exact path='/results' component={Results} />   
-       </Router>
-      </div>
-    );
-  }
+  return (
+    <div className="App">
+      <GigfinderState>
+        <Router>
+          <NavBar />
+          <Route exact path='/' component={Home} />
+          <Route exact path='/addJob' component={AddJob} />
+          <Route exact path='/favourites' component={Favourites} />
+          <Route exact path='/job' component={Job} />
+          <Route exact path='/login' component={Login} />
+          <Route exact path='/profile' component={Profile} />
+          <Route exact path='/register' component={Register} />
+          <Route exact path='/results' component={Results} />
+        </Router>
+      </GigfinderState>
+    </div>
+  );
+}
 
 export default App;
