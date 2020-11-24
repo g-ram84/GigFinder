@@ -1,5 +1,6 @@
 import React, { useReducer } from 'react';
 import axios from 'axios';
+
 import GigfinderContext from './gigfinderContext';
 import GigfinderReducer from './gigfinderReducer';
 import {
@@ -7,10 +8,13 @@ import {
   GET_FAVE_COMPANIES,
   GET_FAVE_WORKERS,
   ADD_JOB,
+  SET_USER_TYPE,
 } from '../types';
 
+const api_url = "https://lhlgigfinder.azurewebsites.net";
 const GigfinderState = props => {
   const initialState = {
+    loggedInUserIsEmployer: true,
     jobs: [],
     faveCompanies: [],
     faveWorkers: [],
@@ -22,7 +26,7 @@ const GigfinderState = props => {
   // Search Jobs
   const searchJobs = async () => {
     const res = await axios.get(
-      `http://localhost:8080/api/jobs`, {
+      `/api/jobs`, {
       headers: {
         "Access-Control-Allow-Origin": "*"
       },
@@ -36,7 +40,7 @@ const GigfinderState = props => {
   // Get Companies Favorite Workers
   const getFavouriteWorkers = async company_id => {
     const res = await axios.get(
-      `http://localhost:8080/api/savedworkers/${company_id}`
+      `/api/savedworkers/${company_id}`
     );
     dispatch({
       type: GET_FAVE_WORKERS,
@@ -47,7 +51,7 @@ const GigfinderState = props => {
   // Get Employees Favorite Companies
   const getFavouriteCompanies = async worker_id => {
     const res = await axios.get(
-      `http://localhost:8080/api/savedcompanies/${worker_id}`
+      `/api/savedcompanies/${worker_id}`
     );
     dispatch({
       type: GET_FAVE_COMPANIES,
@@ -57,7 +61,7 @@ const GigfinderState = props => {
   const addNewJob = async (job) => {
     const res = await axios({
       method: 'post',
-      url: `http://localhost:8080/api/jobs`,
+      url: `/api/jobs`,
       data: {
         job: { ...job },
       },
@@ -65,6 +69,20 @@ const GigfinderState = props => {
     dispatch({
       type: ADD_JOB,
       payload: job
+    });
+  };
+
+  const setUserType = async (isWorker) => {
+    // const res = await axios({
+    //   method: 'post',
+    //   url: `/api/jobs`,
+    //   data: {
+    //     job: { ...job },
+    //   },
+    // });
+    dispatch({
+      type: SET_USER_TYPE,
+      payload: isWorker
     });
   };
 
@@ -80,7 +98,7 @@ const GigfinderState = props => {
         getFavouriteWorkers,
         getFavouriteCompanies,
         addNewJob,
-
+        setUserType
       }}
     >
       {props.children}

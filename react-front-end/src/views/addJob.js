@@ -21,5 +21,4 @@ function AddJob() {
     </Container>
   );
 }
-
 export default AddJob;
