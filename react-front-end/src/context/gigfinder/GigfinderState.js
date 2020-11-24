@@ -20,8 +20,11 @@ const GigfinderState = props => {
     jobs: [],
     faveCompanies: [],
     faveWorkers: [],
-    loggedInUser: {}
+    loggedInUser: {},
+    loggedInUserUserType: 0
   };
+
+
 
   const [state, dispatch] = useReducer(GigfinderReducer, initialState);
 
@@ -75,6 +78,12 @@ const GigfinderState = props => {
     });
   };
 
+  /*Logged in User Types 
+  0 = Not logged in
+  1 = Worker logged in
+  2 = Employer logged in
+  */
+
   const logWorkerIn = async () => {
     const res = await axios.get(
       `/api/workers/1`, {
@@ -82,6 +91,7 @@ const GigfinderState = props => {
         "Access-Control-Allow-Origin": "*"
       },
     });
+    state.loggedInUserType = 1;
     dispatch({
       type: LOG_IN_WORKER,
       payload: res.data[0]
@@ -95,6 +105,7 @@ const GigfinderState = props => {
         "Access-Control-Allow-Origin": "*"
       },
     });
+    state.loggedInUserType = 2;
     dispatch({
       type: LOG_IN_EMPLOYER,
       payload: res.data[0]
@@ -102,7 +113,7 @@ const GigfinderState = props => {
   };
 
   const logOut = () => {
-    console.log("all logged out");
+    state.loggedInUserType = 0;
     dispatch({
       type: LOG_OUT,
       payload: {}
@@ -118,6 +129,7 @@ const GigfinderState = props => {
         faveWorkers: state.faveWorkers,
         faveCompanies: state.faveCompanies,
         loggedInUser: state.loggedInUser,
+        loggedInUserType: state.loggedInUserType,
         searchJobs,
         getFavouriteWorkers,
         getFavouriteCompanies,

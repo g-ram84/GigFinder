@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useState, Fragment } from 'react';
 import { NavLink as RRNavLink } from 'react-router-dom';
 import GigfinderContext from '../context/gigfinder/gigfinderContext.js';
 
@@ -15,17 +15,19 @@ import {
 
 const NavBar = (props) => {
   const gigfinderContext = useContext(GigfinderContext);
+  const { loggedInUser, loggedInUserType } = gigfinderContext;
   let loginMessage = '';
-  const loggedInUser = gigfinderContext.loggedInUser;
   const [isOpen, setIsOpen] = useState(false);
   const toggle = () => setIsOpen(!isOpen);
-
-  if (loggedInUser.first_name) {
+  if (loggedInUserType === 1) {
     loginMessage = `Logged in as ${loggedInUser.first_name} ${loggedInUser.last_name}`;
 
-  } else if (loggedInUser.company_name) {
+  } else if (loggedInUserType === 2) {
     loginMessage = `Logged in as ${loggedInUser.company_name} ${loggedInUser.contact_name}`;
   }
+  const logout = () => {
+    gigfinderContext.logOut();
+  };
 
   return (
     <div>
@@ -34,14 +36,25 @@ const NavBar = (props) => {
         <NavbarToggler onClick={toggle} />
         <Collapse isOpen={isOpen} navbar>
           <Nav className="mr-auto" navbar>
-            <NavItem>
-              <NavLink tag={RRNavLink} exact to="/login" activeClassName="active">Login</NavLink>
-            </NavItem>
-            <NavItem>
-              <NavLink tag={RRNavLink} exact to="/register" activeClassName="active">Register</NavLink>
-            </NavItem>
           </Nav>
-          <NavbarText>{loginMessage}</NavbarText>
+          {loggedInUserType === 0 &&
+            <Fragment>
+              <NavbarText>
+                <NavLink tag={RRNavLink} exact to="/login" activeClassName="active">Login</NavLink>
+              </NavbarText>
+              <NavbarText>
+                <NavLink tag={RRNavLink} exact to="/register" activeClassName="active">Register</NavLink>
+              </NavbarText>
+            </Fragment>
+          }
+          {loggedInUserType !== 0 &&
+            <Fragment>
+              <NavbarText>{loginMessage}</NavbarText>
+              <NavbarText>
+                <NavLink tag={RRNavLink} exact to="/" onClick={logout} >Logout</NavLink>
+              </NavbarText>
+            </Fragment>
+          }
         </Collapse>
       </Navbar>
     </div>

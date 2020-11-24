@@ -9,21 +9,18 @@ function Login() {
 
   const workerLogin = () => {
     gigfinderContext.logWorkerIn();
-    console.log(loggedInUser);
   };
 
   const employerLogin = () => {
     gigfinderContext.logEmployerIn();
-    console.log(loggedInUser);
   };
 
   const logout = () => {
     gigfinderContext.logOut();
-    console.log(loggedInUser);
   };
 
-  const workerRegister = () => {
 
+  const workerRegister = () => {
   };
 
   const employerRegister = () => {
@@ -38,11 +35,6 @@ function Login() {
           <Col>
             <Button className="m-2" onClick={workerLogin}>Worker Login</Button>
             <Button className="m-2" onClick={employerLogin}>Employer Login</Button>
-          </Col>
-        </Row>
-        <Row>
-          <Col>
-            <Button className="m-2" onClick={logout}>Log Out</Button>
           </Col>
         </Row>
         <Row>
