@@ -1,4 +1,4 @@
-import React, { useReducer } from 'react';
+import React, { useReducer, useState } from 'react';
 import axios from 'axios';
 
 import GigfinderContext from './gigfinderContext';
@@ -20,8 +20,11 @@ const GigfinderState = props => {
     jobs: [],
     faveCompanies: [],
     faveWorkers: [],
-
+    loggedInUser: {},
+    loggedInUserUserType: 0
   };
+
+
 
   const [state, dispatch] = useReducer(GigfinderReducer, initialState);
 
@@ -60,6 +63,7 @@ const GigfinderState = props => {
       payload: res.data
     });
   };
+
   const addNewJob = async (job) => {
     const res = await axios({
       method: 'post',
@@ -74,17 +78,20 @@ const GigfinderState = props => {
     });
   };
 
-  //userType (0) = Not logged in
-  //userType (1) = Worker logged in
-  //userType (2) = Employer logged in
+  /*Logged in User Types 
+  0 = Not logged in
+  1 = Worker logged in
+  2 = Employer logged in
+  */
+
   const logWorkerIn = async () => {
-    console.log("worker logged in");
     const res = await axios.get(
       `/api/workers/1`, {
       headers: {
         "Access-Control-Allow-Origin": "*"
       },
     });
+    state.loggedInUserType = 1;
     dispatch({
       type: LOG_IN_WORKER,
       payload: res.data[0]
@@ -92,27 +99,25 @@ const GigfinderState = props => {
   };
 
   const logEmployerIn = async () => {
-    console.log("employer logged in");
-    // const res = await axios.get(
-    //   `/api/employers/1`, {
-    //   headers: {
-    //     "Access-Control-Allow-Origin": "*"
-    //   },
-    // });
-    // //loggedInUserType = 2;
-    // dispatch({
-    //   type: LOG_IN_EMPLOYER,
-    //   payload: res.data
-    // });
+    const res = await axios.get(
+      `/api/employers/1`, {
+      headers: {
+        "Access-Control-Allow-Origin": "*"
+      },
+    });
+    state.loggedInUserType = 2;
+    dispatch({
+      type: LOG_IN_EMPLOYER,
+      payload: res.data[0]
+    });
   };
 
   const logOut = () => {
-    console.log("all logged out");
-    //loggedInUserType = 0;
-    // dispatch({
-    //   type: LOG_OUT,
-
-    // });
+    state.loggedInUserType = 0;
+    dispatch({
+      type: LOG_OUT,
+      payload: {}
+    });
   };
 
 
@@ -124,6 +129,7 @@ const GigfinderState = props => {
         faveWorkers: state.faveWorkers,
         faveCompanies: state.faveCompanies,
         loggedInUser: state.loggedInUser,
+        loggedInUserType: state.loggedInUserType,
         searchJobs,
         getFavouriteWorkers,
         getFavouriteCompanies,

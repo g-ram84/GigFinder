@@ -3,7 +3,9 @@ import {
   GET_FAVE_COMPANIES,
   GET_FAVE_WORKERS,
   ADD_JOB,
-  LOG_IN_WORKER
+  LOG_IN_WORKER,
+  LOG_IN_EMPLOYER,
+  LOG_OUT
 } from '../types';
 
 export default (state, action) => {
@@ -31,6 +33,16 @@ export default (state, action) => {
         faveWorkers: action.payload,
       };
     case LOG_IN_WORKER:
+      return {
+        ...state,
+        loggedInUser: action.payload,
+      };
+    case LOG_IN_EMPLOYER:
+      return {
+        ...state,
+        loggedInUser: action.payload,
+      };
+    case LOG_OUT:
       return {
         ...state,
         loggedInUser: action.payload,

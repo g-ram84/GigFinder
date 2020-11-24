@@ -1,4 +1,5 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useState, Fragment } from 'react';
+import { NavLink as RRNavLink } from 'react-router-dom';
 import GigfinderContext from '../context/gigfinder/gigfinderContext.js';
 
 import {
@@ -12,38 +13,51 @@ import {
   NavbarText
 } from 'reactstrap';
 
-
 const NavBar = (props) => {
   const gigfinderContext = useContext(GigfinderContext);
-  //Add useState here to set name
-  const test = gigfinderContext.loggedInUser;
+  const { loggedInUser, loggedInUserType } = gigfinderContext;
+  let loginMessage = '';
   const [isOpen, setIsOpen] = useState(false);
   const toggle = () => setIsOpen(!isOpen);
-  if (test) {
-    console.log(test.first_name);
-  }
+  if (loggedInUserType === 1) {
+    loginMessage = `Logged in as ${loggedInUser.first_name} ${loggedInUser.last_name}`;
 
+  } else if (loggedInUserType === 2) {
+    loginMessage = `Logged in as ${loggedInUser.company_name} ${loggedInUser.contact_name}`;
+  }
+  const logout = () => {
+    gigfinderContext.logOut();
+  };
 
   return (
     <div>
       <Navbar color="dark" dark expand="md">
-        <NavbarBrand href="/">GigFinder</NavbarBrand>
+        <NavbarBrand tag={RRNavLink} exact to="/" activeClassName="active">GigFinder</NavbarBrand>
         <NavbarToggler onClick={toggle} />
         <Collapse isOpen={isOpen} navbar>
           <Nav className="mr-auto" navbar>
-            <NavItem>
-              <NavLink href="/login">Login</NavLink>
-            </NavItem>
-            <NavItem>
-              <NavLink href="/register">Register</NavLink>
-            </NavItem>
-            <h1>test</h1>
           </Nav>
-          <NavbarText>Corporate Tinder!</NavbarText>
+          {loggedInUserType === 0 &&
+            <Fragment>
+              <NavbarText>
+                <NavLink tag={RRNavLink} exact to="/login" activeClassName="active">Login</NavLink>
+              </NavbarText>
+              <NavbarText>
+                <NavLink tag={RRNavLink} exact to="/register" activeClassName="active">Register</NavLink>
+              </NavbarText>
+            </Fragment>
+          }
+          {loggedInUserType !== 0 &&
+            <Fragment>
+              <NavbarText>{loginMessage}</NavbarText>
+              <NavbarText>
+                <NavLink tag={RRNavLink} exact to="/" onClick={logout} >Logout</NavLink>
+              </NavbarText>
+            </Fragment>
+          }
         </Collapse>
       </Navbar>
     </div>
   );
 };
-
 export default NavBar;
