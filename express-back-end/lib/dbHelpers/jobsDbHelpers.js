@@ -16,9 +16,13 @@ const getJobById = function(id, db) {
       console.log(err);
     });
 };
+const addNewJob = function(newJob, db) {
 
-const searchJobs = function(job_title, db) {
-  return db.query(`SELECT * FROM jobs WHERE tob_title =$1`, [job_title])
+  const { job_title, hourly_wage, date_created, job_date, job_active, positions, job_description, employer_id, location_lat, location_long } = newJob;
+  console.log(job_title);
+  return db.query(`INSERT into Jobs (job_title, hourly_wage, date_created, job_date, job_active, positions, job_description, employer_id, location_lat, location_long)
+  values ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10);`,
+    [job_title, hourly_wage, date_created, job_date, job_active, positions, job_description, employer_id, location_lat, location_long])
     .then((res) => {
       return res.rows;
     }).catch(err => {
@@ -27,4 +31,6 @@ const searchJobs = function(job_title, db) {
 };
 
 
-module.exports = { getAllJobs, getJobById, searchJobs };
+
+module.exports = { getAllJobs, getJobById, searchJobs, addNewJob };
+
