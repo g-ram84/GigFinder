@@ -7,6 +7,7 @@ exports.app = App;
 const PORT = process.env.PORT || 8080;
 const ENV = process.env.ENV || "development";
 const bodyParser = require("body-parser");
+const cors = require('cors')
 
 const { apiRoutes } = require("./routes/apiRoutes");
 const db = require('./lib/db-conn');
@@ -15,6 +16,7 @@ const db = require('./lib/db-conn');
 App.use(bodyParser.urlencoded({ extended: false }));
 App.use(bodyParser.json());
 App.use(express.static('public'));
+App.use(cors());
 
 // Sample GET route
 // App.get('/api/data', (req, res) => res.json({

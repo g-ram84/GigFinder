@@ -21,8 +21,11 @@ const GigfinderState = props => {
   // Search Jobs
   const searchJobs = async () => {
     const res = await axios.get(
-      `http://localhost:8080/api/jobs`
-    );
+      `http://localhost:8080/api/jobs`, {
+      headers: {
+        "Access-Control-Allow-Origin": "*"
+      },
+    });
     dispatch({
       type: SEARCH_JOBS,
       payload: res.data

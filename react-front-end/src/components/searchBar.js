@@ -1,29 +1,24 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import Button from './button.js';
+import GigfinderContext from '../context/gigfinder/gigfinderContext.js';
 
-class SearchBar extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {value: ''};
+const SearchBar = (props) => {
+  const gigfinderContext = useContext(GigfinderContext);
 
-    this.handleChange = this.handleChange.bind(this);
-    
+  const newQuery = (event) => {
+    props.setQuery(event.target.value)
   }
 
-  handleChange(event) {
-    this.setState({value: event.target.value});
+  const search = () => {
+    gigfinderContext.searchJobs()
   }
 
-  render() {
-    return (
-      <form onSubmit={this.handleSubmit}>
-        <label>
-          <input type="text" placeholder="Job Search" value={this.state.value} onChange={this.handleChange} />
-        </label>
-        <Button primary onClick={this.props.onConfirm}>Hire Me!</Button>
-      </form>
-    );
-  }
+  return (
+    <>
+      <input id="search-bar" type="text" value={props.query} placeholder="Job Search" onChange={newQuery} />
+      <Button onClick={search} primary>Hire Me!</Button>
+    </>
+  )
 }
 
 export default SearchBar;
