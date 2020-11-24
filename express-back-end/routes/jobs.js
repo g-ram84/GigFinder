@@ -18,6 +18,18 @@ module.exports = function(router, helper, db) {
         res.status(500);
       });
   });
+
+  router.post("/", (req, res) => {
+    const newJob = req.body.job;
+    //console.log(newJob);
+    helper.addNewJob(newJob, db)
+      .then(data => {
+        res.json(data);
+      })
+      .catch(e => {
+        res.status(500);
+      });
+  });
   return router;
 
 };

@@ -6,6 +6,7 @@ import {
   SEARCH_JOBS,
   GET_FAVE_COMPANIES,
   GET_FAVE_WORKERS,
+  ADD_JOB,
 } from '../types';
 
 const GigfinderState = props => {
@@ -50,6 +51,21 @@ const GigfinderState = props => {
       payload: res.data
     });
   };
+  const addNewJob = async (job) => {
+    const res = await axios({
+      method: 'post',
+      url: `http://localhost:8080/api/jobs`,
+      data: {
+        job: { ...job },
+      },
+    });
+    dispatch({
+      type: ADD_JOB,
+      payload: job
+    });
+  };
+
+
 
   return (
     <GigfinderContext.Provider
@@ -59,7 +75,8 @@ const GigfinderState = props => {
         faveCompanies: state.faveCompanies,
         searchJobs,
         getFavouriteWorkers,
-        getFavouriteCompanies
+        getFavouriteCompanies,
+        addNewJob,
 
       }}
     >
