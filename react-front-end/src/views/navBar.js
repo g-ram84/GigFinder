@@ -1,4 +1,5 @@
 import React, { useContext, useState } from 'react';
+import { NavLink as RRNavLink } from 'react-router-dom';
 import GigfinderContext from '../context/gigfinder/gigfinderContext.js';
 
 import {
@@ -12,38 +13,38 @@ import {
   NavbarText
 } from 'reactstrap';
 
-
 const NavBar = (props) => {
   const gigfinderContext = useContext(GigfinderContext);
-  //Add useState here to set name
-  const test = gigfinderContext.loggedInUser;
+  let loginMessage = '';
+  const loggedInUser = gigfinderContext.loggedInUser;
   const [isOpen, setIsOpen] = useState(false);
   const toggle = () => setIsOpen(!isOpen);
-  if (test) {
-    console.log(test.first_name);
-  }
 
+  if (loggedInUser.first_name) {
+    loginMessage = `Logged in as ${loggedInUser.first_name} ${loggedInUser.last_name}`;
+
+  } else if (loggedInUser.company_name) {
+    loginMessage = `Logged in as ${loggedInUser.company_name} ${loggedInUser.contact_name}`;
+  }
 
   return (
     <div>
       <Navbar color="dark" dark expand="md">
-        <NavbarBrand href="/">GigFinder</NavbarBrand>
+        <NavbarBrand tag={RRNavLink} exact to="/" activeClassName="active">GigFinder</NavbarBrand>
         <NavbarToggler onClick={toggle} />
         <Collapse isOpen={isOpen} navbar>
           <Nav className="mr-auto" navbar>
             <NavItem>
-              <NavLink href="/login">Login</NavLink>
+              <NavLink tag={RRNavLink} exact to="/login" activeClassName="active">Login</NavLink>
             </NavItem>
             <NavItem>
-              <NavLink href="/register">Register</NavLink>
+              <NavLink tag={RRNavLink} exact to="/register" activeClassName="active">Register</NavLink>
             </NavItem>
-            <h1>test</h1>
           </Nav>
-          <NavbarText>Corporate Tinder!</NavbarText>
+          <NavbarText>{loginMessage}</NavbarText>
         </Collapse>
       </Navbar>
     </div>
   );
 };
-
 export default NavBar;
