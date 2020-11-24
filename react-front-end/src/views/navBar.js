@@ -1,4 +1,6 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
+import GigfinderContext from '../context/gigfinder/gigfinderContext.js';
+
 import {
   Collapse,
   Navbar,
@@ -12,9 +14,15 @@ import {
 
 
 const NavBar = (props) => {
+  const gigfinderContext = useContext(GigfinderContext);
+  //Add useState here to set name
+  const test = gigfinderContext.loggedInUser;
   const [isOpen, setIsOpen] = useState(false);
-
   const toggle = () => setIsOpen(!isOpen);
+  if (test) {
+    console.log(test.first_name);
+  }
+
 
   return (
     <div>
@@ -29,12 +37,13 @@ const NavBar = (props) => {
             <NavItem>
               <NavLink href="/register">Register</NavLink>
             </NavItem>
+            <h1>test</h1>
           </Nav>
           <NavbarText>Corporate Tinder!</NavbarText>
         </Collapse>
       </Navbar>
     </div>
   );
-}
+};
 
 export default NavBar;

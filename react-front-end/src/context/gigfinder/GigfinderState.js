@@ -8,13 +8,15 @@ import {
   GET_FAVE_COMPANIES,
   GET_FAVE_WORKERS,
   ADD_JOB,
-  SET_USER_TYPE,
+  LOG_IN_WORKER,
+  LOG_IN_EMPLOYER,
+  LOG_OUT
 } from '../types';
 
 const api_url = "https://lhlgigfinder.azurewebsites.net";
 const GigfinderState = props => {
   const initialState = {
-    loggedInUserIsEmployer: true,
+    loggedInUserType: 0,
     jobs: [],
     faveCompanies: [],
     faveWorkers: [],
@@ -72,18 +74,45 @@ const GigfinderState = props => {
     });
   };
 
-  const setUserType = async (isWorker) => {
-    // const res = await axios({
-    //   method: 'post',
-    //   url: `/api/jobs`,
-    //   data: {
-    //     job: { ...job },
+  //userType (0) = Not logged in
+  //userType (1) = Worker logged in
+  //userType (2) = Employer logged in
+  const logWorkerIn = async () => {
+    console.log("worker logged in");
+    const res = await axios.get(
+      `/api/workers/1`, {
+      headers: {
+        "Access-Control-Allow-Origin": "*"
+      },
+    });
+    dispatch({
+      type: LOG_IN_WORKER,
+      payload: res.data[0]
+    });
+  };
+
+  const logEmployerIn = async () => {
+    console.log("employer logged in");
+    // const res = await axios.get(
+    //   `/api/employers/1`, {
+    //   headers: {
+    //     "Access-Control-Allow-Origin": "*"
     //   },
     // });
-    dispatch({
-      type: SET_USER_TYPE,
-      payload: isWorker
-    });
+    // //loggedInUserType = 2;
+    // dispatch({
+    //   type: LOG_IN_EMPLOYER,
+    //   payload: res.data
+    // });
+  };
+
+  const logOut = () => {
+    console.log("all logged out");
+    //loggedInUserType = 0;
+    // dispatch({
+    //   type: LOG_OUT,
+
+    // });
   };
 
 
@@ -94,11 +123,14 @@ const GigfinderState = props => {
         jobs: state.jobs,
         faveWorkers: state.faveWorkers,
         faveCompanies: state.faveCompanies,
+        loggedInUser: state.loggedInUser,
         searchJobs,
         getFavouriteWorkers,
         getFavouriteCompanies,
         addNewJob,
-        setUserType
+        logWorkerIn,
+        logEmployerIn,
+        logOut
       }}
     >
       {props.children}

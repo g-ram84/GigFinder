@@ -3,6 +3,7 @@ import {
   GET_FAVE_COMPANIES,
   GET_FAVE_WORKERS,
   ADD_JOB,
+  LOG_IN_WORKER
 } from '../types';
 
 export default (state, action) => {
@@ -28,6 +29,11 @@ export default (state, action) => {
       return {
         ...state,
         faveWorkers: action.payload,
+      };
+    case LOG_IN_WORKER:
+      return {
+        ...state,
+        loggedInUser: action.payload,
       };
 
     default:
