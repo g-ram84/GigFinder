@@ -1,21 +1,28 @@
 import React from "react";
+import "./jobListItem.scss"
 
 const classNames = require('classnames');
 
 
 export default function JobListItem(props) {
-  const jobList = classNames('jobList', {
-    'jobs__item--selected': props.selected,
-  });
+  console.log(props.jobDate)
   return (
-    <span className={jobList} onClick={props.setjob}>
-      <img
-        className="jobs__item-image"
-        src={props.avatar}
-        alt={props.name}
-      />
-      {props.title}
-      {props.selected && props.name}
-    </span>
+    <div className="jobs_item" onClick={props.setjob}>
+     <header className="job_header">
+        <strong>{props.title}</strong>
+      </header>
+      <br/>
+        ${props.wage}/hr
+      <br/>
+        {props.positions} positions available!
+      <body className="job_des">
+        {props.description}
+      </body>
+
+      <footer className="start_date">
+        Work starts {props.jobDate} 
+      </footer>
+      <br/>
+    </div>
   );
 }

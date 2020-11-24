@@ -32,8 +32,8 @@
 }
 
 .button--primary {
-  color: $primary-color;
-  border-color: $primary-color;
+  color: #2590cf;
+  border-color: #2590cf;
   background-color: transparent;
 }
 
@@ -45,7 +45,7 @@
 
 .button--primary:hover {
   color: $white;
-  background-color: $primary-color;
+  background-color: #2590cf;
 }
 
 .button--danger:hover {
