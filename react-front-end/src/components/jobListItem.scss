@@ -9,6 +9,8 @@
   }
   
   .job_des {
+    display: flex;
+    justify-content: center;
     font-size: 12px;
     padding-left: 0.5rem;
     padding-right: 0.5rem;
@@ -24,6 +26,7 @@
     border-radius: 1rem;
     margin-left: 3rem;
     margin-right: 3rem;
+    background-origin: border-box;
   }
   
   .start_date {

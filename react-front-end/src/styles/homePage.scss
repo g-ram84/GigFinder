@@ -4,6 +4,8 @@
 }
 
 input {
+    box-sizing: border-box;
+    padding: 1px 6px;
     border-radius: .5rem;
     border: 0;
     font-size: 1.5rem;
@@ -11,6 +13,7 @@ input {
     line-height: 1.2rem;
     margin-left: 1rem;
     margin-right: 1rem;
+    margin-bottom: 16px;
     width: 8rem;
     border-width: 2px;
     border-style: solid;
@@ -19,3 +22,5 @@ input {
     background-color: transparent;
   
 }
+
+  

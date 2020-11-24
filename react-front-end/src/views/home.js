@@ -9,7 +9,7 @@ function Home(props) {
   // 1. change this input with search bar
   // 2. pass this input into joblist
   return (
-    <div>
+    <div className="home_page">
       <span className="title">
       <h1>Welcome to GigFinder!</h1>
       <SearchBar query={query} setQuery={setQuery} />
