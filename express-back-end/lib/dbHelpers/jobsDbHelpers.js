@@ -25,14 +25,7 @@ const getAllJobs = function(db, options) {
     });
 };
 
-const getJobById = function(id, db) {
-  return db.query(`SELECT * FROM jobs WHERE id =$1`, [id])
-    .then((res) => {
-      return res.rows;
-    }).catch(err => {
-      console.log(err);
-    });
-};
+
 
 const addNewJob = function(newJob, db) {
   const { job_title, hourly_wage, date_created, job_date, job_active, positions, job_description, employer_id, location_lat, location_long } = newJob;
