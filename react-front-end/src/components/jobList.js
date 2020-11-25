@@ -18,10 +18,11 @@ export default function JobList(props) {
       month = '0' + month;
     }
     const startDate = `${year}-${month}-${dt}`;
+    console.log("job", job)
     return (
       <div>
         <JobListItem
-          key={job.id}
+          jobId={job.id}
           title={job.job_title}
           wage={job.hourly_wage}
           date={job.date_created}

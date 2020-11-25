@@ -7,29 +7,23 @@ const classNames = require('classnames');
 
 
 export default function JobListItem(props) {
-  // const redirect = () => {
-  // const history = useHistory();
-  // const handleClick = () => {
-  //   history.push(`/:${props.key}`);
-  // }
   return (
     <div className="jobs_item">
-     <header className="job_header">
+      <a className="job_header" href={`/${props.jobId}`}>
         <strong>{props.title}</strong>
-      </header>
-      <br/>
+      </a>
+      <br />
         ${props.wage}/hr
-      <br/>
-        {props.positions} positions available!
+      <br />
+      {props.positions} positions available!
       <body className="job_des">
         {props.description}
       </body>
 
       <footer className="start_date">
-        Work starts {props.jobDate} 
+        Work starts {props.jobDate}
       </footer>
-      <br/>
+      <br />
     </div>
   );
-  }
-// }
+}

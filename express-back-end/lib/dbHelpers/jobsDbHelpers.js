@@ -1,7 +1,7 @@
 //API Query
 
 const getJobById = function(id, db) {
-  return db.query(`SELECT * FROM jobs WHERE id =$1`, [id])
+  return db.query(`SELECT * FROM jobs JOIN Employers ON Jobs.employer_id = Employers.id WHERE jobs.id =$1`, [id])
     .then((res) => {
       return res.rows;
     }).catch(err => {

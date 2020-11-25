@@ -1,6 +1,8 @@
 import React, { useContext, useEffect, useState } from 'react';
 import JobList from '../components/jobList'
+import './job.scss'
 import axios from 'axios';
+// import Apply from '../components/apply';
 import GigfinderContext from '../context/gigfinder/gigfinderContext.js';
 // import { apiRoutes } from '../../../express-back-end/routes/apiRoutes';
 
@@ -20,31 +22,36 @@ function Job(props) {
       })
   }, [props.match.params.id])
 
-    if (job === undefined) {
-      return (
-        <h1>Loading!</h1>
-      )
-    }
+  if (job === undefined) {
     return (
-      <div className="jobs_item">
-        <header className="job_header">
-          <strong>{job.job_title}</strong>
-        </header>
-        <br />
-        ${job.hourly_wage}/hr
-        <br />
-        {job.positions} positions available!
-        <body className="job_des">
-          {job.job_description}
-        </body>
-
-        <footer className="start_date">
-          
-        </footer>
-        <br />
-      </div>
-    );
+      <h1>Loading!</h1>
+    )
   }
+  return (
+    <div className="jobs_item">
+      <header className="job_header">
+        <span>{job.company_name}</span>
+        <br /> Is looking for
+          <br />
+        <strong>{job.job_title}s</strong>
+
+      </header>
+      <br />
+        ${job.hourly_wage}/hr
+      <br />
+      {job.positions} positions available!
+      <body className="job_des">
+        {job.job_description}
+      </body>
+        Visit the company's website at
+      <footer className="start_date" href={`www.${job.website}`}>
+        www.{job.website}
+      </footer>
+      <br />
+      {/* <Apply /> */}
+    </div>
+  );
+}
 
 
 export default Job;
