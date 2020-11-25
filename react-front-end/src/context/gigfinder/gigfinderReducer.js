@@ -5,7 +5,8 @@ import {
   ADD_JOB,
   LOG_IN_WORKER,
   LOG_IN_EMPLOYER,
-  LOG_OUT
+  LOG_OUT,
+  ADD_APPLICATION
 } from '../types';
 
 export default (state, action) => {
@@ -28,6 +29,11 @@ export default (state, action) => {
         faveWorkers: action.payload,
       };
     case ADD_JOB:
+      return {
+        ...state,
+        faveWorkers: action.payload,
+      };
+    case ADD_APPLICATION:
       return {
         ...state,
         faveWorkers: action.payload,
