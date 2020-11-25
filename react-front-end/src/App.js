@@ -2,7 +2,7 @@
 import React from 'react';
 import axios from 'axios';
 import './App.css';
-import './components/JobListItem'
+import './components/jobListItem'
 import AddJob from './views/addJob';
 import Favourites from './views/favourites';
 import Home from './views/home';

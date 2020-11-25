@@ -2,7 +2,7 @@ import React, { useContext, useState } from 'react';
 import { Row, Col, Button, Form, FormGroup, Input } from 'reactstrap';
 import GigfinderContext from '../context/gigfinder/gigfinderContext.js';
 
-const SearchBar = () => {
+const SearchBar = (props) => {
   const gigfinderContext = useContext(GigfinderContext);
   const [searchTerm, setSearchTerm] = useState("");
   const onChange = e => setSearchTerm(e.target.value);
@@ -13,7 +13,7 @@ const SearchBar = () => {
   const search = () => {
     gigfinderContext.searchJobs()
   }
-  
+
   const onSubmit = e => {
     e.preventDefault();
     gigfinderContext.searchJobs(searchTerm);
