@@ -1,24 +1,24 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import Axios from 'axios';
-import { Button } from 'reactstrap'
+import { Row, Col, Button, Form, FormGroup, Input } from 'reactstrap';
+import GigfinderContext from '../context/gigfinder/gigfinderContext.js';
+
 import "./jobListItem.scss"
 
 
 export default function Apply() {
-  // const [application, setApplication] = useState(false);
-  // useEffect(() => {
-  //   addApplication();
-  // }, []);
-  // function addApplication() {
-  //   Axios.get(`api/applications?worker_id=${worker_id}`)
-  //     .then(res => {
-  //       console.log('favourite', res.data)
-  //       setApplication(res.data.id)
-  //     })
-  // }
+  const gigfinderContext = useContext(GigfinderContext);
+  const { loggedInUser } = gigfinderContext;
+
+  const onSubmit = e => {
+    e.preventDefault();
+    gigfinderContext.addNewApplication(loggedInUser);
+  };
   return (
     <div>
+      <Form onSubmit={onSubmit}>
       <Button>Apply Now!</Button>
+      </Form>
     </div>
   )
 }
