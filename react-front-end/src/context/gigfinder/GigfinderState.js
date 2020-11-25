@@ -30,6 +30,7 @@ const GigfinderState = props => {
 
   // Search Jobs
   const searchJobs = async (searchterm) => {
+
     const res = await axios.get(
       `/api/jobs`, {
       headers: {
@@ -37,7 +38,7 @@ const GigfinderState = props => {
       },
     });
     let resultset = res.data;
-    const result = resultset.filter((job) => job.job_title.toLowerCase().includes(searchterm.toLowerCase()));
+    let result = resultset.filter((job) => job.job_title.toLowerCase().includes(searchterm.toLowerCase()));
     dispatch({
       type: SEARCH_JOBS,
       payload: result

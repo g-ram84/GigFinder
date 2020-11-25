@@ -28,11 +28,14 @@ const NavBar = (props) => {
   const logout = () => {
     gigfinderContext.logOut();
   };
+  const clearPage = () => {
+    gigfinderContext.jobs.length = 0;
+  };
 
   return (
     <div>
       <Navbar color="dark" dark expand="md">
-        <NavbarBrand tag={RRNavLink} exact to="/" activeClassName="active">GigFinder</NavbarBrand>
+        <NavbarBrand tag={RRNavLink} exact to="/" activeClassName="active" onClick={clearPage}>GigFinder</NavbarBrand>
         <NavbarToggler onClick={toggle} />
         <Collapse isOpen={isOpen} navbar>
           <Nav className="mr-auto" navbar>

@@ -1,29 +1,23 @@
 import React, { useContext } from "react";
 import JobListItem from "./jobListItem.js";
-
 import "./jobListItem.scss";
 import GigfinderContext from '../context/gigfinder/gigfinderContext.js';
 
 export default function JobList(props) {
   const gigfinderContext = useContext(GigfinderContext);
   const { jobs } = gigfinderContext;
-
   const myJobs = jobs.map(job => {
     const date = new Date(job.job_date);
     const year = date.getFullYear();
     let month = date.getMonth() + 1;
     let dt = date.getDate();
-
     if (dt < 10) {
       dt = '0' + dt;
     }
     if (month < 10) {
       month = '0' + month;
     }
-
     const startDate = `${year}-${month}-${dt}`;
-
-
     return (
       <div>
         <JobListItem
