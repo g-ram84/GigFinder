@@ -1,6 +1,6 @@
 import React from "react";
 import "./jobListItem.scss"
-import { Router, Route, useHistory } from 'react-router-dom';
+import { Router, Route, useHistory, Link } from 'react-router-dom';
 import Results from '../views/results.js'
 
 const classNames = require('classnames');
@@ -9,9 +9,9 @@ const classNames = require('classnames');
 export default function JobListItem(props) {
   return (
     <div className="jobs_item">
-      <a className="job_header" href={`/${props.jobId}`}>
+      <Link className="job_header" exact to={`/${props.jobId}`}>
         <strong>{props.title}</strong>
-      </a>
+      </Link>
       <br />
         ${props.wage}/hr
       <br />
