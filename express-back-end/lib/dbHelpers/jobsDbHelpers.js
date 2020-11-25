@@ -1,13 +1,6 @@
 //API Query
 
-const getJobById = function(id, db) {
-  return db.query(`SELECT * FROM jobs WHERE id =$1`, [id])
-    .then((res) => {
-      return res.rows;
-    }).catch(err => {
-      console.log(err);
-    });
-};
+
 
 const getAllJobs = function(db, options) {
   const queryParams = [];
@@ -18,6 +11,15 @@ const getAllJobs = function(db, options) {
     queryString += ` WHERE job_title LIKE $${queryParams.length} `;
   }
   return db.query(queryString, queryParams)
+    .then((res) => {
+      return res.rows;
+    }).catch(err => {
+      console.log(err);
+    });
+};
+
+const getJobById = function(id, db) {
+  return db.query(`SELECT * FROM jobs WHERE id =$1`, [id])
     .then((res) => {
       return res.rows;
     }).catch(err => {
