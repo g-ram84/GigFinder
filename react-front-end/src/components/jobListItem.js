@@ -1,13 +1,19 @@
 import React from "react";
 import "./jobListItem.scss"
+import { Router, Route, useHistory } from 'react-router-dom';
+import Results from '../views/results.js'
 
 const classNames = require('classnames');
 
 
 export default function JobListItem(props) {
-  console.log(props.jobDate)
+  const redirect = () => {
+  const history = useHistory();
+  const handleClick = () => {
+    history.push(`/:${props.key}`);
+  }
   return (
-    <div className="jobs_item" onClick={props.setjob}>
+    <div className="jobs_item" href={`/:${props.key}`}>
      <header className="job_header">
         <strong>{props.title}</strong>
       </header>
@@ -25,4 +31,5 @@ export default function JobListItem(props) {
       <br/>
     </div>
   );
+  }
 }
