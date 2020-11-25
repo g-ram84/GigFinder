@@ -8,7 +8,6 @@ const SearchBar = (props) => {
   const newQuery = (event) => {
     props.setQuery(event.target.value)
   }
-
   const search = () => {
     gigfinderContext.searchJobs()
   }

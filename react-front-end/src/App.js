@@ -2,6 +2,7 @@
 import React from 'react';
 import axios from 'axios';
 import './App.css';
+import './components/JobListItem'
 import AddJob from './views/addJob';
 import Favourites from './views/favourites';
 import Home from './views/home';
@@ -24,7 +25,7 @@ function App() {
           <Route exact path='/' component={Home} />
           <Route exact path='/addJob' component={AddJob} />
           <Route exact path='/favourites' component={Favourites} />
-          <Route exact path='/job' component={Job} />
+          <Route exact path='/:id' component={Job} />
           <Route exact path='/login' component={Login} />
           <Route exact path='/profile' component={Profile} />
           <Route exact path='/register' component={Register} />
