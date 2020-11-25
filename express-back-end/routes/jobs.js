@@ -1,6 +1,7 @@
 module.exports = function(router, helper, db) {
   router.get("/", (req, res) => {
-    helper.getAllJobs(db)
+    //console.log(req.query);
+    helper.getAllJobs(db, req.query)
       .then(data => {
         res.json(data);
       })

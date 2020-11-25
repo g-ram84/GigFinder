@@ -1,13 +1,5 @@
 //API Query
-const getAllJobs = function(db) {
-  return db.query(`SELECT * FROM jobs`)
-    .then((res) => {
-      //console.log(res.rows);
-      return res.rows;
-    }).catch(err => {
-      console.log(err);
-    });
-};
+
 const getJobById = function(id, db) {
   return db.query(`SELECT * FROM jobs WHERE id =$1`, [id])
     .then((res) => {
@@ -17,8 +9,15 @@ const getJobById = function(id, db) {
     });
 };
 
-const searchJobs = function(job_title, db) {
-  return db.query(`SELECT * FROM jobs WHERE tob_title =$1`, [job_title])
+const getAllJobs = function(db, options) {
+  const queryParams = [];
+  let queryString = `SELECT * FROM jobs`;
+  if (options.job_title && options.job_title !== '') {
+    console.log(options.job_title);
+    queryParams.push(`%${options.job_title}%`);
+    queryString += ` WHERE job_title LIKE $${queryParams.length} `;
+  }
+  return db.query(queryString, queryParams)
     .then((res) => {
       return res.rows;
     }).catch(err => {
@@ -41,5 +40,5 @@ const addNewJob = function(newJob, db) {
 
 
 
-module.exports = { getAllJobs, getJobById, searchJobs, addNewJob };
+module.exports = { getAllJobs, getJobById, addNewJob };
 

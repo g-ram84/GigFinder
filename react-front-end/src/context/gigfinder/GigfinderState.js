@@ -1,4 +1,4 @@
-import React, { useReducer, useState } from 'react';
+import React, { useReducer } from 'react';
 import axios from 'axios';
 
 import GigfinderContext from './gigfinderContext';
@@ -24,30 +24,19 @@ const GigfinderState = props => {
     loggedInUserUserType: 0
   };
 
-
-
   const [state, dispatch] = useReducer(GigfinderReducer, initialState);
 
   // Search Jobs
   const searchJobs = async (searchterm) => {
-
     const res = await axios.get(
-      `/api/jobs`, {
+      `/api/jobs?job_title=${searchterm}`, {
       headers: {
         "Access-Control-Allow-Origin": "*"
       },
     });
-    let resultset = res.data;
-
-    const result = resultset.filter((job) => { 
-      if (job.job_title !== null) {
-      return job.job_title.toLowerCase().includes(searchterm.toLowerCase())
-    }
-  });
-
     dispatch({
       type: SEARCH_JOBS,
-      payload: result
+      payload: res.data
     });
   };
 
