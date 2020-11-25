@@ -7,13 +7,13 @@ const classNames = require('classnames');
 
 
 export default function JobListItem(props) {
-  const redirect = () => {
-  const history = useHistory();
-  const handleClick = () => {
-    history.push(`/:${props.key}`);
-  }
+  // const redirect = () => {
+  // const history = useHistory();
+  // const handleClick = () => {
+  //   history.push(`/:${props.key}`);
+  // }
   return (
-    <div className="jobs_item" href={`/:${props.key}`}>
+    <div className="jobs_item">
      <header className="job_header">
         <strong>{props.title}</strong>
       </header>
@@ -32,4 +32,4 @@ export default function JobListItem(props) {
     </div>
   );
   }
-}
+// }
