@@ -51,9 +51,9 @@ function Job(props) {
         www.{job.website}
       </footer>
       <br />
-      { loggedInUser && loggedInUserType === 1 && <Apply />}
-      { loggedInUser && loggedInUserType === 2 && <p>See Who's Applied</p>}
-      { loggedInUser && loggedInUserType === 0 && <p>Please log-in to apply!</p>}
+      {loggedInUser && loggedInUserType === 0 && <p>Please log-in to apply!</p>}
+      {loggedInUser && loggedInUserType === 1 && <Apply />}
+      {loggedInUser && loggedInUserType === 2 && <p>See Who's Applied</p>}
     </div>
   );
 }
