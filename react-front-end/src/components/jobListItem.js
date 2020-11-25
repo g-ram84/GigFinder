@@ -7,7 +7,7 @@ const classNames = require('classnames');
 export default function JobListItem(props) {
   console.log(props.jobDate)
   return (
-    <div className="jobs_item" onClick={props.setjob}>
+    <div className="jobs_item">
      <header className="job_header">
         <strong>{props.title}</strong>
       </header>
