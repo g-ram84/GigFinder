@@ -7,6 +7,7 @@ import {
   SEARCH_JOBS,
   GET_FAVE_COMPANIES,
   GET_FAVE_WORKERS,
+  ADD_APPLICATION,
   ADD_JOB,
   LOG_IN_WORKER,
   LOG_IN_EMPLOYER,
@@ -76,6 +77,20 @@ const GigfinderState = props => {
     });
   };
 
+  const addNewApplication = async (application) => {
+    const res = await axios({
+      method: 'post',
+      url: `api/applications`,
+      data: {
+        application: { ...application },
+      },
+    });
+    dispatch({
+      type: ADD_APPLICATION,
+      payload: application
+    });
+  };
+
   /*Logged in User Types 
   0 = Not logged in
   1 = Worker logged in
@@ -132,6 +147,7 @@ const GigfinderState = props => {
         getFavouriteWorkers,
         getFavouriteCompanies,
         addNewJob,
+        addNewApplication,
         logWorkerIn,
         logEmployerIn,
         logOut
