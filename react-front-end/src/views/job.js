@@ -2,13 +2,16 @@ import React, { useContext, useEffect, useState } from 'react';
 import JobList from '../components/jobList'
 import './job.scss'
 import axios from 'axios';
-// import Apply from '../components/apply';
+import Apply from '../components/apply';
 import GigfinderContext from '../context/gigfinder/gigfinderContext.js';
 // import { apiRoutes } from '../../../express-back-end/routes/apiRoutes';
 
 
 
 function Job(props) {
+  const gigfinderContext = useContext(GigfinderContext);
+  const { loggedInUser, loggedInUserType } = gigfinderContext;
+
   const [job, setJob] = useState();
   useEffect(() => {
     axios.get(
@@ -48,7 +51,9 @@ function Job(props) {
         www.{job.website}
       </footer>
       <br />
-      {/* <Apply /> */}
+      { loggedInUser && loggedInUserType === 1 && <Apply />}
+      { loggedInUser && loggedInUserType === 2 && <p>See Who's Applied</p>}
+      { loggedInUser && loggedInUserType === 0 && <p>Please log-in to apply!</p>}
     </div>
   );
 }

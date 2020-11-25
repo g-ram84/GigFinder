@@ -3,7 +3,7 @@ import Axios from 'axios';
 import "./jobListItem.scss"
 
 
-// export default function Apply() {
+export default function Apply() {
   // const [application, setApplication] = useState(false);
   // useEffect(() => {
   //   addApplication();
@@ -15,9 +15,9 @@ import "./jobListItem.scss"
   //       setApplication(res.data.id)
   //     })
   // }
-//   return (
-//     <div>
-//       <button onClick={addApplication}>Apply Now!</button>
-//     </div>
-//   )
-// }
+  return (
+    <div>
+      <h1>Apply Now</h1>
+    </div>
+  )
+}

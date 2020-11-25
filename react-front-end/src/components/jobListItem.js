@@ -1,13 +1,17 @@
 import React from "react";
 import "./jobListItem.scss";
+
 import { Link } from 'react-router-dom';
 import Results from '../views/results.js';
+
 
 const classNames = require('classnames');
 
 
 export default function JobListItem(props) {
   return (
+    <body>
+      
     <div className="jobs_item">
       <Link className="job_header" exact to={`/${props.jobId}`}>
         <strong>{props.title}</strong>
@@ -25,5 +29,6 @@ export default function JobListItem(props) {
       </footer>
       <br />
     </div>
+    </body>
   );
 }
