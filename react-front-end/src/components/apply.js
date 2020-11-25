@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Axios from 'axios';
+import { Button } from 'reactstrap'
 import "./jobListItem.scss"
 
 
@@ -17,7 +18,7 @@ export default function Apply() {
   // }
   return (
     <div>
-      <h1>Apply Now</h1>
+      <Button>Apply Now!</Button>
     </div>
   )
 }

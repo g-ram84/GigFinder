@@ -9,6 +9,7 @@ const classNames = require('classnames');
 
 
 export default function JobListItem(props) {
+  console.log(props)
   return (
     <body>
       

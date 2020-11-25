@@ -11,7 +11,7 @@ const getJobById = function(id, db) {
 
 const getAllJobs = function(db, options) {
   const queryParams = [];
-  let queryString = `SELECT * FROM jobs`;
+  let queryString = `SELECT * FROM jobs JOIN Employers ON Jobs.employer_id = Employers.id`;
   if (options.job_title && options.job_title !== '') {
     console.log(options.job_title);
     queryParams.push(`%${options.job_title}%`);
