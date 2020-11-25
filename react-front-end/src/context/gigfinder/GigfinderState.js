@@ -77,7 +77,7 @@ const GigfinderState = props => {
     });
   };
 
-  const addNewApplication = async (job) => {
+  const addNewApplication = async (application) => {
     const res = await axios({
       method: 'post',
       url: `api/applications`,
