@@ -25,6 +25,8 @@ const getAllJobs = function(db, options) {
     });
 };
 
+
+
 const addNewJob = function(newJob, db) {
   const { job_title, hourly_wage, date_created, job_date, job_active, positions, job_description, employer_id, location_lat, location_long } = newJob;
   console.log(job_title);
