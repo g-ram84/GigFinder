@@ -38,7 +38,17 @@ const GigfinderState = props => {
       },
     });
     let resultset = res.data;
+<<<<<<< HEAD
     let result = resultset.filter((job) => job.job_title.toLowerCase().includes(searchterm.toLowerCase()));
+=======
+
+    const result = resultset.filter((job) => { 
+      if (job.job_title !== null) {
+      return job.job_title.toLowerCase().includes(searchterm.toLowerCase())
+    }
+  });
+
+>>>>>>> function/single-job-view
     dispatch({
       type: SEARCH_JOBS,
       payload: result
