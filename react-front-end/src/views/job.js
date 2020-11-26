@@ -1,4 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react';
+import { ExternalLink } from 'react-external-link';
 import JobList from '../components/jobList'
 import './job.scss'
 import axios from 'axios';
@@ -10,7 +11,7 @@ import GigfinderContext from '../context/gigfinder/gigfinderContext.js';
 
 function Job(props) {
   const gigfinderContext = useContext(GigfinderContext);
-  const { loggedInUser, loggedInUserType  } = gigfinderContext;
+  const { loggedInUser, loggedInUserType } = gigfinderContext;
 
   const [job, setJob] = useState();
   useEffect(() => {
@@ -30,7 +31,7 @@ function Job(props) {
       <h1>Loading!</h1>
     )
   }
-  console.log("individual", job.id, job.job_title)
+  console.log("website", job.website)
   return (
     <div className="jobs_item">
       <header className="job_header">
@@ -48,12 +49,11 @@ function Job(props) {
         {job.job_description}
       </body>
         Visit the company's website at
-      <footer className="start_date" href={`www.${job.website}`}>
-        www.{job.website}
-      </footer>
+      <br />
+      <ExternalLink rel={'external'} target={'_blank'} className="start_date" href={`http://www.${job.website}`} />
       <br />
       {loggedInUser && loggedInUserType === 0 && <p>Please log-in to apply!</p>}
-      {loggedInUser && loggedInUserType === 1 && <Apply />}
+      {loggedInUser && loggedInUserType === 1 && <Apply jobID={job.id} />}
       {loggedInUser && loggedInUserType === 2 && <p>See Who's Applied</p>}
     </div>
   );

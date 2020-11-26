@@ -12,24 +12,24 @@ export default function JobListItem(props) {
   console.log(props)
   return (
     <body>
-      
-    <div className="jobs_item">
-      <Link className="job_header" exact to={`/${props.jobId}`}>
-        <strong>{props.title}</strong>
-      </Link>
-      <br />
-        ${props.wage}/hr
-      <br />
-      {props.positions} positions available!
-      <body className="job_des">
-        {props.description}
-      </body>
 
-      <footer className="start_date">
-        Work starts {props.jobDate}
-      </footer>
-      <br />
-    </div>
+      <div className="job_item">
+        <Link className="job_header" exact to={`/${props.jobId}`}>
+          <strong>{props.title}</strong>
+        </Link>
+        <body className="job_des">
+          {props.description}
+        </body>
+        <span className="extra_info">
+          <br />
+            ${props.wage}/hr
+          <br />
+          {props.positions} positions available!
+        </span>
+        <footer className="start_date">
+          Work starts {props.jobDate}
+        </footer>
+      </div>
     </body>
   );
 }

@@ -1,4 +1,4 @@
-.myJob {
+
   .job_header {
     font-size: 30px;
     text-transform: capitalize;
@@ -6,18 +6,27 @@
     text-decoration-color:#2590cf;
     border-bottom: medium, solid, #2590cf;
     padding-top: 1.5rem;
+    padding-bottom: 0rem;
   }
   
-  .job_des {
+  .extra_info {
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
+  }
+
+  .job_des {
     font-size: 12px;
     padding-left: 0.5rem;
     padding-right: 0.5rem;
     padding-top: 0.5rem;
   }
   
-  .jobs_item {
+  div .job_item {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     margin-top: 1rem;
     margin-bottom: 1rem;
     border-style: solid;
@@ -34,8 +43,4 @@
     font-stretch: expanded;
     padding-top: 1rem;
   }
-}
 
-.myJob :hover {
-  box-shadow: cadetblue;
-}
