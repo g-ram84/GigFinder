@@ -16,8 +16,6 @@ const getAllJobs = function(db, options) {
     queryParams.push(`%${options.job_title}%`);
     queryString += ` WHERE jobs.job_title LIKE $${queryParams.length};`;
   }
-  console.log(queryString);
-  console.log(queryParams);
   return db.query(queryString, queryParams)
     .then((res) => {
       return res.rows;
