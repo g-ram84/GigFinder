@@ -16,7 +16,10 @@ const SearchBar = (props) => {
 
   const onSubmit = e => {
     e.preventDefault();
-    gigfinderContext.searchJobs(searchTerm);
+    gigfinderContext.searchJobs(searchTerm)
+    .then(() => {
+      setSearchTerm('')
+    })
   };
 
 
