@@ -10,7 +10,7 @@ import GigfinderContext from '../context/gigfinder/gigfinderContext.js';
 
 function Job(props) {
   const gigfinderContext = useContext(GigfinderContext);
-  const { loggedInUser, loggedInUserType } = gigfinderContext;
+  const { loggedInUser, loggedInUserType  } = gigfinderContext;
 
   const [job, setJob] = useState();
   useEffect(() => {
@@ -30,7 +30,7 @@ function Job(props) {
       <h1>Loading!</h1>
     )
   }
-  console.log("job props", job)
+  console.log("individual", job.id, job.job_title)
   return (
     <div className="jobs_item">
       <header className="job_header">

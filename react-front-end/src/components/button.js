@@ -10,7 +10,7 @@ export default function Button(props) {
     "button--danger": props.danger,
     "button--primary": props.primary
   });
- 
+
   return (
     <button
       className={buttonClass}
