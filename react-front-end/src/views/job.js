@@ -30,7 +30,7 @@ function Job(props) {
       <h1>Loading!</h1>
     )
   }
-  console.log("individual", job.id, job.job_title)
+  console.log("individual", job)
   return (
     <div className="jobs_item">
       <header className="job_header">
