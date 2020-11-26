@@ -4,6 +4,7 @@ import { Row, Col, Button, Form, FormGroup, Input } from 'reactstrap';
 import GigfinderContext from '../context/gigfinder/gigfinderContext.js';
 
 import "./jobListItem.scss"
+import { render } from 'react-dom';
 
 
 export default function Apply() {
@@ -13,7 +14,7 @@ export default function Apply() {
   const onSubmit = e => {
     e.preventDefault();
     gigfinderContext.addNewApplication(loggedInUser);
-  };
+  }
   return (
     <div>
       <Form onSubmit={onSubmit}>
