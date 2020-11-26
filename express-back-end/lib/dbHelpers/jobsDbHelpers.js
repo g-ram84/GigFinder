@@ -1,7 +1,7 @@
 //API Query
 
 const getJobById = function(id, db) {
-  return db.query(`SELECT * FROM jobs JOIN Employers ON Jobs.employer_id = Employers.id WHERE jobs.id =$1`, [id])
+  return db.query(`SELECT jobs.*, employers.company_name FROM jobs JOIN Employers ON Jobs.employer_id = Employers.id WHERE jobs.id =$1`, [id])
     .then((res) => {
       return res.rows;
     }).catch(err => {
@@ -11,12 +11,13 @@ const getJobById = function(id, db) {
 
 const getAllJobs = function(db, options) {
   const queryParams = [];
-  let queryString = `SELECT * FROM jobs JOIN Employers ON Jobs.employer_id = Employers.id`;
+  let queryString = `SELECT jobs.*, employers.company_name FROM jobs JOIN employers ON jobs.employer_id = employers.id `;
   if (options.job_title && options.job_title !== '') {
-    console.log(options.job_title);
     queryParams.push(`%${options.job_title}%`);
-    queryString += ` WHERE job_title LIKE $${queryParams.length} `;
+    queryString += ` WHERE jobs.job_title LIKE $${queryParams.length};`;
   }
+  console.log(queryString);
+  console.log(queryParams);
   return db.query(queryString, queryParams)
     .then((res) => {
       return res.rows;

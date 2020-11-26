@@ -45,7 +45,7 @@ const getApplicationById = function(id, db) {
 
 const addNewApplication = function(newApplication, db) {
   const { worker_id, job_id, status, date_applied } = newApplication;
-  console.log(job_title);
+
   return db.query(`INSERT into applications (worker_id, job_id, status, date_applied)
   values ($1, $2, $3, $4);`,
     [worker_id, job_id, status, date_applied])
