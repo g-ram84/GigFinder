@@ -1,10 +1,16 @@
-import React, { useContext, useState, useEffect } from 'react';
+import React, { Fragment, useContext, useState, useEffect } from 'react';
 import axios from 'axios';
+import { Document, Page } from 'react-pdf/dist/esm/entry.webpack';
 import GigfinderContext from '../context/gigfinder/gigfinderContext.js';
 import WorkerList from '../components/workerList';
 // import workers from '../../../express-back-end/routes/workers.js';
 
 function Profile(props) {
+  const [numPages, setNumPages] = useState(null);
+  const [pageNumber, setPageNumber] = useState(1);
+  function onDocumentLoadSuccess({ numPages }) {
+    setNumPages(numPages);
+  }
   const [worker, setWorker] = useState();
   useEffect(() => {
     axios.get(
@@ -14,23 +20,56 @@ function Profile(props) {
       },
     })
       .then((res) => {
-        console.log('res', res.data[0])
-        setWorker(res.data[0])
-      })
-  }, [props.match.params.id])
+        console.log('res', res.data[0]);
+        setWorker(res.data[0]);
+      });
+  }, [props.match.params.id]);
 
   if (worker === undefined) {
     return (
       <h1>Loading!</h1>
-    )
+    );
   }
-  console.log('profile', worker)
+  const resumeFilePath = `../resumes/${worker.last_name}.pdf`;
+  //console.log('profile', worker);
   return (
-
-    <div>
-      <WorkerList worker={worker}/>
-    </div>
+    <Fragment>
+      <div>
+        <WorkerList worker={worker} />
+      </div>
+      <Document
+        file={resumeFilePath}
+        onLoadSuccess={onDocumentLoadSuccess}
+      >
+        <Page pageNumber={pageNumber} />
+      </Document>
+    </Fragment>
   );
 }
 
 export default Profile;
+
+
+///////////////////////////////////////////
+// import React, { Fragment, useState } from 'react';
+// import { Document, Page } from 'react-pdf/dist/esm/entry.webpack';
+
+// function Profile() {
+//   const [numPages, setNumPages] = useState(null);
+//   const [pageNumber, setPageNumber] = useState(1);
+//   function onDocumentLoadSuccess({ numPages }) {
+//     setNumPages(numPages);
+//   }
+//   return (
+//     <Fragment>
+//       <Document
+//         file="../resumes/resume01.pdf"
+//         onLoadSuccess={onDocumentLoadSuccess}
+//       >
+//         <Page pageNumber={pageNumber} />
+//       </Document>
+//     </Fragment>
+//   );
+// }
+
+//export default Profile;
