@@ -6,6 +6,7 @@ import GigfinderContext from '../context/gigfinder/gigfinderContext.js';
 export default function JobList(props) {
   const gigfinderContext = useContext(GigfinderContext);
   const { jobs } = gigfinderContext;
+  console.log(jobs);
   const myJobs = jobs.map(job => {
     const date = new Date(job.job_date);
     const year = date.getFullYear();
