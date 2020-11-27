@@ -23,7 +23,7 @@ const NavBar = (props) => {
     loginMessage = `Logged in as ${loggedInUser.first_name} ${loggedInUser.last_name}`;
 
   } else if (loggedInUserType === 2) {
-    loginMessage = `Logged in as ${loggedInUser.name}`;
+    loginMessage = `Logged in as ${loggedInUser.contact_name || "Steve Jobs"}`;
   }
   const logout = () => {
     gigfinderContext.logOut();

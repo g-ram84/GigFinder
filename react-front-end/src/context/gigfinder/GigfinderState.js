@@ -11,7 +11,8 @@ import {
   ADD_JOB,
   LOG_IN_WORKER,
   LOG_IN_EMPLOYER,
-  LOG_OUT
+  LOG_OUT,
+  GET_APPLICATIONS
 } from '../types';
 
 const api_url = "https://lhlgigfinder.azurewebsites.net";
@@ -76,6 +77,19 @@ const GigfinderState = props => {
     dispatch({
       type: ADD_JOB,
       payload: job
+    });
+  };
+
+  //Get applications for job
+  const getApplications = async (job) => {
+    const res = await axios({
+      method: 'get',
+      url: `/api/jobs/${job_id}`
+     
+    });
+    dispatch({
+      type: GET_APPLICATIONS,
+      payload: res.data
     });
   };
 
@@ -151,7 +165,8 @@ const GigfinderState = props => {
         addNewApplication,
         logWorkerIn,
         logEmployerIn,
-        logOut
+        logOut,
+        getApplications
       }}
     >
       {props.children}
