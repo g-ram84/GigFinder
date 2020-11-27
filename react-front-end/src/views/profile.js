@@ -30,17 +30,15 @@ function Profile(props) {
       <h1>Loading!</h1>
     );
   }
-  console.log(worker.lastname);
-  //const resumeFilePath = `../resumes/${worker.lastname}.pdf`;
-  console.log('profile', worker);
+  const resumeFilePath = `../resumes/${worker.last_name}.pdf`;
+  //console.log('profile', worker);
   return (
     <Fragment>
       <div>
         <WorkerList worker={worker} />
       </div>
-
       <Document
-        file="../resumes/tunnock.pdf"
+        file={resumeFilePath}
         onLoadSuccess={onDocumentLoadSuccess}
       >
         <Page pageNumber={pageNumber} />
