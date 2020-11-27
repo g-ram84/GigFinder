@@ -2,6 +2,7 @@ import React, { useState, useEffect, useContext } from 'react';
 import { Link, useHistory } from 'react-router-dom';
 import { Row, Col, Button, Form, FormGroup, Input } from 'reactstrap';
 import GigfinderContext from '../context/gigfinder/gigfinderContext.js';
+import gigfinderState, {getApplications} from '../context/gigfinder/gigfinderState.js'
 
 import "./jobListItem.scss";
 import { render } from 'react-dom';
@@ -12,7 +13,7 @@ export default function SeeApplications(props) {
   const gigfinderContext = useContext(GigfinderContext);
   const { loggedInUser } = gigfinderContext;
  
-
+console.log(getApplications, "getApplications gives us this")
 //   const applicants = 
 // only render if
 //   is allowed to see function
