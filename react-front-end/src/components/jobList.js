@@ -6,6 +6,7 @@ import GigfinderContext from '../context/gigfinder/gigfinderContext.js';
 export default function JobList(props) {
   const gigfinderContext = useContext(GigfinderContext);
   const { jobs } = gigfinderContext;
+  console.log(jobs);
   const myJobs = jobs.map(job => {
     const date = new Date(job.job_date);
     const year = date.getFullYear();
@@ -18,7 +19,7 @@ export default function JobList(props) {
       month = '0' + month;
     }
     const startDate = `${year}-${month}-${dt}`;
-    console.log("job", job)
+    console.log("job", job);
     return (
       <div>
         <JobListItem
