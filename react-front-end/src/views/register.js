@@ -1,8 +1,15 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {Button, Form, FormGroup, Label, Input } from 'reactstrap';
 
 const register = (props) => {
-  return (
+    const [showMode, setShowMode] = useState('')
+    return (
+      <div>
+      <button onClick={()=> setShowMode('employer')}>Register as Employer</button>
+      <button onClick={()=> setShowMode('worker')}>Register as Worker</button>
+      {showMode === '' ? '' :
+      
+  
     <Form >
 
       <FormGroup>
@@ -48,28 +55,14 @@ const register = (props) => {
         <Input type="text" name="SIN" id="SIN" placeholder="Enter SIN" />
       </FormGroup>
 
-      <FormGroup>
-        <Label for="Company Name">Company Name</Label>
-        <Input type="text" name="company" id="company" placeholder="Enter Company Name" />
-      </FormGroup>
+     
 
-      <FormGroup>
-        <Label for="Contact Person">Contact Person</Label>
-        <Input type="text" name="Contact" id="Contact" placeholder="Enter Contact Name" />
-      </FormGroup>
-
-      <FormGroup>
-        <Label for="SIN">SIN</Label>
-        <Input type="text" name="SIN" id="SIN" placeholder="Enter SIN" />
-      </FormGroup>
-
-   
-
-  
-
-
-      <Button>Register!</Button>
+      
+      <Button onClick={ ''/*setpath to as worker or employer*/} >Register!</Button>
     </Form >
+}
+    </div>
+
   );
 };
 
