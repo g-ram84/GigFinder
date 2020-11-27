@@ -81,7 +81,7 @@ const GigfinderState = props => {
   const addNewApplication = async (application) => {
     const res = await axios({
       method: 'post',
-      url: `api/applications`,
+      url: `/api/applications`,
       data: {
         application: { ...application },
       },

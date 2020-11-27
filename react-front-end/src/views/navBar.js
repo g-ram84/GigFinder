@@ -23,7 +23,7 @@ const NavBar = (props) => {
     loginMessage = `Logged in as ${loggedInUser.first_name} ${loggedInUser.last_name}`;
 
   } else if (loggedInUserType === 2) {
-    loginMessage = `Logged in as ${loggedInUser.company_name} ${loggedInUser.contact_name}`;
+    loginMessage = `Logged in as ${loggedInUser.name}`;
   }
   const logout = () => {
     gigfinderContext.logOut();
@@ -31,6 +31,7 @@ const NavBar = (props) => {
   const clearPage = () => {
     gigfinderContext.jobs.length = 0;
   };
+  console.log("loggedInUser", loggedInUser)
 
   return (
     <div>
@@ -50,7 +51,18 @@ const NavBar = (props) => {
               </NavbarText>
             </Fragment>
           }
-          {loggedInUserType !== 0 &&
+          {loggedInUserType === 1 &&
+            <Fragment>
+              <NavbarText>{loginMessage}</NavbarText>
+              <NavbarText>
+                <NavLink tag={RRNavLink} exact to="/" onClick={logout} >Logout</NavLink>
+              </NavbarText>
+              <NavbarText>
+                <NavLink tag={RRNavLink} exact to={`/workers/${loggedInUser.id}`} >My Profile</NavLink>
+              </NavbarText>
+            </Fragment>
+          }
+          {loggedInUserType === 2 &&
             <Fragment>
               <NavbarText>{loginMessage}</NavbarText>
               <NavbarText>
