@@ -4,6 +4,8 @@ import JobList from '../components/jobList'
 import './job.scss'
 import axios from 'axios';
 import Apply from '../components/apply';
+import SeeApplications from '../components/seeApplications'
+
 import GigfinderContext from '../context/gigfinder/gigfinderContext.js';
 // import { apiRoutes } from '../../../express-back-end/routes/apiRoutes';
 
@@ -31,8 +33,10 @@ function Job(props) {
       <h1>Loading!</h1>
     )
   }
-  console.log("website", job.website)
+  console.log("THIS IS THE WHOLE JOB", job)
+  console.log("loggedinUSER", loggedInUser)
   return (
+
     <div className="jobs_item">
       <header className="job_header">
         <span>{job.company_name}</span>
@@ -54,7 +58,7 @@ function Job(props) {
       <br />
       {loggedInUser && loggedInUserType === 0 && <p>Please log-in to apply!</p>}
       {loggedInUser && loggedInUserType === 1 && <Apply jobID={job.id} />}
-      {loggedInUser && loggedInUserType === 2 && <p>See Who's Applied</p>}
+      {loggedInUser && loggedInUserType === 2 && <SeeApplications/>} 
     </div>
   );
 }

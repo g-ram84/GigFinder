@@ -78,6 +78,18 @@ const GigfinderState = props => {
     });
   };
 
+  // const getApplications = async (job) => {
+  //   const res = await axios({
+  //     method: 'get',
+  //     url: `/api/jobs/id`,
+     
+  //   });
+  //   dispatch({
+  //     type: GET_APPLICATIONS, // not created
+  //     payload: application
+  //   });
+  // };
+
   const addNewApplication = async (application) => {
     const res = await axios({
       method: 'post',
