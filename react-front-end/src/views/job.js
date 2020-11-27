@@ -16,7 +16,7 @@ function Job(props) {
   const [job, setJob] = useState();
   useEffect(() => {
     axios.get(
-      `api/jobs/${props.match.params.id}`, {
+      `/api/jobs/${props.match.params.id}`, {
       headers: {
         "Access-Control-Allow-Origin": "*"
       },

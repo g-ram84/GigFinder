@@ -1,0 +1,15 @@
+.worker_list {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    border-style: solid;
+    border-width: medium;
+    border-color: #2590cf;
+    border-radius: 1rem;
+    margin-left: 3rem;
+    margin-right: 3rem;
+    background-origin: border-box;
+}

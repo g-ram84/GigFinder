@@ -6,7 +6,8 @@ import {
   LOG_IN_WORKER,
   LOG_IN_EMPLOYER,
   LOG_OUT,
-  ADD_APPLICATION
+  ADD_APPLICATION,
+  GET_WORKERS
 } from '../types';
 
 export default (state, action) => {
@@ -53,6 +54,7 @@ export default (state, action) => {
         ...state,
         loggedInUser: action.payload,
       };
+  
 
     default:
       return state;

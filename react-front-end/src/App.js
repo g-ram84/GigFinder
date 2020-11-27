@@ -25,9 +25,9 @@ function App() {
           <Route exact path='/' component={Home} />
           <Route exact path='/addJob' component={AddJob} />
           <Route exact path='/favourites' component={Favourites} />
-          <Route exact path='/:id' component={Job} />
+          <Route exact path='/jobs/:id' component={Job} />
           <Route exact path='/login' component={Login} />
-          <Route exact path='/profile' component={Profile} />
+          <Route exact path='/workers/:id' component={Profile} />
           <Route exact path='/register' component={Register} />
           <Route exact path='/results' component={Results} />
         </Router>

@@ -22,7 +22,8 @@ const GigfinderState = props => {
     faveCompanies: [],
     faveWorkers: [],
     loggedInUser: {},
-    loggedInUserUserType: 0
+    loggedInUserUserType: 0,
+    workers: []
   };
 
   const [state, dispatch] = useReducer(GigfinderReducer, initialState);
@@ -133,12 +134,11 @@ const GigfinderState = props => {
     });
   };
 
-
-
   return (
     <GigfinderContext.Provider
       value={{
         jobs: state.jobs,
+        workers: state.workers,
         faveWorkers: state.faveWorkers,
         faveCompanies: state.faveCompanies,
         loggedInUser: state.loggedInUser,

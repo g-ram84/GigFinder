@@ -13,7 +13,7 @@ function Home(props) {
       <span className="title">
       <h1>Welcome to GigFinder!</h1>
       <SearchBar query={query} setQuery={setQuery} />
-      <JobList query={query} />
+      <JobList />
       </span>
     </div>
   );

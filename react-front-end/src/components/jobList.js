@@ -3,7 +3,7 @@ import JobListItem from "./jobListItem.js";
 import "./jobListItem.scss";
 import GigfinderContext from '../context/gigfinder/gigfinderContext.js';
 
-export default function JobList(props) {
+export default function JobList() {
   const gigfinderContext = useContext(GigfinderContext);
   const { jobs } = gigfinderContext;
   const myJobs = jobs.map(job => {

@@ -14,7 +14,7 @@ export default function JobListItem(props) {
     <body>
 
       <div className="job_item">
-        <Link className="job_header" exact to={`/${props.jobId}`}>
+        <Link className="job_header" exact to={`/jobs/${props.jobId}`}>
           <strong>{props.title}</strong>
         </Link>
         <body className="job_des">
