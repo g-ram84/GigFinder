@@ -17,7 +17,6 @@ function Profile(props) {
   }
 
   const [application, setApplication] = useState();
-  console.log("application", props)
   useEffect(() => {
     axios.get(
       `/api/applications/${props.match.params.id}`, {
@@ -26,11 +25,9 @@ function Profile(props) {
       },
     })
       .then((res) => {
-        console.log('res', res.data[0]);
         setApplication(res.data[0]);
       });
   }, [props.match.params.id]);
-
 
   const [worker, setWorker] = useState();
   useEffect(() => {
@@ -50,6 +47,13 @@ function Profile(props) {
       <h1>Loading!</h1>
     );
   }
+  if (application === undefined) {
+    return (
+      <h1>Loading!</h1>
+    );
+  }
+  console.log("loggedinuser", loggedInUser)
+  console.log("application", application)
   const resumeFilePath = `../resumes/${worker.last_name}.pdf`;
   //console.log('profile', worker);
   return (
