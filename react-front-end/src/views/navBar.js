@@ -55,16 +55,19 @@ const NavBar = (props) => {
             <Fragment>
               <NavbarText>{loginMessage}</NavbarText>
               <NavbarText>
-                <NavLink tag={RRNavLink} exact to="/" onClick={logout} >Logout</NavLink>
+                <NavLink tag={RRNavLink} exact to={`/workers/${loggedInUser.id}`} >My Profile</NavLink>
               </NavbarText>
               <NavbarText>
-                <NavLink tag={RRNavLink} exact to={`/workers/${loggedInUser.id}`} >My Profile</NavLink>
+                <NavLink tag={RRNavLink} exact to="/" onClick={logout} >Logout</NavLink>
               </NavbarText>
             </Fragment>
           }
           {loggedInUserType === 2 &&
             <Fragment>
               <NavbarText>{loginMessage}</NavbarText>
+              <NavbarText>
+                <NavLink tag={RRNavLink} exact to="/addJob">Add New Job</NavLink>
+              </NavbarText>
               <NavbarText>
                 <NavLink tag={RRNavLink} exact to="/" onClick={logout} >Logout</NavLink>
               </NavbarText>

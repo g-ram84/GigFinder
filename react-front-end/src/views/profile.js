@@ -3,14 +3,35 @@ import axios from 'axios';
 import { Document, Page } from 'react-pdf/dist/esm/entry.webpack';
 import GigfinderContext from '../context/gigfinder/gigfinderContext.js';
 import WorkerList from '../components/workerList';
+import JobList from '../components/jobList';
+// import applications from '../../../express-back-end/routes/applications.js';
 // import workers from '../../../express-back-end/routes/workers.js';
 
 function Profile(props) {
+  const gigfinderContext = useContext(GigfinderContext)
+  const { loggedInUser } = gigfinderContext;
   const [numPages, setNumPages] = useState(null);
   const [pageNumber, setPageNumber] = useState(1);
   function onDocumentLoadSuccess({ numPages }) {
     setNumPages(numPages);
   }
+
+  const [application, setApplication] = useState();
+  console.log("application", props)
+  useEffect(() => {
+    axios.get(
+      `/api/applications/${props.match.params.id}`, {
+      headers: {
+        "Access-Control-Allow-Origin": "*"
+      },
+    })
+      .then((res) => {
+        console.log('res', res.data[0]);
+        setApplication(res.data[0]);
+      });
+  }, [props.match.params.id]);
+
+
   const [worker, setWorker] = useState();
   useEffect(() => {
     axios.get(
@@ -20,7 +41,6 @@ function Profile(props) {
       },
     })
       .then((res) => {
-        console.log('res', res.data[0]);
         setWorker(res.data[0]);
       });
   }, [props.match.params.id]);
@@ -43,6 +63,10 @@ function Profile(props) {
       >
         <Page pageNumber={pageNumber} />
       </Document>
+      
+      {loggedInUser.id === application.worker_id && 
+      <JobList />
+      }
     </Fragment>
   );
 }
