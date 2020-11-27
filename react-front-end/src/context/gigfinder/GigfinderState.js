@@ -23,7 +23,8 @@ const GigfinderState = props => {
     faveWorkers: [],
     loggedInUser: {},
     loggedInUserUserType: 0,
-    workers: []
+    workers: [],
+    applications: []
   };
 
   const [state, dispatch] = useReducer(GigfinderReducer, initialState);
