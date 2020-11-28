@@ -55,11 +55,11 @@ export default (state, action) => {
         ...state,
         loggedInUser: action.payload,
       };
-      case GET_APPLICATIONS:
-        return {
-          ...state,
-        loggedinUser: action.payload, //maybe not
-        };
+      // case GET_APPLICATIONS:
+      //   return {
+      //     ...state,
+      //   loggedinUser: action.payload, //maybe not
+      //   };
   
 
     default:

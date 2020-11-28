@@ -81,17 +81,17 @@ const GigfinderState = props => {
   };
 
   //Get applications for job
-  const getApplications = async (job) => {
-    const res = await axios({
-      method: 'get',
-      url: `/api/jobs/${job_id}`
+  // const getApplications = async (job) => {
+  //   const res = await axios({
+  //     method: 'get',
+  //     url: `/api/applications/${applications.id}`
      
-    });
-    dispatch({
-      type: GET_APPLICATIONS,
-      payload: res.data
-    });
-  };
+  //   });
+  //   dispatch({
+  //     type: GET_APPLICATIONS,
+  //     payload: res.data
+  //   });
+  // };
 
   const addNewApplication = async (application) => {
     const res = await axios({
@@ -166,7 +166,7 @@ const GigfinderState = props => {
         logWorkerIn,
         logEmployerIn,
         logOut,
-        getApplications
+        // getApplications
       }}
     >
       {props.children}
