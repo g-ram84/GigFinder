@@ -1,18 +1,29 @@
 import React, { useContext } from 'react';
 import { Container, Col, Row, Button, Form, FormGroup, Label, Input, FormFeedback, FormText } from 'reactstrap';
-
+import { useHistory } from 'react-router-dom';
 import GigfinderContext from '../context/gigfinder/gigfinderContext.js';
 
 function Login() {
   const gigfinderContext = useContext(GigfinderContext);
   const { loggedInUser } = gigfinderContext;
 
+  const history = useHistory();
+  const redirect = () => {
+    history.push('/')
+  }
+
   const workerLogin = () => {
-    gigfinderContext.logWorkerIn();
-  };
+    gigfinderContext.logWorkerIn()
+    .then(() => {
+      redirect();
+    })
+  }
 
   const employerLogin = () => {
-    gigfinderContext.logEmployerIn();
+    gigfinderContext.logEmployerIn()
+    .then(() => {
+      redirect();
+    })
   };
 
   const logout = () => {
