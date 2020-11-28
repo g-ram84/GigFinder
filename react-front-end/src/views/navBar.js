@@ -9,7 +9,6 @@ import {
   NavbarToggler,
   NavbarBrand,
   Nav,
-  NavItem,
   NavLink,
   NavbarText
 } from 'reactstrap';

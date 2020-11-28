@@ -54,7 +54,6 @@ function Profile(props) {
   }
 
   const resumeFilePath = `../resumes/${worker.last_name}.pdf`;
-
   return (
     <Fragment>
       <div>
