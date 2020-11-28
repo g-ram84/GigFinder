@@ -6,7 +6,7 @@ import axios from 'axios';
 import Apply from '../components/apply';
 import SeeApplications from '../components/seeApplications';
 
-import GigfinderContext from '../context/gigfinder/gigfinderContext.js';
+import UserContext from '../context/user/userContext.js';
 // import employers from '../../../express-back-end/routes/employers';
 // import { apiRoutes } from '../../../express-back-end/routes/apiRoutes';
 
@@ -58,11 +58,7 @@ function Job(props) {
       <br />
       {loggedInUser && loggedInUserType === 0 && <p>Please log-in to apply!</p>}
       {loggedInUser && loggedInUserType === 1 && <Apply jobID={job.id} />};
-<<<<<<< HEAD
-  { loggedInUser && loggedInUserType === 2 && <SeeApplications />; }
-=======
-      {loggedInUser && loggedInUserType === 2 && <SeeApplications status={''} />} 
->>>>>>> 43e838ca8b2c12e6322fc58203a1f30d8fca665e
+      {loggedInUser && loggedInUserType === 2 && <SeeApplications status={''} />}
     </div >
   );
 }

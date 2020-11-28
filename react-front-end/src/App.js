@@ -9,7 +9,7 @@ import Home from './views/home';
 import Job from './views/job';
 import Login from './views/login';
 import Register from './views/register';
-// import Results from './views/results';
+//import Results from './views/results';
 import Profile from './views/profile';
 import Thanks from './views/thanks';
 import NavBar from './views/navBar';
@@ -36,7 +36,7 @@ function App() {
                 <Route exact path='/login' component={Login} />
                 <Route exact path='/workers/:id' component={Profile} />
                 <Route exact path='/register' component={Register} />
-                <Route exact path='/results' component={Results} />
+                {/* <Route exact path='/results' component={Results} /> */}
               </Router>
             </ApplicationState>
           </WorkerState>
