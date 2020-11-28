@@ -55,7 +55,6 @@ function Profile(props) {
   console.log("loggedinuser", loggedInUser)
   console.log("application", application)
   const resumeFilePath = `../resumes/${worker.last_name}.pdf`;
-  //console.log('profile', worker);
   return (
     <Fragment>
       <div>

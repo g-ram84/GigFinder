@@ -9,7 +9,6 @@ import { render } from 'react-dom';
 
 
 export default function Apply(props) {
-  const history = useHistory()
   const gigfinderContext = useContext(GigfinderContext);
   const { loggedInUser } = gigfinderContext;
   const date = new Date(Date.now());
@@ -30,16 +29,23 @@ export default function Apply(props) {
     status: 'Pending',
     date_applied: applyDate
   };
+
+ 
   console.log("props", props)
   const onSubmit = e => {
     e.preventDefault();
     gigfinderContext.addNewApplication(newApp)
   }
+
+  const history = useHistory();
+  const redirect = () => {
+    history.push('/thanks')
+  }
   console.log("aplication", newApp)
   return (
     <div>
-      <Form onSubmit={onSubmit} afterSubmit={() => history.push('/')}>
-        <Button>Apply Now!</Button>
+      <Form onSubmit={onSubmit}>
+        <Button onClick={redirect}>Apply Now!</Button>
       </Form>
     </div>
   )

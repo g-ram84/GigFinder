@@ -2,7 +2,7 @@ import React from "react";
 import "./jobListItem.scss";
 
 import { Link } from 'react-router-dom';
-import Results from '../views/results.js';
+// import Results from '../views/results.js';
 
 
 const classNames = require('classnames');

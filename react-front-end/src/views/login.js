@@ -39,8 +39,8 @@ function Login() {
         </Row>
         <Row>
           <Col>
-            <Button className="m-2" onClick={workerRegister}>Worker Register</Button>
-            <Button className="m-2" onClick={employerRegister}>Employer Register</Button>
+            {/* <Button className="m-2" onClick={workerRegister}>Worker Register</Button> */}
+            {/* <Button className="m-2" onClick={employerRegister}>Employer Register</Button> */}
           </Col>
         </Row>
       </Container>

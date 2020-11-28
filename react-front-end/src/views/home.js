@@ -6,8 +6,6 @@ import JobList from '../components/jobList.js';
 
 function Home(props) {
   const [query, setQuery] = useState('');
-  // 1. change this input with search bar
-  // 2. pass this input into joblist
   return (
     <div className="home_page">
       <span className="title">
