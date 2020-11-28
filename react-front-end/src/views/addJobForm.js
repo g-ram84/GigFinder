@@ -3,7 +3,7 @@ import { Col, Row, Button, Form, FormGroup, Label, Input, FormFeedback, FormText
 import GigfinderContext from '../context/gigfinder/gigfinderContext';
 const AddJobForm = () => {
   const gigfinderContext = useContext(GigfinderContext);
-
+  
   const [job, setJob] = useState({
     job_title: job_title,
     hourly_wage: hourly_wage,

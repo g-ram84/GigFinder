@@ -8,7 +8,7 @@ import {
   LOG_OUT,
   ADD_APPLICATION,
   GET_WORKERS,
-  GET_APPLICATIONS
+  SET_APPLICATIONS
 } from '../types';
 
 export default (state, action) => {
@@ -55,11 +55,11 @@ export default (state, action) => {
         ...state,
         loggedInUser: action.payload,
       };
-      // case GET_APPLICATIONS:
-      //   return {
-      //     ...state,
-      //   loggedinUser: action.payload, //maybe not
-      //   };
+      case SET_APPLICATIONS:
+        return {
+          ...state,
+        applications: action.payload,
+        };
   
 
     default:

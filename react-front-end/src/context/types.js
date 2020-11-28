@@ -6,5 +6,5 @@ export const LOG_IN_WORKER = 'LOG_IN_WORKER';
 export const LOG_IN_EMPLOYER = 'LOG_IN_EMPLOYER';
 export const LOG_OUT = 'LOG_OUT';
 export const ADD_APPLICATION = 'ADD_APPLICATION';
-export const GET_APPLICATIONS = 'GET_APPLICATIONS';
+export const SET_APPLICATIONS = 'SET_APPLICATIONS';
 
