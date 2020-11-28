@@ -1,6 +1,5 @@
 import React, { useReducer } from 'react';
 import axios from 'axios';
-
 import GigfinderContext from './gigfinderContext';
 import GigfinderReducer from './gigfinderReducer';
 import {
@@ -85,7 +84,7 @@ const GigfinderState = props => {
   //   const res = await axios({
   //     method: 'get',
   //     url: `/api/applications/${applications.id}`
-     
+
   //   });
   //   dispatch({
   //     type: GET_APPLICATIONS,

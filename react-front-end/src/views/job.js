@@ -1,19 +1,19 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { ExternalLink } from 'react-external-link';
-import JobList from '../components/jobList'
-import './job.scss'
+import JobList from '../components/jobList';
+import './job.scss';
 import axios from 'axios';
 import Apply from '../components/apply';
-import SeeApplications from '../components/seeApplications'
+import SeeApplications from '../components/seeApplications';
 
-import GigfinderContext from '../context/gigfinder/gigfinderContext.js';
+import UserContext from '../context/user/userContext.js';
 // import { apiRoutes } from '../../../express-back-end/routes/apiRoutes';
 
 
 
 function Job(props) {
-  const gigfinderContext = useContext(GigfinderContext);
-  const { loggedInUser, loggedInUserType } = gigfinderContext;
+  const userContext = useContext(UserContext);
+  const { loggedInUser, loggedInUserType } = userContext;
 
   const [job, setJob] = useState();
   useEffect(() => {
@@ -24,22 +24,21 @@ function Job(props) {
       },
     })
       .then((res) => {
-        setJob(res.data[0])
-      })
-  }, [props.match.params.id])
+        setJob(res.data[0]);
+      });
+  }, [props.match.params.id]);
 
   if (job === undefined) {
     return (
       <h1>Loading!</h1>
-    )
+    );
   }
-  console.log("THIS IS THE WHOLE JOB", job)
-  console.log("loggedinUSER", loggedInUser)
+  console.log("THIS IS THE WHOLE JOB", job);
+  console.log("loggedinUSER", loggedInUser);
   return (
-
     <div className="jobs_item">
       <header className="job_header">
-        <span>{job.company_name}</span>
+        <span>{job.name}</span>
         <br /> Is looking for
           <br />
         <strong>{job.job_title}s</strong>
@@ -58,7 +57,7 @@ function Job(props) {
       <br />
       {loggedInUser && loggedInUserType === 0 && <p>Please log-in to apply!</p>}
       {loggedInUser && loggedInUserType === 1 && <Apply jobID={job.id} />}
-      {loggedInUser && loggedInUserType === 2 && <SeeApplications/>} 
+      {loggedInUser && loggedInUserType === 2 && <SeeApplications />}
     </div>
   );
 }

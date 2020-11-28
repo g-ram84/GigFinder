@@ -1,28 +1,26 @@
 import React, { useContext, useState } from 'react';
 import { Row, Col, Button, Form, FormGroup, Input } from 'reactstrap';
-import GigfinderContext from '../context/gigfinder/gigfinderContext.js';
+import JobContext from '../context/job/jobContext.js';
 
 const SearchBar = (props) => {
-  const gigfinderContext = useContext(GigfinderContext);
+  const jobContext = useContext(JobContext);
   const [searchTerm, setSearchTerm] = useState("");
   const onChange = e => setSearchTerm(e.target.value);
 
-  const newQuery = (event) => {
-    props.setQuery(event.target.value)
-  }
-  const search = () => {
-    gigfinderContext.searchJobs()
-  }
+  // const newQuery = (event) => {
+  //   props.setQuery(event.target.value);
+  // };
+  // const search = () => {
+  //   jobContext.searchJobs();
+  // };
 
   const onSubmit = e => {
     e.preventDefault();
-    gigfinderContext.searchJobs(searchTerm)
-    .then(() => {
-      setSearchTerm('')
-    })
+    jobContext.searchJobs(searchTerm)
+      .then(() => {
+        setSearchTerm('');
+      });
   };
-
-
   return (
     <Row>
       <Col>

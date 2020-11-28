@@ -1,30 +1,15 @@
-import React, { useContext } from 'react';
+import React, { useContext, dispatch } from 'react';
 import { Container, Col, Row, Button, Form, FormGroup, Label, Input, FormFeedback, FormText } from 'reactstrap';
-
-import GigfinderContext from '../context/gigfinder/gigfinderContext.js';
+import UserContext from '../context/user/userContext.js';
 
 function Login() {
-  const gigfinderContext = useContext(GigfinderContext);
-  const { loggedInUser } = gigfinderContext;
-
-  const workerLogin = () => {
-    gigfinderContext.logWorkerIn();
-  };
-
-  const employerLogin = () => {
-    gigfinderContext.logEmployerIn();
-  };
-
-  const logout = () => {
-    gigfinderContext.logOut();
-  };
-
+  const userContext = useContext(UserContext);
+  const { loggedInUser, logWorkerIn, logEmployerIn, } = userContext;
 
   const workerRegister = () => {
   };
 
   const employerRegister = () => {
-
   };
 
   return (
@@ -33,8 +18,8 @@ function Login() {
       <Container>
         <Row>
           <Col>
-            <Button className="m-2" onClick={workerLogin}>Worker Login</Button>
-            <Button className="m-2" onClick={employerLogin}>Employer Login</Button>
+            <Button className="m-2" onClick={logWorkerIn}>Worker Login</Button>
+            <Button className="m-2" onClick={logEmployerIn}>Employer Login</Button>
           </Col>
         </Row>
         <Row>

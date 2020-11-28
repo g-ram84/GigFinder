@@ -1,8 +1,8 @@
 
-import React from 'react';
+import React, { useContext } from 'react';
 import axios from 'axios';
 import './App.css';
-import './components/jobListItem'
+import './components/jobListItem';
 import AddJob from './views/addJob';
 import Favourites from './views/favourites';
 import Home from './views/home';
@@ -12,26 +12,35 @@ import Register from './views/register';
 import Results from './views/results';
 import Profile from './views/profile';
 import NavBar from './views/navBar';
-import GigfinderState from './context/gigfinder/GigfinderState';
+import JobState from './context/job/JobState';
+import UserState from './context/user/UserState';
+import WorkerState from './context/worker/WorkerState';
+import ApplicationState from './context/application/ApplicationState';
 import { Route, Link, BrowserRouter as Router } from 'react-router-dom';
 
 
 function App() {
   return (
     <div className="App">
-      <GigfinderState>
-        <Router>
-          <NavBar />
-          <Route exact path='/' component={Home} />
-          <Route exact path='/addJob' component={AddJob} />
-          <Route exact path='/favourites' component={Favourites} />
-          <Route exact path='/jobs/:id' component={Job} />
-          <Route exact path='/login' component={Login} />
-          <Route exact path='/workers/:id' component={Profile} />
-          <Route exact path='/register' component={Register} />
-          <Route exact path='/results' component={Results} />
-        </Router>
-      </GigfinderState>
+      <UserState>
+        <JobState>
+          <WorkerState>
+            <ApplicationState>
+              <Router>
+                <NavBar />
+                <Route exact path='/' component={Home} />
+                <Route exact path='/addJob' component={AddJob} />
+                <Route exact path='/favourites' component={Favourites} />
+                <Route exact path='/jobs/:id' component={Job} />
+                <Route exact path='/login' component={Login} />
+                <Route exact path='/workers/:id' component={Profile} />
+                <Route exact path='/register' component={Register} />
+                <Route exact path='/results' component={Results} />
+              </Router>
+            </ApplicationState>
+          </WorkerState>
+        </JobState>
+      </UserState>
     </div>
   );
 }
