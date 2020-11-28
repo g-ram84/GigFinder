@@ -2,10 +2,11 @@ import React, { useContext } from "react";
 import JobListItem from "./jobListItem.js";
 import "./jobListItem.scss";
 import GigfinderContext from '../context/gigfinder/gigfinderContext.js';
+import JobContext from '../context/job/jobContext.js';
 
 export default function JobList(props) {
-  const gigfinderContext = useContext(GigfinderContext);
-  const { jobs } = gigfinderContext;
+  const jobContext = useContext(JobContext);
+  const { jobs } = jobContext;
   const myJobs = jobs.map(job => {
     const date = new Date(job.job_date);
     const year = date.getFullYear();
@@ -18,29 +19,23 @@ export default function JobList(props) {
       month = '0' + month;
     }
     const startDate = `${year}-${month}-${dt}`;
-    
+
     return (
-      <div>
-        <JobListItem
-          jobId={job.id}
-          title={job.job_title}
-          wage={job.hourly_wage}
-          date={job.date_created}
-          jobDate={startDate}
-          active={job.active}
-          positions={job.positions}
-          description={job.job_description}
-          company={job.employer_id}
-        />
-      </div>
+      <JobListItem
+        key={job.id}
+        jobId={job.id}
+        title={job.job_title}
+        wage={job.hourly_wage}
+        date={job.date_created}
+        jobDate={startDate}
+        active={job.active}
+        positions={job.positions}
+        description={job.job_description}
+        company={job.employer_id}
+      />
     );
-
-
   });
   return (
-    <section>
-      <span className="myJob">{myJobs}</span>
-    </section>
+    myJobs
   );
-
 }

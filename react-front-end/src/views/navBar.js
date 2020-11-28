@@ -1,6 +1,7 @@
 import React, { useContext, useState, Fragment } from 'react';
 import { NavLink as RRNavLink } from 'react-router-dom';
-import GigfinderContext from '../context/gigfinder/gigfinderContext.js';
+import UserContext from '../context/user/userContext.js';
+import JobContext from '../context/job/jobContext.js';
 
 import {
   Collapse,
@@ -14,29 +15,22 @@ import {
 } from 'reactstrap';
 
 const NavBar = (props) => {
-  const gigfinderContext = useContext(GigfinderContext);
-  const { loggedInUser, loggedInUserType } = gigfinderContext;
-  let loginMessage = '';
   const [isOpen, setIsOpen] = useState(false);
   const toggle = () => setIsOpen(!isOpen);
+  const { loggedInUser, loggedInUserType, logOut } = useContext(UserContext);
+  const { clearJobs } = useContext(JobContext);
+
+  let loginMessage = '';
   if (loggedInUserType === 1) {
     loginMessage = `Logged in as ${loggedInUser.first_name} ${loggedInUser.last_name}`;
-
   } else if (loggedInUserType === 2) {
     loginMessage = `Logged in as ${loggedInUser.contact_name || "Steve Jobs"}`;
   }
-  const logout = () => {
-    gigfinderContext.logOut();
-  };
-  const clearPage = () => {
-    gigfinderContext.jobs.length = 0;
-  };
-  console.log("loggedInUser", loggedInUser)
 
   return (
     <div>
       <Navbar color="dark" dark expand="md">
-        <NavbarBrand tag={RRNavLink} exact to="/" activeClassName="active" onClick={clearPage}>GigFinder</NavbarBrand>
+        <NavbarBrand tag={RRNavLink} exact to="/" activeClassName="active" onClick={clearJobs}>GigFinder</NavbarBrand>
         <NavbarToggler onClick={toggle} />
         <Collapse isOpen={isOpen} navbar>
           <Nav className="mr-auto" navbar>
@@ -58,7 +52,7 @@ const NavBar = (props) => {
                 <NavLink tag={RRNavLink} exact to={`/workers/${loggedInUser.id}`} >My Profile</NavLink>
               </NavbarText>
               <NavbarText>
-                <NavLink tag={RRNavLink} exact to="/" onClick={logout} >Logout</NavLink>
+                <NavLink tag={RRNavLink} exact to="/" onClick={logOut} >Logout</NavLink>
               </NavbarText>
             </Fragment>
           }
@@ -69,7 +63,7 @@ const NavBar = (props) => {
                 <NavLink tag={RRNavLink} exact to="/addJob">Add New Job</NavLink>
               </NavbarText>
               <NavbarText>
-                <NavLink tag={RRNavLink} exact to="/" onClick={logout} >Logout</NavLink>
+                <NavLink tag={RRNavLink} exact to="/" onClick={logOut} >Logout</NavLink>
               </NavbarText>
             </Fragment>
           }

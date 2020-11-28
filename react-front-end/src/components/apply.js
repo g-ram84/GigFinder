@@ -2,16 +2,19 @@ import React, { useState, useEffect, useContext } from 'react';
 import Axios from 'axios';
 import { Link, useHistory } from 'react-router-dom';
 import { Row, Col, Button, Form, FormGroup, Input } from 'reactstrap';
-import GigfinderContext from '../context/gigfinder/gigfinderContext.js';
+import UserContext from '../context/user/userContext.js';
+import ApplicationContext from '../context/application/applicationContext';
 
-import "./jobListItem.scss"
+
+import "./jobListItem.scss";
 import { render } from 'react-dom';
 
 
 export default function Apply(props) {
-  const history = useHistory()
-  const gigfinderContext = useContext(GigfinderContext);
-  const { loggedInUser } = gigfinderContext;
+  const history = useHistory();
+  const userContext = useContext(UserContext);
+  const applicationContext = useContext(ApplicationContext);
+  const { loggedInUser } = userContext;
   const date = new Date(Date.now());
   const year = date.getFullYear();
   let month = date.getMonth() + 1;
@@ -22,7 +25,7 @@ export default function Apply(props) {
   if (month < 10) {
     month = '0' + month;
   }
-  const applyDate = `${year}-${month}-${dt}`
+  const applyDate = `${year}-${month}-${dt}`;
 
   const newApp = {
     worker_id: loggedInUser.id,
@@ -30,17 +33,17 @@ export default function Apply(props) {
     status: 'Pending',
     date_applied: applyDate
   };
-  console.log("props", props)
+  console.log("props", props);
   const onSubmit = e => {
     e.preventDefault();
-    gigfinderContext.addNewApplication(newApp)
-  }
-  console.log("aplication", newApp)
+    applicationContext.addNewApplication(newApp);
+  };
+  console.log("aplication", newApp);
   return (
     <div>
       <Form onSubmit={onSubmit} afterSubmit={() => history.push('/')}>
         <Button>Apply Now!</Button>
       </Form>
     </div>
-  )
+  );
 }

@@ -1,25 +1,20 @@
-import React from "react";
+import React, { Fragment } from "react";
 import "./jobListItem.scss";
-
 import { Link } from 'react-router-dom';
 import Results from '../views/results.js';
-
-
 const classNames = require('classnames');
 
-
 export default function JobListItem(props) {
-  console.log(props)
+  //console.log(props);
   return (
-    <body>
-
+    <Fragment>
       <div className="job_item">
         <Link className="job_header" exact to={`/jobs/${props.jobId}`}>
           <strong>{props.title}</strong>
         </Link>
-        <body className="job_des">
+        <div className="job_des">
           {props.description}
-        </body>
+        </div>
         <span className="extra_info">
           <br />
             ${props.wage}/hr
@@ -30,6 +25,6 @@ export default function JobListItem(props) {
           Work starts {props.jobDate}
         </footer>
       </div>
-    </body>
+    </Fragment>
   );
 }
