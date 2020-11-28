@@ -158,7 +158,7 @@ const GigfinderState = props => {
         faveCompanies: state.faveCompanies,
         loggedInUser: state.loggedInUser,
         loggedInUserType: state.loggedInUserType,
-        applcations: state.applications,
+        applications: state.applications,
         searchJobs,
         getFavouriteWorkers,
         getFavouriteCompanies,

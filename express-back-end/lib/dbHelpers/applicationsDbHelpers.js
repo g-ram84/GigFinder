@@ -44,14 +44,25 @@ const addNewApplication = function(newApplication, db) {
     });
 };
 
-
 const getApplicationById = function(id, db) {
+  return db.query(`SELECT applications.*, jobs.job_title, employers.name  FROM applications JOIN jobs ON jobs.id = applications.job_id JOIN employers ON employers.id = jobs.employer_id  WHERE applications.id =$1`, [id])
+    .then((res) => {
+      return res.rows;
+    }).catch(err => {
+      console.log(err);
+    });
+};
 
-  return db.query(`SELECT applications.*, jobs.job_title 
+
+const getApplicationByJobId = function(job_id, db) {
+
+  return db.query(`SELECT applications.*, jobs.job_title, workers.email 
   FROM applications 
   JOIN jobs ON jobs.id = applications.job_id
-  WHERE applications.id =$1`, [id])
+  JOIN workers ON workers.id = applications.worker_id
+  WHERE applications.job_id =$1`, [job_id])
     .then((res) => {
+      console.log(res,"the res rom getApplicationsBy JobID")
       return res.rows;
     }).catch(err => {
       console.log(err);
@@ -65,4 +76,4 @@ const getApplicationById = function(id, db) {
 
 
 
-module.exports = { getAllApplications, getApplicationById, addNewApplication, getApplicationsById };
+module.exports = { getAllApplications, getApplicationById, addNewApplication, getApplicationByJobId };
