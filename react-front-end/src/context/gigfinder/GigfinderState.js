@@ -12,7 +12,7 @@ import {
   LOG_IN_WORKER,
   LOG_IN_EMPLOYER,
   LOG_OUT,
-  GET_APPLICATIONS
+  SET_APPLICATIONS
 } from '../types';
 
 const api_url = "https://lhlgigfinder.azurewebsites.net";
@@ -80,18 +80,18 @@ const GigfinderState = props => {
     });
   };
 
-  //Get applications for job
-  // const getApplications = async (job) => {
-  //   const res = await axios({
-  //     method: 'get',
-  //     url: `/api/applications/${applications.id}`
+  // Get applications for job
+  const getApplications = async (job) => {
+    const res = await axios({
+      method: 'get',
+      url: `/api/jobs/${job.id}/applications`
      
-  //   });
-  //   dispatch({
-  //     type: GET_APPLICATIONS,
-  //     payload: res.data
-  //   });
-  // };
+    });
+    dispatch({
+      type: SET_APPLICATIONS,
+      payload: res.data
+    });
+  };
 
   const addNewApplication = async (application) => {
     const res = await axios({
@@ -158,6 +158,7 @@ const GigfinderState = props => {
         faveCompanies: state.faveCompanies,
         loggedInUser: state.loggedInUser,
         loggedInUserType: state.loggedInUserType,
+        applcations: state.applications,
         searchJobs,
         getFavouriteWorkers,
         getFavouriteCompanies,
@@ -166,7 +167,7 @@ const GigfinderState = props => {
         logWorkerIn,
         logEmployerIn,
         logOut,
-        // getApplications
+        getApplications
       }}
     >
       {props.children}

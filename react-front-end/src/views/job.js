@@ -7,6 +7,7 @@ import Apply from '../components/apply';
 import SeeApplications from '../components/seeApplications'
 
 import GigfinderContext from '../context/gigfinder/gigfinderContext.js';
+// import employers from '../../../express-back-end/routes/employers';
 // import { apiRoutes } from '../../../express-back-end/routes/apiRoutes';
 
 
@@ -62,6 +63,6 @@ function Job(props) {
     </div>
   );
 }
-
+//employers.id === applications.employer_id && 
 
 export default Job;

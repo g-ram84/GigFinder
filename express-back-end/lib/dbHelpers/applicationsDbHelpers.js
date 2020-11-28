@@ -31,18 +31,6 @@ const getAllApplications = function(db, options) {
     });
 };
 
-
-
-
-const getApplicationById = function(id, db) {
-  return db.query(`SELECT applications.*, jobs.job_title, employers.name  FROM applications JOIN jobs ON jobs.id = applications.job_id JOIN employers ON employers.id = jobs.employer_id  WHERE applications.id =$1`, [id])
-    .then((res) => {
-      return res.rows;
-    }).catch(err => {
-      console.log(err);
-    });
-};
-
 const addNewApplication = function(newApplication, db) {
   const { worker_id, job_id, status, date_applied } = newApplication;
 
@@ -55,4 +43,26 @@ const addNewApplication = function(newApplication, db) {
       console.log(err);
     });
 };
-module.exports = { getAllApplications, getApplicationById, addNewApplication };
+
+
+const getApplicationById = function(id, db) {
+
+  return db.query(`SELECT applications.*, jobs.job_title 
+  FROM applications 
+  JOIN jobs ON jobs.id = applications.job_id
+  WHERE applications.id =$1`, [id])
+    .then((res) => {
+      return res.rows;
+    }).catch(err => {
+      console.log(err);
+    });
+  }
+
+
+
+
+
+
+
+
+module.exports = { getAllApplications, getApplicationById, addNewApplication, getApplicationsById };

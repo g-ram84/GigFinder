@@ -12,21 +12,15 @@ import { render } from 'react-dom';
 
 export default function SeeApplications(props) {
 //   const history = useHistory();
-//   const gigfinderContext = useContext(GigfinderContext);
+  const gigfinderContext = useContext(GigfinderContext);
 //   const { loggedInUser } = gigfinderContext;
 
-//   //  Get applications for job
-//   const getApplications = async (job) => {
-//     const res = await axios({
-//       method: 'get',
-//       url: `/api/applications/${applications.id}`
+//use effect gigfindercontext.getapplications will bring in info
+//pass job id from props
+// need to pass job id compoenent as props to get application
 
-//     });
-    //   dispatch({
-    //     type: GET_APPLICATIONS,
-    //     payload: res.data
-    //   });
-    // };
+
+
 
     // console.log(getApplications, "getApplications gives us this");
     //   const applicants = 
@@ -34,9 +28,20 @@ export default function SeeApplications(props) {
     //   is allowed to see function
     // return("")
     // else return
+
+
+
+
     return (
       <div>
-        <p>list of applicants</p>// return .map with applicants. only employers who own job can see the applicants
+        <p>
+          {GigfinderContext.applications.map(() => {
+          
+          
+          
+          
+          })}
+          </p>
       </div>
     );
   };

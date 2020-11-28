@@ -31,6 +31,18 @@ module.exports = function(router, helper, db) {
         res.status(500);
       });
   });
-  return router;
+
+  router.get("/:id/applications", (req, res) => {
+    const job_id = req.params.id;
+    helper.getApplicationsByJobId(job_id, db)
+      .then(data => {
+        res.json(data);
+      })
+      .catch(e => {
+        res.status(500);
+      });
+  });
+
+    return router;
 
 };
