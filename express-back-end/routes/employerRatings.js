@@ -1,6 +1,6 @@
 module.exports = function(router, helper, db) {
   router.get("/", (req, res) => {
-    helper.getAllSavedCompanies(db)
+    helper.getAllEmployerRatings(db)
       .then(data => {
         res.json(data);
       })
@@ -8,9 +8,10 @@ module.exports = function(router, helper, db) {
         res.status(500);
       });
   });
+
   router.get("/:id", (req, res) => {
     const worker_id = req.params.id;
-    helper.getSavedCompaniesByWorkerId(worker_id, db)
+    helper.getEmployerRatingsByWorkerId(worker_id, db)
       .then(data => {
         res.json(data);
       })

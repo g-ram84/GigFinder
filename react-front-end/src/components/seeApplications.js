@@ -19,6 +19,10 @@ export default function SeeApplications(props) {
   const { loggedInUser } = userContext;
   const { getApplications, applications } = applicationContext;
   console.log("application", applications);
+  useEffect(() => {
+    getApplications(loggedInUser.id);
+  }, []);
+
   const myApplications = applications.map(application => {
     return (
       <div>
