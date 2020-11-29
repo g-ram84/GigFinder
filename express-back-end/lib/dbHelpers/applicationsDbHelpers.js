@@ -54,14 +54,9 @@ const getApplicationById = function(id, db) {
 };
 
 
-<<<<<<< HEAD
 const getApplicationByJobId = function(job_id, db) {
 
   return db.query(`SELECT applications.*, jobs.job_title, jobs.hourly_wage, workers.email 
-=======
-const getApplicationsByJobId = function(job_id, db) {
-  return db.query(`SELECT applications.*, jobs.job_title, workers.email 
->>>>>>> ecca8dba43efd6cad94fe43e385746ac28769ec5
   FROM applications 
   JOIN jobs ON jobs.id = applications.job_id
   JOIN workers ON workers.id = applications.worker_id
