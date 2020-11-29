@@ -6,6 +6,7 @@ import WorkerList from '../components/workerList';
 import WorkerState from '../context/worker/WorkerState';
 import JobState from '../context/job/JobState';
 import JobList from '../components/jobList';
+import UserJobList from '../components/userJobList';
 
 function Profile(props) {
   const userContext = useContext(UserContext);
@@ -66,10 +67,7 @@ function Profile(props) {
         <Page pageNumber={pageNumber} />
       </Document>
       {loggedInUser.id === application.worker_id &&
-        <JobState>
-          <JobList />
-        </JobState>
-
+        <UserJobList />
       }
     </Fragment>
   );

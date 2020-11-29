@@ -1,5 +1,5 @@
-DROP TABLE IF EXISTS saved_employers CASCADE;
-DROP TABLE IF EXISTS saved_workers CASCADE;
+DROP TABLE IF EXISTS employer_ratings CASCADE;
+DROP TABLE IF EXISTS worker_ratings CASCADE;
 DROP TABLE IF EXISTS applications CASCADE;
 DROP TABLE IF EXISTS jobs CASCADE;
 DROP TABLE IF EXISTS workers CASCADE;
@@ -39,21 +39,35 @@ CREATE TABLE jobs (
 	job_location VARCHAR(255) DEFAULT 'Job Location'
 );
 
-CREATE TABLE saved_employers (
+CREATE TABLE employer_ratings (
 	id SERIAL PRIMARY KEY NOT NULL,
 	worker_id INTEGER REFERENCES workers(id),
 	employer_id INTEGER REFERENCES employers(id),
-	favourite BOOLEAN DEFAULT FALSE,
 	rating INTEGER DEFAULT 0
 );
 
-CREATE TABLE saved_workers (
+CREATE TABLE worker_ratings (
 	id SERIAL PRIMARY KEY NOT NULL,
 	worker_id INTEGER REFERENCES workers(id),
 	employer_id INTEGER REFERENCES employers(id),
-	favourite BOOLEAN DEFAULT FALSE,
 	rating INTEGER DEFAULT 0
 );
+
+-- CREATE TABLE saved_employers (
+-- 	id SERIAL PRIMARY KEY NOT NULL,
+-- 	worker_id INTEGER REFERENCES workers(id),
+-- 	employer_id INTEGER REFERENCES employers(id),
+-- 	favourite BOOLEAN DEFAULT FALSE,
+-- 	rating INTEGER DEFAULT 0
+-- );
+
+-- CREATE TABLE saved_workers (
+-- 	id SERIAL PRIMARY KEY NOT NULL,
+-- 	worker_id INTEGER REFERENCES workers(id),
+-- 	employer_id INTEGER REFERENCES employers(id),
+-- 	favourite BOOLEAN DEFAULT FALSE,
+-- 	rating INTEGER DEFAULT 0
+-- );
 
 CREATE TABLE applications (
 	id SERIAL PRIMARY KEY NOT NULL,

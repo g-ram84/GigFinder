@@ -4,7 +4,7 @@ import ApplicationContext from './applicationContext';
 import ApplicationReducer from './applicationReducer';
 import {
   ADD_APPLICATION,
-  GET_APPLICATIONS
+  SET_APPLICATIONS
 } from '../types';
 
 const ApplicationState = props => {
@@ -15,13 +15,25 @@ const ApplicationState = props => {
   const [state, dispatch] = useReducer(ApplicationReducer, initialState);
 
   //Get applications for job
-  const getApplications = async (job_id) => {
+  // const getApplications = async (job_id) => {
+  //   const res = await axios({
+  //     method: 'get',
+  //     url: `/api/jobs/${job_id}`
+  //   });
+  //   dispatch({
+  //     type: GET_APPLICATIONS,
+  //     payload: res.data
+  //   });
+  // };
+
+  const getApplications = async (job) => {
     const res = await axios({
       method: 'get',
-      url: `/api/jobs/${job_id}`
+      url: `/api/jobs/${job.id}/applications`
+
     });
     dispatch({
-      type: GET_APPLICATIONS,
+      type: SET_APPLICATIONS,
       payload: res.data
     });
   };

@@ -20,6 +20,17 @@ module.exports = function(router, helper, db) {
       });
   });
 
+  router.get("/applied/worker/:id", (req, res) => {
+    const worker_id = req.params.id;
+    helper.getJobsAppliedForByWorkerId(worker_id, db)
+      .then(data => {
+        res.json(data);
+      })
+      .catch(e => {
+        res.status(500);
+      });
+  });
+
   router.post("/", (req, res) => {
     const newJob = req.body.job;
     //console.log(newJob);
@@ -43,6 +54,6 @@ module.exports = function(router, helper, db) {
       });
   });
 
-    return router;
+  return router;
 
 };

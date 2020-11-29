@@ -1,7 +1,8 @@
 import React, { useState, useEffect, useContext } from 'react';
 import { Link, useHistory } from 'react-router-dom';
 import { Row, Col, Button, Form, FormGroup, Input } from 'reactstrap';
-import GigfinderContext from '../context/gigfinder/gigfinderContext.js';
+import UserContext from '../context/user/userContext.js';
+import ApplicationContext from '../context/application/applicationContext.js';
 import MyApplications from './myApplications.js';
 // import gigfinderState, { getApplications } from '../context/gigfinder/gigfinderState.js';
 
@@ -13,11 +14,12 @@ import { render } from 'react-dom';
 
 export default function SeeApplications(props) {
   //   const history = useHistory();
-  const gigfinderContext = useContext(GigfinderContext);
-  const { loggedInUser, getApplications, applications } = gigfinderContext;
+  const userContext = useContext(UserContext);
+  const applicationContext = useContext(ApplicationContext);
+  const { loggedInUser } = userContext;
+  const { getApplications, applications } = applicationContext;
   console.log("application", applications);
   const myApplications = applications.map(application => {
-
     return (
       <div>
         <MyApplications
@@ -28,8 +30,11 @@ export default function SeeApplications(props) {
       </div>
     );
   });
+  return (
+    myApplications
+  );
 };
 
-console.log(SeeApplications);
+//console.log(SeeApplications);
 
 

@@ -39,7 +39,21 @@ const addNewJob = function(newJob, db) {
     });
 };
 
+const getJobsAppliedForByWorkerId = function(worker_id, db) {
+  //console.log(job_title);
+  return db.query(`SELECT applications.*, jobs.job_title, workers.id as worker_id
+  FROM applications
+  JOIN jobs ON jobs.id = applications.job_id
+  JOIN workers ON workers.id = applications.worker_id
+  WHERE workers.id = $1;`, [worker_id])
+    .then((res) => {
+      return res.rows;
+    }).catch(err => {
+      console.log(err);
+    });
+};
 
 
-module.exports = { getAllJobs, getJobById, addNewJob };
+
+module.exports = { getAllJobs, getJobById, addNewJob, getJobsAppliedForByWorkerId };
 

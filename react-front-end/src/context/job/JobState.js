@@ -6,6 +6,7 @@ import JobReducer from './jobReducer';
 import {
   SEARCH_JOBS,
   CLEAR_JOBS,
+  GET_USER_JOBS,
   ADD_JOB,
 } from '../types';
 
@@ -13,6 +14,7 @@ import {
 const JobState = props => {
   const initialState = {
     jobs: [],
+    userJobs: []
   };
   const [state, dispatch] = useReducer(JobReducer, initialState);
   const searchJobs = async (searchterm) => {
@@ -28,6 +30,22 @@ const JobState = props => {
     });
   };
 
+  const getUserJobs = (worker_id) => {
+    axios.get(
+      `/api/jobs/applied/worker/${worker_id}`, {
+      headers: {
+        "Access-Control-Allow-Origin": "*"
+      },
+    }).then((res) => {
+      dispatch({
+        type: GET_USER_JOBS,
+        payload: res.data
+      });
+    });
+
+
+  };
+
   const addNewJob = async (job) => {
     const res = await axios({
       method: 'post',
@@ -41,6 +59,7 @@ const JobState = props => {
       payload: job
     });
   };
+
   const clearJobs = () => {
     dispatch({
       type: CLEAR_JOBS,
@@ -51,8 +70,10 @@ const JobState = props => {
     <JobContext.Provider
       value={{
         jobs: state.jobs,
+        userJobs: state.userJobs,
         searchJobs,
         addNewJob,
+        getUserJobs,
         clearJobs
       }}
     >

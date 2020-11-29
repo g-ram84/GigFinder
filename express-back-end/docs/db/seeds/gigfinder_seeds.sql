@@ -44,19 +44,37 @@ INSERT INTO applications (worker_id, job_id, status, date_applied) VALUES (4, 1,
 INSERT INTO applications (worker_id, job_id, status, date_applied) VALUES (5, 2, 'Declined', '12/1/2020');
 
 --SAVED EMPLOYERS SEEDS
-INSERT INTO saved_employers (worker_id, employer_id, favourite, rating) VALUES (1, 2, false, 5);
-INSERT INTO saved_employers (worker_id, employer_id, favourite, rating) VALUES (2, 7, true, 2);
-INSERT INTO saved_employers (worker_id, employer_id, favourite, rating) VALUES (3, 8, false, 2);
-INSERT INTO saved_employers (worker_id, employer_id, favourite, rating) VALUES (4, 7, true, 1);
-INSERT INTO saved_employers (worker_id, employer_id, favourite, rating) VALUES (5, 6, true, 4);
-INSERT INTO saved_employers (worker_id, employer_id, favourite, rating) VALUES (6, 6, false, 3);
-INSERT INTO saved_employers (worker_id, employer_id, favourite, rating) VALUES (7, 3, true, 4);
+-- INSERT INTO saved_employers (worker_id, employer_id, favourite, rating) VALUES (1, 2, false, 5);
+-- INSERT INTO saved_employers (worker_id, employer_id, favourite, rating) VALUES (2, 7, true, 2);
+-- INSERT INTO saved_employers (worker_id, employer_id, favourite, rating) VALUES (3, 8, false, 2);
+-- INSERT INTO saved_employers (worker_id, employer_id, favourite, rating) VALUES (4, 7, true, 1);
+-- INSERT INTO saved_employers (worker_id, employer_id, favourite, rating) VALUES (5, 6, true, 4);
+-- INSERT INTO saved_employers (worker_id, employer_id, favourite, rating) VALUES (6, 6, false, 3);
+-- INSERT INTO saved_employers (worker_id, employer_id, favourite, rating) VALUES (7, 3, true, 4);
 
 --SAVED WORKER SEEDS
-INSERT INTO saved_workers (worker_id, employer_id, favourite, rating) VALUES (1, 2, false, 5);
-INSERT INTO saved_workers (worker_id, employer_id, favourite, rating) VALUES (2, 7, true, 2);
-INSERT INTO saved_workers (worker_id, employer_id, favourite, rating) VALUES (3, 8, false, 2);
-INSERT INTO saved_workers (worker_id, employer_id, favourite, rating) VALUES (4, 7, true, 1);
-INSERT INTO saved_workers (worker_id, employer_id, favourite, rating) VALUES (5, 6, true, 4);
-INSERT INTO saved_workers (worker_id, employer_id, favourite, rating) VALUES (6, 6, false, 3);
-INSERT INTO saved_workers (worker_id, employer_id, favourite, rating) VALUES (7, 3, true, 4);
+-- INSERT INTO saved_workers (worker_id, employer_id, favourite, rating) VALUES (1, 2, false, 5);
+-- INSERT INTO saved_workers (worker_id, employer_id, favourite, rating) VALUES (2, 7, true, 2);
+-- INSERT INTO saved_workers (worker_id, employer_id, favourite, rating) VALUES (3, 8, false, 2);
+-- INSERT INTO saved_workers (worker_id, employer_id, favourite, rating) VALUES (4, 7, true, 1);
+-- INSERT INTO saved_workers (worker_id, employer_id, favourite, rating) VALUES (5, 6, true, 4);
+-- INSERT INTO saved_workers (worker_id, employer_id, favourite, rating) VALUES (6, 6, false, 3);
+-- INSERT INTO saved_workers (worker_id, employer_id, favourite, rating) VALUES (7, 3, true, 4);
+
+--EMPLOYER RATINGS
+INSERT INTO employer_ratings (worker_id, employer_id, rating) VALUES (1, 2, 5);
+INSERT INTO employer_ratings (worker_id, employer_id, rating) VALUES (2, 7, 2);
+INSERT INTO employer_ratings (worker_id, employer_id, rating) VALUES (3, 8, 2);
+INSERT INTO employer_ratings (worker_id, employer_id, rating) VALUES (4, 7, 1);
+INSERT INTO employer_ratings (worker_id, employer_id, rating) VALUES (5, 6, 4);
+INSERT INTO employer_ratings (worker_id, employer_id, rating) VALUES (6, 6, 3);
+INSERT INTO employer_ratings (worker_id, employer_id, rating) VALUES (7, 3, 4);
+
+--WORKER RATINGS
+INSERT INTO worker_ratings (worker_id, employer_id, rating) VALUES (1, 2, 5);
+INSERT INTO worker_ratings (worker_id, employer_id, rating) VALUES (2, 7, 2);
+INSERT INTO worker_ratings (worker_id, employer_id, rating) VALUES (3, 8, 2);
+INSERT INTO worker_ratings (worker_id, employer_id, rating) VALUES (4, 7, 1);
+INSERT INTO worker_ratings (worker_id, employer_id, rating) VALUES (5, 6, 4);
+INSERT INTO worker_ratings (worker_id, employer_id, rating) VALUES (6, 6, 3);
+INSERT INTO worker_ratings (worker_id, employer_id, rating) VALUES (7, 3, 4);

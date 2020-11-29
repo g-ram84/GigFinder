@@ -7,5 +7,4 @@ function Thanks() {
     </div>
   );
 }
-
 export default Thanks;

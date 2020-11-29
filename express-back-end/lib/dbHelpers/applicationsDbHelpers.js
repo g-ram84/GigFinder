@@ -62,12 +62,15 @@ const getApplicationByJobId = function(job_id, db) {
   JOIN workers ON workers.id = applications.worker_id
   WHERE applications.job_id =$1`, [job_id])
     .then((res) => {
-      console.log(res,"the res rom getApplicationsBy JobID")
+      console.log(res, "the res rom getApplicationsBy JobID");
       return res.rows;
     }).catch(err => {
       console.log(err);
     });
-  }
+};
+
+
+
 
 
 

@@ -36,6 +36,7 @@ function App() {
                 <Route exact path='/login' component={Login} />
                 <Route exact path='/workers/:id' component={Profile} />
                 <Route exact path='/register' component={Register} />
+                <Route exact path='/thanks' component={Thanks} />
                 {/* <Route exact path='/results' component={Results} /> */}
               </Router>
             </ApplicationState>

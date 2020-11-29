@@ -1,7 +1,8 @@
 import {
   SEARCH_JOBS,
   ADD_JOB,
-  CLEAR_JOBS
+  CLEAR_JOBS,
+  GET_USER_JOBS
 } from '../types';
 
 export default (state, action) => {
@@ -21,6 +22,14 @@ export default (state, action) => {
         ...state,
         jobs: [],
       };
+
+    case GET_USER_JOBS:
+      return {
+        ...state,
+        userJobs: action.payload,
+      };
+
+
     default:
       return state;
   }
