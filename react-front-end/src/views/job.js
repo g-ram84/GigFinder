@@ -3,6 +3,7 @@ import { ExternalLink } from 'react-external-link';
 import JobList from '../components/jobList';
 import './job.scss';
 import axios from 'axios';
+import '../styles/homePage.scss'
 import Apply from '../components/apply';
 import SeeApplications from '../components/seeApplications';
 
