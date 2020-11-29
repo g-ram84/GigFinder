@@ -27,11 +27,11 @@ const getAllJobs = function(db, options) {
 
 
 const addNewJob = function(newJob, db) {
-  const { job_title, hourly_wage, date_created, job_date, job_active, positions, job_description, employer_id, location_lat, location_long } = newJob;
+  const { job_title, hourly_wage, job_date, job_active, positions, job_description, employer_id, job_location } = newJob;
   console.log(job_title);
-  return db.query(`INSERT into Jobs (job_title, hourly_wage, date_created, job_date, job_active, positions, job_description, employer_id, location_lat, location_long)
-  values ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10);`,
-    [job_title, hourly_wage, date_created, job_date, job_active, positions, job_description, employer_id, location_lat, location_long])
+  return db.query(`INSERT into Jobs (job_title, hourly_wage, job_date, job_active, positions, job_description, employer_id, job_location)
+  values ($1, $2, $3, $4, $5, $6, $7, $8);`,
+    [job_title, hourly_wage, job_date, job_active, positions, job_description, employer_id, job_location])
     .then((res) => {
       return res.rows;
     }).catch(err => {

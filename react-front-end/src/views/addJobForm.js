@@ -1,27 +1,27 @@
 import React, { useContext, useState } from 'react';
 import { Col, Row, Button, Form, FormGroup, Label, Input, FormFeedback, FormText } from 'reactstrap';
-import GigfinderContext from '../context/gigfinder/gigfinderContext';
+import JobContext from '../context/job/jobContext';
 const AddJobForm = () => {
-  const gigfinderContext = useContext(GigfinderContext);
-  
+  const jobContext = useContext(JobContext);
+
   const [job, setJob] = useState({
     job_title: job_title,
     hourly_wage: hourly_wage,
-    date_created: date_created,
-    job_date: job_date,
+    job_data: job_date,
     job_active: job_active,
     positions: positions,
     job_description: job_description,
+    job_active: true,
     employer_id: employer_id,
-    location_lat: 49.6252,
-    location_long: -122.482
+    job_location: "Location",
+
   });
 
-  const { job_title, hourly_wage, date_created, job_date, job_active, positions, job_description, employer_id } = job;
+  const { job_title, hourly_wage, job_date, job_active, positions, job_description, employer_id } = job;
   const onChange = e => setJob({ ...job, [e.target.name]: e.target.value });
   const onSubmit = e => {
     e.preventDefault();
-    gigfinderContext.addNewJob(job);
+    jobContext.addNewJob(job);
   };
 
 
@@ -48,13 +48,13 @@ const AddJobForm = () => {
         <Input type="date" name="job_date" id="date" placeholder="Select date" value={job_date} onChange={onChange} />
       </FormGroup>
 
-      <Label for="skills" className="mr-sm-2">Skills</Label>
+      {/* <Label for="skills" className="mr-sm-2">Skills</Label>
       <Form inline>
         <FormGroup className="mb-2 mr-sm-2 mb-sm-0">
           <Input type="text" name="skills" id="skills" placeholder="Enter any specific skills required" />
         </FormGroup>
         <Button>Add Skill to list</Button>
-      </Form>
+      </Form> */}
 
       <FormGroup>
         <Label for="employeeQuantity">Number of Employees Required</Label>
