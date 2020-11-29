@@ -43,6 +43,23 @@ const addNewApplication = function(newApplication, db) {
       console.log(err);
     });
 };
+const acceptApplication = function(id, db) {
+  return db.query(`UPDATE applications SET statue = 'Accepted' WHERE id = $1`, [id])
+    .then((res) => {
+      return res.rows;
+    }).catch(err => {
+      console.log(err);
+    });
+};
+
+const declineApplication = function(id, db) {
+  return db.query(`UPDATE applications SET statue = 'Declined' WHERE id = $1`, [id])
+    .then((res) => {
+      return res.rows;
+    }).catch(err => {
+      console.log(err);
+    });
+};
 
 const getApplicationById = function(id, db) {
   return db.query(`SELECT applications.*, jobs.job_title, employers.name  FROM applications JOIN jobs ON jobs.id = applications.job_id JOIN employers ON employers.id = jobs.employer_id  WHERE applications.id =$1`, [id])

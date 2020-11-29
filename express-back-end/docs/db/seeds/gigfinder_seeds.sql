@@ -32,16 +32,16 @@ INSERT INTO jobs (job_title, hourly_wage, job_date, job_active, positions, job_d
 --APPLICATIONS SEEDS
 INSERT INTO applications (worker_id, job_id, status, date_applied) VALUES (1, 1, 'Pending', '12/2/2020');
 INSERT INTO applications (worker_id, job_id, status, date_applied) VALUES (2, 2, 'Pending', '12/1/2020');
-INSERT INTO applications (worker_id, job_id, status, date_applied) VALUES (3, 3, 'Declined', '12/1/2020');
-INSERT INTO applications (worker_id, job_id, status, date_applied) VALUES (4, 3, 'Accepted', '12/2/2020');
+INSERT INTO applications (worker_id, job_id, status, date_applied) VALUES (3, 3, 'Pending', '12/1/2020');
+INSERT INTO applications (worker_id, job_id, status, date_applied) VALUES (4, 3, 'Pending', '12/2/2020');
 INSERT INTO applications (worker_id, job_id, status, date_applied) VALUES (5, 5, 'Pending', '12/2/2020');
-INSERT INTO applications (worker_id, job_id, status, date_applied) VALUES (6, 6, 'Accepted', '12/1/2020');
+INSERT INTO applications (worker_id, job_id, status, date_applied) VALUES (6, 6, 'Pending', '12/1/2020');
 INSERT INTO applications (worker_id, job_id, status, date_applied) VALUES (7, 7, 'Pending', '12/2/2020');
 INSERT INTO applications (worker_id, job_id, status, date_applied) VALUES (1, 8, 'Pending', '12/1/2020');
-INSERT INTO applications (worker_id, job_id, status, date_applied) VALUES (2, 9, 'Accepted', '12/2/2020');
-INSERT INTO applications (worker_id, job_id, status, date_applied) VALUES (3, 10, 'Accepted', '12/2/2020');
-INSERT INTO applications (worker_id, job_id, status, date_applied) VALUES (4, 1, 'Declined', '12/2/2020');
-INSERT INTO applications (worker_id, job_id, status, date_applied) VALUES (5, 2, 'Declined', '12/1/2020');
+INSERT INTO applications (worker_id, job_id, status, date_applied) VALUES (2, 9, 'Pending', '12/2/2020');
+INSERT INTO applications (worker_id, job_id, status, date_applied) VALUES (3, 10, 'Pending', '12/2/2020');
+INSERT INTO applications (worker_id, job_id, status, date_applied) VALUES (4, 1, 'Pending', '12/2/2020');
+INSERT INTO applications (worker_id, job_id, status, date_applied) VALUES (5, 2, 'Pending', '12/1/2020');
 
 --SAVED EMPLOYERS SEEDS
 -- INSERT INTO saved_employers (worker_id, employer_id, favourite, rating) VALUES (1, 2, false, 5);

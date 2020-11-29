@@ -22,15 +22,32 @@ export default function SeeApplications(props) {
   useEffect(() => {
     getApplications(loggedInUser.id);
   }, []);
+const [accept, setAccept] = useState('Pending')
 
+
+const [ decline, setDecline ] = useState('Pending')
+const onSubmitDecline = e => {
+  e.preventDefault();
+  userContext.declineApplication(applications.id)
+    .then(() => {
+      setDecline('Declined');
+    });
+};
   const myApplications = applications.map(application => {
+    console.log("application in seeApplication",application)
+
     return (
       <div>
+        { props.status !== 'Declined' &&
         <MyApplications
-          // email={workers.email}
-          status={application.status}
-          date={application.date_applied}
+        email={application.email}
+        status={application.status}
+        date={application.date_applied}
+        jobs={application.job_title}
+        worker ={application.worker_id}
         />
+      }
+        <Button onClick={onSubmitDecline}>Decline Application</Button>
       </div>
     );
   });

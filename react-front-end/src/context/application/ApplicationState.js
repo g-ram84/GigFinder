@@ -4,7 +4,8 @@ import ApplicationContext from './applicationContext';
 import ApplicationReducer from './applicationReducer';
 import {
   ADD_APPLICATION,
-  GET_APPLICATIONS
+  GET_APPLICATIONS,
+  DECLINE_APPLICATION
 } from '../types';
 
 const ApplicationState = props => {
@@ -51,12 +52,28 @@ const ApplicationState = props => {
     });
   };
 
+  const declineApplication = async (id, application) => {
+    const res = await axios({
+      method: 'put',
+      url: `/api/applications/${id}`,
+      data: {
+        application: { ...application },
+      },
+    });
+    dispatch({
+      type: DECLINE_APPLICATION,
+      payload: application
+    });
+  };
+  
+
   return (
     <ApplicationContext.Provider
       value={{
         applications: state.applications,
         addNewApplication,
-        getApplications
+        getApplications,
+        declineApplication
       }}
     >
       {props.children}

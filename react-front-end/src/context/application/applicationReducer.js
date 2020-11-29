@@ -1,6 +1,8 @@
 import {
   ADD_APPLICATION,
-  GET_APPLICATIONS
+  GET_APPLICATIONS,
+  DECLINE_APPLICATION,
+  ACCEPT_APPLICATION
 } from '../types';
 
 export default (state, action) => {
@@ -14,8 +16,13 @@ export default (state, action) => {
     case GET_APPLICATIONS:
       return {
         ...state,
-        applications: action.payload, //maybe not
+        applications: action.payload,
       };
+      case DECLINE_APPLICATION:
+        return {
+          ...state,
+          applications: action.payload,
+        };
     default:
       return state;
   }
