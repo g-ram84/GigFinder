@@ -14,7 +14,7 @@ export default (state, action) => {
     case GET_APPLICATIONS:
       return {
         ...state,
-        loggedinUser: action.payload, //maybe not
+        applications: action.payload, //maybe not
       };
     default:
       return state;

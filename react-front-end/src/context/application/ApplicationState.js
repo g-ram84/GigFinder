@@ -4,7 +4,7 @@ import ApplicationContext from './applicationContext';
 import ApplicationReducer from './applicationReducer';
 import {
   ADD_APPLICATION,
-  SET_APPLICATIONS
+  GET_APPLICATIONS
 } from '../types';
 
 const ApplicationState = props => {
@@ -26,14 +26,13 @@ const ApplicationState = props => {
   //   });
   // };
 
-  const getApplications = async (job) => {
+  const getApplications = async (job_id) => {
     const res = await axios({
       method: 'get',
-      url: `/api/jobs/${job.id}/applications`
-
+      url: `/api/applications/job/${job_id}`
     });
     dispatch({
-      type: SET_APPLICATIONS,
+      type: GET_APPLICATIONS,
       payload: res.data
     });
   };

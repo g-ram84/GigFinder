@@ -3,8 +3,8 @@ const jobsDbHelpers = require('../lib/dbHelpers/jobsDbHelpers');
 const workersDbHelpers = require('../lib/dbHelpers/workersDbHelpers');
 const applicationsDbHelpers = require('../lib/dbHelpers/applicationsDbHelpers');
 const employersDbHelpers = require('../lib/dbHelpers/employersDbHelpers');
-const savedCompaniesDbHelpers = require('../lib/dbHelpers/savedCompaniesDbHelpers');
-const savedWorkersDbHelpers = require('../lib/dbHelpers/savedWorkersDbHelpers');
+const employerRatingsDbHelpers = require('../lib/dbHelpers/employerRatingsDbHelpers');
+const workerRatingsDbHelpers = require('../lib/dbHelpers/workerRatingsDbHelpers');
 const { app } = require("../server");
 
 
@@ -29,14 +29,14 @@ function apiRoutes(db) {
   employersRoutes(employersRouter, employersDbHelpers, db);
   app.use('/api/employers', employersRouter);
 
-  const savedCompaniesRouter = express.Router();
-  const savedCompaniesRoutes = require("./saved_companies");
-  savedCompaniesRoutes(savedCompaniesRouter, savedCompaniesDbHelpers, db);
-  app.use('/api/savedcompanies', savedCompaniesRouter);
+  const employerRatingsRouter = express.Router();
+  const employerRatingsRoutes = require("./employerRatings");
+  employerRatingsRoutes(employerRatingsRouter, employerRatingsDbHelpers, db);
+  app.use('/api/employerratings', employerRatingsRouter);
 
-  const savedWorkersRouter = express.Router();
-  const savedWorkersRoutes = require("./saved_workers");
-  savedWorkersRoutes(savedWorkersRouter, savedWorkersDbHelpers, db);
-  app.use('/api/savedworkers', savedWorkersRouter);
+  const workerRatingsRouter = express.Router();
+  const workerRatingsRoutes = require("./workerRatings");
+  workerRatingsRoutes(workerRatingsRouter, workerRatingsDbHelpers, db);
+  app.use('/api/workerratings', workerRatingsRouter);
 }
 exports.apiRoutes = apiRoutes;
