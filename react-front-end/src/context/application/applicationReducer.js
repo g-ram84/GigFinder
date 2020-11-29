@@ -23,6 +23,11 @@ export default (state, action) => {
           ...state,
           applications: action.payload,
         };
+        case ACCEPT_APPLICATION:
+          return {
+            ...state,
+            applications: action.payload,
+          };
     default:
       return state;
   }
