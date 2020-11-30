@@ -5,7 +5,8 @@ import ApplicationReducer from './applicationReducer';
 import {
   ADD_APPLICATION,
   GET_APPLICATIONS,
-  DECLINE_APPLICATION
+  DECLINE_APPLICATION,
+  ACCEPT_APPLICATION
 } from '../types';
 
 const ApplicationState = props => {
@@ -65,6 +66,20 @@ const ApplicationState = props => {
       payload: application
     });
   };
+
+  const acceptApplication = async (id, application) => {
+    const res = await axios({
+      method: 'put',
+      url: `/api/applications/${id}`,
+      data: {
+        application: { ...application },
+      },
+    });
+    dispatch({
+      type: ACCEPT_APPLICATION,
+      payload: application
+    });
+  };
   
 
   return (
@@ -73,7 +88,8 @@ const ApplicationState = props => {
         applications: state.applications,
         addNewApplication,
         getApplications,
-        declineApplication
+        declineApplication,
+        acceptApplication
       }}
     >
       {props.children}
