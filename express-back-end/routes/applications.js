@@ -19,7 +19,7 @@ module.exports = function(router, helper, db) {
         res.status(500);
       });
   });
-  router.get("/:id", (req, res) => {
+  router.put("/:id", (req, res) => {
     const application_id = req.params.id;
     helper.declineApplication(application_id, db)
       .then(data => {
