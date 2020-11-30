@@ -73,10 +73,11 @@ const getApplicationById = function(id, db) {
 
 const getApplicationByJobId = function(job_id, db) {
 
-  return db.query(`SELECT applications.*, jobs.job_title, jobs.hourly_wage, workers.email 
+  return db.query(`SELECT applications.*, jobs.job_title, jobs.hourly_wage, workers.email, employers.id 
   FROM applications 
   JOIN jobs ON jobs.id = applications.job_id
   JOIN workers ON workers.id = applications.worker_id
+  JOIN employers ON employers.id = jobs.employer_id
   WHERE applications.job_id =$1`, [job_id])
     .then((res) => {
       return res.rows;

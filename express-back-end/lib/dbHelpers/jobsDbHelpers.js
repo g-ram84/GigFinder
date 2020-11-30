@@ -41,7 +41,7 @@ const addNewJob = function(newJob, db) {
 
 const getJobsAppliedForByWorkerId = function(worker_id, db) {
   //console.log(job_title);
-  return db.query(`SELECT applications.*, jobs.job_title, jobs.hourly_wage, jobs.positions, jobs.job_date, employers.name, workers.id as worker_id, 
+  return db.query(`SELECT applications.*, jobs.job_title, jobs.hourly_wage, jobs.positions, jobs.job_date, employers.name, workers.id as worker_id 
   FROM applications
   JOIN jobs ON jobs.id = applications.job_id
   JOIN workers ON workers.id = applications.worker_id
