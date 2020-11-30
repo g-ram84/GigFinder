@@ -14,22 +14,29 @@ import { render } from 'react-dom';
 
 
 export default function SeeApplications(props) {
-  console.log("PROPSPROPS",props,"PROPSPROPS")
+  console.log("PROPSPROPS", props, "PROPSPROPS");
   //   const history = useHistory();
- 
+
   const userContext = useContext(UserContext);
   const applicationContext = useContext(ApplicationContext);
   const { loggedInUser, loggedInUserType } = userContext;
   const { getApplications, applications, declineApplication, acceptApplication } = applicationContext;
-
+  console.log("aaplications after defining", applications);
+  console.log("aaplicationCONTEXT after defining", applicationContext);
 
   useEffect(() => {
-    if (loggedInUserType === 1){
-    getApplications(loggedInUser.id)
+    console.log("loggedinusertyoe>>>>", loggedInUserType);
+    if (loggedInUserType === 0) {
+      console.log("");
+      getApplications(props.jobID);
+
     }
-    if (loggedInUserType === 2){
-      
-    getApplications(props.jobID)
+    if (loggedInUserType === 1) {
+      getApplications(loggedInUser.id);
+    }
+    if (loggedInUserType === 2) {
+
+      getApplications(props.jobID);
     }
   }, []);
 
@@ -37,15 +44,16 @@ export default function SeeApplications(props) {
   const [decline, setDecline] = useState('Pending');
 
 
-  const onSubmitAccept = (e,app) => {
+  const onSubmitAccept = (e, app) => {
     e.preventDefault();
-    console.log("applications>>>>",applications)
+    console.log("applications>>>>", applications);
     applicationContext.acceptApplication(app.id)
       .then(() => {
         setAccept('Accepted');
-        console.log("submission of applciations accepted")
+        getApplications(props.jobID);
+        console.log("submission of applciations accepted");
       }).catch(err => {
-        console.log("CATCH")
+        console.log("CATCH");
         console.log(err);
       });
   };
@@ -72,11 +80,11 @@ export default function SeeApplications(props) {
           />
         }
         {application.status === 'Pending' &&
-        <Button onClick={onSubmitDecline}>Decline Application</Button>
-      }
-        <br/>
+          <Button onClick={onSubmitDecline}>Decline Application</Button>
+        }
+        <br />
         {application.status === 'Pending' &&
-        <Button onClick={(e)=>onSubmitAccept(e, application)}>Accept Application</Button>
+          <Button onClick={(e) => onSubmitAccept(e, application)}>Accept Application</Button>
         }
       </div>
     );

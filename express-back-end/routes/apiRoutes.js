@@ -39,14 +39,14 @@ function apiRoutes(db) {
   workerRatingsRoutes(workerRatingsRouter, workerRatingsDbHelpers, db);
   app.use('/api/workerratings', workerRatingsRouter);
 
-  const declineApplicationRouter = express.Router();
-  const declineApplicationRoutes = require('./applications');
-  declineApplicationRoutes(declineApplicationRouter, applicationsDbHelpers, db);
-  app.use('/api/applications/decline', declineApplicationRouter);
+  // const declineApplicationRouter = express.Router();
+  // const declineApplicationRoutes = require('./applications');
+  // declineApplicationRoutes(declineApplicationRouter, applicationsDbHelpers, db);
+  // app.use('/api/applications/decline', declineApplicationRouter);
 
-  const acceptApplicationRouter = express.Router();
-  const acceptApplicationRoutes = require('./applications');
-  acceptApplicationRoutes(acceptApplicationRouter, applicationsDbHelpers, db);
-  app.use('/api/applications/accept', acceptApplicationRouter);
+  // const acceptApplicationRouter = express.Router();
+  // const acceptApplicationRoutes = require('./applications');
+  // acceptApplicationRoutes(acceptApplicationRouter, applicationsDbHelpers, db);
+  // app.use('/api/applications/accept', acceptApplicationRouter);
 }
 exports.apiRoutes = apiRoutes;

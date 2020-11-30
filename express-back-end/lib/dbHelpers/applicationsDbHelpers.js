@@ -49,6 +49,7 @@ const acceptApplication = function(id, db) {
       console.log("res.ROWS>>>",res.rows)
       return res.rows;
     }).catch(err => {
+      console.log("CATCH")
       console.log(err);
     });
 };
@@ -56,6 +57,7 @@ const acceptApplication = function(id, db) {
 const declineApplication = function(id, db) {
   return db.query(`UPDATE applications SET status = 'Declined' WHERE id = $1`, [id])
     .then((res) => {
+      console.log("is it in DECLINE")
       return res.rows;
     }).catch(err => {
       console.log(err);
