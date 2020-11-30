@@ -62,6 +62,9 @@ const declineApplication = function(id, db) {
 };
 
 const getApplicationById = function(id, db) {
+
+
+  
   return db.query(`SELECT applications.*, jobs.job_title, employers.name  FROM applications JOIN jobs ON jobs.id = applications.job_id JOIN employers ON employers.id = jobs.employer_id  WHERE applications.id =$1`, [id])
     .then((res) => {
       return res.rows;
@@ -96,8 +99,4 @@ const getApplicationsByJobId = function(job_id, db) {
 
 
 
-<<<<<<< HEAD
-module.exports = { getAllApplications, getApplicationById, addNewApplication, getApplicationByJobId, declineApplication };
-=======
 module.exports = { getAllApplications, getApplicationById, addNewApplication, getApplicationsByJobId, acceptApplication, declineApplication };
->>>>>>> acceptdecline

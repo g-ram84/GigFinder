@@ -69,6 +69,7 @@ const ApplicationState = props => {
       url: `/api/applications/${id}`,
       data: {
         application: { ...application },
+        'status': 'accepted'
       },
     });
     dispatch({

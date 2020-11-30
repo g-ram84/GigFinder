@@ -53,7 +53,7 @@ module.exports = function(router, helper, db) {
 
   router.get("/job/:id", (req, res) => {
     const job_id = req.params.id;
-    helper.getApplicationByJobId(job_id, db)
+    helper.getApplicationsByJobId(job_id, db)
       .then(data => {
         res.json(data);
       })
