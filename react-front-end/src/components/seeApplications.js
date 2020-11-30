@@ -54,9 +54,13 @@ export default function SeeApplications(props) {
             worker={application.worker_id}
           />
         }
+        {application.status === 'Pending' &&
         <Button onClick={onSubmitDecline}>Decline Application</Button>
+      }
         <br/>
-         <Button onClick={onSubmitAccept}>Accept Application</Button>
+        {application.status === 'Pending' &&
+        <Button onClick={onSubmitAccept}>Accept Application</Button>
+        }
       </div>
     );
   });
