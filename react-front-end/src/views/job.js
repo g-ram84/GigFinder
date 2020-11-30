@@ -39,6 +39,7 @@ function Job(props) {
   console.log("loggedinUSER", loggedInUser);
   return (
     <div className="jobs_item">
+  
       <header className="job_header">
         <span>{job.name}</span>
         <br /> Is looking for
