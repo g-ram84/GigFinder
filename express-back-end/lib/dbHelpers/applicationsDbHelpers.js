@@ -71,7 +71,7 @@ const getApplicationById = function(id, db) {
 };
 
 
-const getApplicationByJobId = function(job_id, db) {
+const getApplicationsByJobId = function(job_id, db) {
 
   return db.query(`SELECT applications.*, jobs.job_title, jobs.hourly_wage, workers.email 
   FROM applications 
@@ -95,4 +95,8 @@ const getApplicationByJobId = function(job_id, db) {
 
 
 
+<<<<<<< HEAD
 module.exports = { getAllApplications, getApplicationById, addNewApplication, getApplicationByJobId, declineApplication };
+=======
+module.exports = { getAllApplications, getApplicationById, addNewApplication, getApplicationsByJobId, acceptApplication, declineApplication };
+>>>>>>> acceptdecline

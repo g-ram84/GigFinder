@@ -29,6 +29,17 @@ module.exports = function(router, helper, db) {
         res.status(500);
       });
   });
+
+  router.get("/:id", (req, res) => {
+    const application_id = req.params.id;
+    helper.acceptApplication(application_id, db)
+      .then(data => {
+        res.json(data);
+      })
+      .catch(e => {
+        res.status(500);
+      });
+  });
   router.post("/", (req, res) => {
     const newApplication = req.body.application;
     helper.addNewApplication(newApplication, db)

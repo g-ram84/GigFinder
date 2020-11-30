@@ -27,7 +27,7 @@ export default function SeeApplications(props) {
   const [accept, setAccept] = useState('Pending');
   const onSubmitAccept = e => {
     e.preventDefault();
-    userContext.acceptApplication(applications.id)
+    applicationContext.acceptApplication(applications.id)
       .then(() => {
         setAccept('Accepted');
       });
@@ -35,7 +35,7 @@ export default function SeeApplications(props) {
   const [decline, setDecline] = useState('Pending');
   const onSubmitDecline = e => {
     e.preventDefault();
-    userContext.declineApplication(applications.id)
+    applicationContext.declineApplication(applications.id)
       .then(() => {
         setDecline('Declined');
       });
