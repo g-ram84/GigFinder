@@ -46,6 +46,7 @@ const addNewApplication = function(newApplication, db) {
 const acceptApplication = function(id, db) {
   return db.query(`UPDATE applications SET status = 'Accepted' WHERE id = $1`, [id])
     .then((res) => {
+      console.log("res.ROWS>>>",res.rows)
       return res.rows;
     }).catch(err => {
       console.log(err);
