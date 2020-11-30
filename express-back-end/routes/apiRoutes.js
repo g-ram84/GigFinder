@@ -43,5 +43,10 @@ function apiRoutes(db) {
   const declineApplicationRoutes = require('./applications');
   declineApplicationRoutes(declineApplicationRouter, applicationsDbHelpers, db);
   app.use('api/applications/decline', declineApplicationRouter);
+
+  const acceptApplicationRouter = express.Router();
+  const acceptApplicationRoutes = require('./applications');
+  acceptApplicationRoutes(acceptApplicationRouter, applicationsDbHelpers, db);
+  app.use('api/applications/accept', acceptApplicationRouter);
 }
 exports.apiRoutes = apiRoutes;
