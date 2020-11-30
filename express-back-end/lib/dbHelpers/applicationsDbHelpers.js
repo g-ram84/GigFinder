@@ -44,7 +44,7 @@ const addNewApplication = function(newApplication, db) {
     });
 };
 const acceptApplication = function(id, db) {
-  return db.query(`UPDATE applications SET statue = 'Accepted' WHERE id = $1`, [id])
+  return db.query(`UPDATE applications SET status = 'Accepted' WHERE id = $1`, [id])
     .then((res) => {
       return res.rows;
     }).catch(err => {
@@ -53,7 +53,7 @@ const acceptApplication = function(id, db) {
 };
 
 const declineApplication = function(id, db) {
-  return db.query(`UPDATE applications SET statue = 'Declined' WHERE id = $1`, [id])
+  return db.query(`UPDATE applications SET status = 'Declined' WHERE id = $1`, [id])
     .then((res) => {
       return res.rows;
     }).catch(err => {

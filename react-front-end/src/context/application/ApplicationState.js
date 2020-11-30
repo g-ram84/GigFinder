@@ -64,9 +64,10 @@ const ApplicationState = props => {
   };
 
   const acceptApplication = async (id, application) => {
+    console.log("acceptAPPLICATIONHERE")
     const res = await axios({
       method: 'put',
-      url: `/api/applications/${id}`,
+      url: `/api/applications/accept/${id}`,
       data: {
         application: { ...application },
         'status': 'accepted'

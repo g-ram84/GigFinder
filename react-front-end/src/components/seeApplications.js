@@ -14,6 +14,7 @@ import { render } from 'react-dom';
 
 
 export default function SeeApplications(props) {
+  console.log("PROPSPROPS",props,"PROPSPROPS")
   //   const history = useHistory();
  
   const userContext = useContext(UserContext);
@@ -23,19 +24,28 @@ export default function SeeApplications(props) {
 
 
   useEffect(() => {
-    getApplications(loggedInUser.id);
+    if (loggedInUserType === 1){
+    getApplications(loggedInUser.id)
+    }
+    if (loggedInUserType === 2){
+      
+    getApplications(props.jobID)
+    }
   }, []);
 
   const [accept, setAccept] = useState('Pending');
   const [decline, setDecline] = useState('Pending');
 
 
-  const onSubmitAccept = e => {
+  const onSubmitAccept = (e,app) => {
     e.preventDefault();
-    applicationContext.acceptApplication(applications.id)
+    console.log("applications>>>>",applications)
+    applicationContext.acceptApplication(app.id)
       .then(() => {
         setAccept('Accepted');
+        console.log("submission of applciations accepted")
       }).catch(err => {
+        console.log("CATCH")
         console.log(err);
       });
   };
@@ -66,7 +76,7 @@ export default function SeeApplications(props) {
       }
         <br/>
         {application.status === 'Pending' &&
-        <Button onClick={onSubmitAccept}>Accept Application</Button>
+        <Button onClick={(e)=>onSubmitAccept(e, application)}>Accept Application</Button>
         }
       </div>
     );
