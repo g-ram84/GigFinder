@@ -95,4 +95,4 @@ const getApplicationByJobId = function(job_id, db) {
 
 
 
-module.exports = { getAllApplications, getApplicationById, addNewApplication, getApplicationsByJobId };
+module.exports = { getAllApplications, getApplicationById, addNewApplication, getApplicationByJobId, declineApplication };

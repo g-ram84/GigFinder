@@ -38,5 +38,10 @@ function apiRoutes(db) {
   const workerRatingsRoutes = require("./workerRatings");
   workerRatingsRoutes(workerRatingsRouter, workerRatingsDbHelpers, db);
   app.use('/api/workerratings', workerRatingsRouter);
+
+  const declineApplicationRouter = express.Router();
+  const declineApplicationRoutes = require('./applications');
+  declineApplicationRoutes(declineApplicationRouter, applicationsDbHelpers, db);
+  app.use('api/applications/decline', declineApplicationRouter);
 }
 exports.apiRoutes = apiRoutes;

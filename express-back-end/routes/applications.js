@@ -19,7 +19,7 @@ module.exports = function(router, helper, db) {
         res.status(500);
       });
   });
-  router.get("/:id", (req, res) => {
+  router.put("/:id", (req, res) => {
     const application_id = req.params.id;
     helper.declineApplication(application_id, db)
       .then(data => {
@@ -42,7 +42,7 @@ module.exports = function(router, helper, db) {
 
   router.get("/job/:id", (req, res) => {
     const job_id = req.params.id;
-    helper.getApplicationsByJobId(job_id, db)
+    helper.getApplicationByJobId(job_id, db)
       .then(data => {
         res.json(data);
       })

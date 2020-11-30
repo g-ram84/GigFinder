@@ -52,17 +52,13 @@ const ApplicationState = props => {
     });
   };
 
-  const declineApplication = async (id, application) => {
+  const declineApplication = async (id) => {
     const res = await axios({
       method: 'put',
-      url: `/api/applications/${id}`,
-      data: {
-        application: { ...application },
-      },
+      url: `/api/applications/decline/${id}`,
     });
     dispatch({
-      type: DECLINE_APPLICATION,
-      payload: application
+      type: DECLINE_APPLICATION
     });
   };
   
