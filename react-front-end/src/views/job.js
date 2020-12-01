@@ -39,11 +39,6 @@ function Job(props) {
   console.log("loggedinUSER", loggedInUser);
   return (
     <div id="jobs_item">
-        {/* <img
-        className="resume"
-        src={'../images/application-2580867_1920.jpg'}
-        alt={'resume'}
-        /> */}
       <header className="job_header">
         <span>{job.name}</span>
         <br /> Is looking for
@@ -63,7 +58,7 @@ function Job(props) {
       <ExternalLink rel={'external'} target={'_blank'} className="start_date" href={`http://www.${job.website}`} />
       <br />
       {loggedInUser && loggedInUserType === 0 && <p>Please log-in to apply!</p>}
-      {loggedInUser && loggedInUserType === 1 && <Apply jobID={job.id} />};
+      {loggedInUser && loggedInUserType === 1 && <Apply jobID={job.id} />}
       {loggedInUser && loggedInUserType === 2 && <SeeApplications status={''} />}
     </div >
   );

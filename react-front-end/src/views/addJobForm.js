@@ -21,7 +21,7 @@ const AddJobForm = () => {
   const onChange = e => setJob({ ...job, [e.target.name]: e.target.value });
   const onSubmit = e => {
     e.preventDefault();
-    jobContext.addNewJob(job);
+    jobContext.addNewJob(job)
   };
 
 

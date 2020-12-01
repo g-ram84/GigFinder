@@ -7,7 +7,7 @@ function WorkerList(props) {
   //const { workers } = workerContext.searchWorkers();
   //console.log(workers);
   return (
-    <div>
+    <div className="text-colour-profile">
       <WorkerListItem
         workerId={props.worker.id}
         firstName={props.worker.first_name}
