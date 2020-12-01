@@ -25,22 +25,22 @@ function App() {
     <div className="App">
       <UserState>
         <JobState>
-          <WorkerState>
-            <ApplicationState>
-              <Router>
-                <NavBar />
-                <Route exact path='/' component={Home} />
-                <Route exact path='/addJob' component={AddJob} />
-                <Route exact path='/favourites' component={Favourites} />
-                <Route exact path='/jobs/:id' component={Job} />
-                <Route exact path='/login' component={Login} />
-                <Route exact path='/workers/:id' component={Profile} />
-                <Route exact path='/register' component={Register} />
-                <Route exact path='/thanks' component={Thanks} />
-                {/* <Route exact path='/results' component={Results} /> */}
-              </Router>
-            </ApplicationState>
-          </WorkerState>
+
+          <ApplicationState>
+            <Router>
+              <NavBar />
+              <Route exact path='/' component={Home} />
+              <Route exact path='/addJob' component={AddJob} />
+              <Route exact path='/favourites' component={Favourites} />
+              <Route exact path='/jobs/:id' component={Job} />
+              <Route exact path='/login' component={Login} />
+              <Route exact path='/workers/:id' component={Profile} />
+              <Route exact path='/register' component={Register} />
+              <Route exact path='/thanks' component={Thanks} />
+              {/* <Route exact path='/results' component={Results} /> */}
+            </Router>
+          </ApplicationState>
+
         </JobState>
       </UserState>
     </div>

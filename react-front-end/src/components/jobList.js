@@ -1,10 +1,9 @@
 import React, { useContext } from "react";
 import JobListItem from "./jobListItem.js";
 import "./jobListItem.scss";
-import GigfinderContext from '../context/gigfinder/gigfinderContext.js';
 import JobContext from '../context/job/jobContext.js';
 
-export default function JobList(props) {
+export default function JobList() {
   const jobContext = useContext(JobContext);
   const { jobs } = jobContext;
   const myJobs = jobs.map(job => {
@@ -36,6 +35,9 @@ export default function JobList(props) {
     );
   });
   return (
-    myJobs
+    <>
+      <h1>Job Search JoblistItems</h1>
+      <span>{myJobs}</span>
+    </>
   );
 }
