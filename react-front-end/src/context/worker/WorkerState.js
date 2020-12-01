@@ -7,14 +7,13 @@ import {
   SEARCH_WORKERS,
 } from '../types';
 
-
 const WorkerState = props => {
   const initialState = {
     faveWorkers: [],
     workers: [],
   };
   const [state, dispatch] = useReducer(WorkerReducer, initialState);
-  const searchWorkers = async (searchterm) => {
+  const searchWorkers = async () => {
     const res = await axios.get(
       `/api/workers`, {
       headers: {

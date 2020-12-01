@@ -1,5 +1,5 @@
 import React from 'react';
-import './job.scss'
+import './job.scss';
 
 function Thanks() {
   return (
