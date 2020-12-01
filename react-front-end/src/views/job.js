@@ -59,11 +59,7 @@ function Job(props) {
       <br />
       {loggedInUser && loggedInUserType === 0 && <p>Please log-in to apply!</p>}
       {loggedInUser && loggedInUserType === 1 && <Apply jobID={job.id} />}
-<<<<<<< HEAD
-      {loggedInUser && loggedInUserType === 2 && <SeeApplications jobID={job.id}/>}
-=======
       {loggedInUser && loggedInUserType === 2 && <SeeApplications status={''} />}
->>>>>>> styling-test
     </div >
   );
 }
