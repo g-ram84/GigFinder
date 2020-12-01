@@ -44,17 +44,20 @@ const addNewApplication = function(newApplication, db) {
     });
 };
 const acceptApplication = function(id, db) {
-  return db.query(`UPDATE applications SET statue = 'Accepted' WHERE id = $1`, [id])
+  return db.query(`UPDATE applications SET status = 'Accepted' WHERE id = $1`, [id])
     .then((res) => {
+      console.log("res.ROWS>>>",res.rows)
       return res.rows;
     }).catch(err => {
+      console.log("CATCH")
       console.log(err);
     });
 };
 
 const declineApplication = function(id, db) {
-  return db.query(`UPDATE applications SET statue = 'Declined' WHERE id = $1`, [id])
+  return db.query(`UPDATE applications SET status = 'Declined' WHERE id = $1`, [id])
     .then((res) => {
+      console.log("is it in DECLINE")
       return res.rows;
     }).catch(err => {
       console.log(err);
@@ -62,6 +65,9 @@ const declineApplication = function(id, db) {
 };
 
 const getApplicationById = function(id, db) {
+
+
+  
   return db.query(`SELECT applications.*, jobs.job_title, employers.name  FROM applications JOIN jobs ON jobs.id = applications.job_id JOIN employers ON employers.id = jobs.employer_id  WHERE applications.id =$1`, [id])
     .then((res) => {
       return res.rows;
@@ -71,7 +77,7 @@ const getApplicationById = function(id, db) {
 };
 
 
-const getApplicationByJobId = function(job_id, db) {
+const getApplicationsByJobId = function(job_id, db) {
 
   return db.query(`SELECT applications.*, jobs.job_title, jobs.employer_id as job_employer_id, jobs.hourly_wage, workers.email, employers.id as employer_id
   FROM applications 
@@ -96,4 +102,4 @@ const getApplicationByJobId = function(job_id, db) {
 
 
 
-module.exports = { getAllApplications, getApplicationById, addNewApplication, getApplicationByJobId, declineApplication };
+module.exports = { getAllApplications, getApplicationById, addNewApplication, getApplicationsByJobId, acceptApplication, declineApplication };
