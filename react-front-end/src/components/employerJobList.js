@@ -2,19 +2,24 @@ import React, { useContext, useEffect } from "react";
 import EmployerJobListItem from "./employerJobListItem.js";
 import "./jobListItem.scss";
 import JobContext from '../context/job/jobContext.js';
-import UserContext from '../context/user/userContext.js';
+import WorkerContext from '../context/worker/workerContext.js';
 import ApplicationContext from '../context/application/applicationContext.js';
+import UserContext from '../context/user/userContext.js';
+
 
 export default function EmployerJobList() {
   const jobContext = useContext(JobContext);
   const userContext = useContext(UserContext);
+  const workerContext = useContext(WorkerContext);
   const applicationContext = useContext(ApplicationContext);
+  const { searchWorkers } = workerContext;
   const { getAllApplications } = applicationContext;
   const { employerJobs, getEmployerJobs } = jobContext;
   const { loggedInUser } = userContext;
   useEffect(() => {
     getEmployerJobs(loggedInUser.id);
     getAllApplications();
+    searchWorkers();
   }, []);
 
   const myJobs = employerJobs.map(job => {

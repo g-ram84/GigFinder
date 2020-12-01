@@ -9,8 +9,8 @@ export default function EmployerJobListItem(props) {
   return (
     <Fragment>
       <div className="job_item">
-        <strong>Employer Id {props.employer_id}</strong>
-        <strong>Job Id {props.jobId}</strong>
+        {/* <strong>Employer Id {props.employer_id}</strong>
+        <strong>Job Id {props.jobId}</strong> */}
         <Link className="job_header" exact to={`/jobs/${props.jobId}`}>
           <strong>{props.title}</strong>
         </Link>
