@@ -1,6 +1,20 @@
+/* body {
+  height: 100vh;
+} */
+
 .App {
   text-align: center;
+    background-image: url('/../../images/ian-schneider-TamMbr4okv4-unsplash.jpg');
+    background-size: 100% 100%;
+    background-repeat: repeat-y;
+    background-attachment: fixed;
+    opacity: 90%;
+    min-height: 100vh;
+    height: 100%;
+    color: whitesmoke;
+    
 }
+
 
 .App-logo {
   animation: App-logo-spin infinite 20s linear;

@@ -7,6 +7,8 @@ import WorkerState from '../context/worker/WorkerState';
 import JobState from '../context/job/JobState';
 import JobList from '../components/jobList';
 import UserJobList from '../components/userJobList';
+import './job.scss';
+
 
 function Profile(props) {
   const userContext = useContext(UserContext);
@@ -61,6 +63,7 @@ function Profile(props) {
         <WorkerList worker={worker} />
       </div>
       <Document
+        className={"resume-pdf"}
         file={resumeFilePath}
         onLoadSuccess={onDocumentLoadSuccess}
       >

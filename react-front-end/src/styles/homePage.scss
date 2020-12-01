@@ -5,17 +5,19 @@
 //   place-items: center;
 // }
 
+// .home_page {
+// background-image: url('/../../images/ian-schneider-TamMbr4okv4-unsplash.jpg');
+// background-size: 100% 100%;
+// // background-repeat: repeat;
+// // opacity: 60%;
+// height: 100vh;
+// // color: red;
+// }
+
 .home_page {
-background-image: url('/../../images/building-804526_1920.jpg');
-background-size: 100% 100%;
-// background-repeat: repeat;
-// opacity: 60%;
-height: 100vh;
-color: red;
+  min-height: 100vh;
+  height: 100%;
 }
-
-
-
 // .home_page {
 //   background-image: linear-gradient(blue, green);
 //   height: 100vh;
@@ -27,13 +29,16 @@ color: red;
   opacity: 70%;
 }
 
-.jobs_item {
-  background-color: #639489;
-}
+// .jobs_item {
+//   background-color: #639489;
+// }
+
+
 
 .title {
   padding-top: 100px;
   font-family: 'Castoro', serif;
+  color: black;
   
 }
 
