@@ -6,7 +6,7 @@ import { Col, Container, Row } from 'reactstrap';
 
 function AddJob() {
   return (
-    <Container fluid>
+    <Container className="form-label"  fluid>
       <Row>
         <h1 className="center-text m-auto">Create a Job!</h1>
       </Row>

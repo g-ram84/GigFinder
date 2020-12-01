@@ -1,6 +1,8 @@
 import React, { useContext, useState } from 'react';
 import { Col, Row, Button, Form, FormGroup, Label, Input, FormFeedback, FormText } from 'reactstrap';
 import JobContext from '../context/job/jobContext';
+import './job.scss';
+
 const AddJobForm = () => {
   const jobContext = useContext(JobContext);
 
@@ -29,22 +31,22 @@ const AddJobForm = () => {
   return (
     <Form onSubmit={onSubmit}>
       <FormGroup>
-        <Label for="jobTitle">Job Title</Label>
+        <Label className="form-label" for="jobTitle">Job Title</Label>
         <Input type="text" name="job_title" id="jobTitle" placeholder="Enter job title" value={job_title} onChange={onChange} />
       </FormGroup>
 
       <FormGroup>
-        <Label for="jobDescription">Job Description</Label>
+        <Label className="form-label"  for="jobDescription">Job Description</Label>
         <Input type="text" name="job_description" id="jobDescription" placeholder="Enter job description" value={job_description} onChange={onChange} />
       </FormGroup>
 
       <FormGroup>
-        <Label for="wage">Wage</Label>
+        <Label className="form-label"  for="wage">Wage</Label>
         <Input type="number" name="hourly_wage" id="wage" placeholder="Enter wage" value={hourly_wage} onChange={onChange} />
       </FormGroup>
 
       <FormGroup>
-        <Label for="date">Date Required</Label>
+        <Label className="form-label" for="date">Date Required</Label>
         <Input type="date" name="job_date" id="date" placeholder="Select date" value={job_date} onChange={onChange} />
       </FormGroup>
 
@@ -57,7 +59,7 @@ const AddJobForm = () => {
       </Form> */}
 
       <FormGroup>
-        <Label for="employeeQuantity">Number of Employees Required</Label>
+        <Label className="form-label"  for="employeeQuantity">Number of Employees Required</Label>
         <Input type="select" name="positions" id="employeeQuantity" value={positions} onChange={onChange}>
           <option>1</option>
           <option>2</option>
@@ -68,7 +70,7 @@ const AddJobForm = () => {
       </FormGroup>
 
 
-      <Button >Submit Job Request</Button>
+      <Button id="button-style">Submit Job Request</Button>
     </Form >
   );
 

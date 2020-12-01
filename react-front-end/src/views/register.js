@@ -7,8 +7,8 @@ const Register = (props) => {
     const [showMode, setShowMode] = useState('')
     return (
       <div className="register">
-      <button onClick={()=> setShowMode('employer')}>Register as Employer</button>
-      <button onClick={()=> setShowMode('worker')}>Register as Worker</button>
+          <Button id="button-style" onClick={()=> setShowMode('employer')}>Register as Employer</Button>
+          <Button id="button-style" onClick={()=> setShowMode('worker')}>Register as Worker</Button>
       {showMode === 'worker' &&
   
     <Form className="register-form">

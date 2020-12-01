@@ -1,6 +1,7 @@
 import React, { useContext, useState } from 'react';
 import { Row, Col, Button, Form, FormGroup, Input } from 'reactstrap';
 import JobContext from '../context/job/jobContext.js';
+import "./jobListItem.scss";
 
 const SearchBar = (props) => {
   const jobContext = useContext(JobContext);
@@ -24,11 +25,11 @@ const SearchBar = (props) => {
   return (
     <Row>
       <Col>
-        <Form onSubmit={onSubmit}>
+        <Form className="search-bar" onSubmit={onSubmit}>
           <FormGroup>
             <Input type="text" name="job_title" id="jobTitle" placeholder="Job Search" value={searchTerm} onChange={onChange} />
           </FormGroup>
-          <Button >Submit Job Request</Button>
+          <Button id="button-id">Submit Job Request</Button>
         </Form>
       </Col>
     </Row>

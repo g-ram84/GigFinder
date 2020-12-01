@@ -44,8 +44,8 @@ function Login() {
       <Container>
         <Row>
           <Col>
-            <Button className="m-2" onClick={workerLogin}>Worker Login</Button>
-            <Button className="m-2" onClick={employerLogin}>Employer Login</Button>
+            <Button id="button-style" className="m-2" onClick={workerLogin}>Worker Login</Button>
+            <Button id="button-style" className="m-2" onClick={employerLogin}>Employer Login</Button>
           </Col>
         </Row>
         <Row>

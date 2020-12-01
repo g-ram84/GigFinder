@@ -1,5 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Castoro:ital@1&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Fira+Sans&display=swap');
 // body {
 //   display: grid;
 //   place-items: center;
@@ -37,7 +36,7 @@
 
 .title {
   padding-top: 100px;
-  font-family: 'Castoro', serif;
+  font-family: 'Fira Sans', sans-serif;
   color: black;
   
 }
@@ -56,8 +55,9 @@ input {
     width: 8rem;
     border-width: 2px;
     border-style: solid;
-    border-color: #2590cf;
-    color: #000;
+    border-color: #42506e;
+    font-family: 'Fira Sans', sans-serif;
+    color: #9ea341;
     background-color: transparent;
     opacity: 50%;
   

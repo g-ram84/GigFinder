@@ -1,12 +1,14 @@
 
   .job_header {
     font-size: 30px;
+    color: #9ea341;
     text-transform: capitalize;
     text-decoration: underline;
-    text-decoration-color:#2590cf;
-    border-bottom: medium, solid, #2590cf;
+    text-decoration-color:#42506e;
+    border-bottom: medium, solid, #42506e;
     padding-top: 1.5rem;
     padding-bottom: 0rem;
+    font-family: 'Fira Sans', sans-serif;
   }
   
   .my_job_banner {
@@ -17,12 +19,15 @@
     background-color: black;
     color: white;
     opacity: 75%;
+    font-family: 'Fira Sans', sans-serif;
   }
 
   .extra_info {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    color: whitesmoke;
+    font-family: 'Fira Sans', sans-serif;
   }
 
   .job_des {
@@ -32,6 +37,7 @@
     padding-top: 0.5rem;
     background-color: transparent;
     color: whitesmoke;
+    font-family: 'Fira Sans', sans-serif;
   }
   
   div .job_item {
@@ -43,16 +49,35 @@
     margin-bottom: 1rem;
     border-style: solid;
     border-width: medium;
-    border-color: #2590cf;
+    border-color: #42506e;
     border-radius: 1rem;
-    margin-left: 3rem;
-    margin-right: 3rem;
+    margin-left: 25%;
+    margin-right: 25%;
+    background-color: rgba(0, 0, 0, 0.5);
     background-origin: border-box;
+    font-family: 'Fira Sans', sans-serif;
   }
   
   .start_date {
     text-decoration: overline;
     font-stretch: expanded;
     padding-top: 1rem;
+    color: whitesmoke;
+    font-family: 'Fira Sans', sans-serif;
+  }
+
+  .search-bar {
+    // display: flex;
+    justify-content: center;
+    flex-shrink: 3;
+    flex-direction: column;
+    width: 30%;
+    margin-left: 35%;
+    border-color: #42506e;
+  }
+
+  #button-id {
+    background-color: #1e214a;
+    opacity: 95%;
   }
 
