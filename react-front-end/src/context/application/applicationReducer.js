@@ -1,6 +1,7 @@
 import {
   ADD_APPLICATION,
   GET_APPLICATIONS,
+  GET_ALL_APPLICATIONS,
   DECLINE_APPLICATION,
   ACCEPT_APPLICATION
 } from '../types';
@@ -18,16 +19,21 @@ export default (state, action) => {
         ...state,
         applications: action.payload,
       };
-      case DECLINE_APPLICATION:
-        return {
-          ...state,
-          applications: action.payload,
-        };
-        case ACCEPT_APPLICATION:
-          return {
-            ...state,
-            applications: action.payload,
-          };
+    case GET_ALL_APPLICATIONS:
+      return {
+        ...state,
+        allApplications: action.payload,
+      };
+    case DECLINE_APPLICATION:
+      return {
+        ...state,
+        applications: action.payload,
+      };
+    case ACCEPT_APPLICATION:
+      return {
+        ...state,
+        applications: action.payload,
+      };
     default:
       return state;
   }

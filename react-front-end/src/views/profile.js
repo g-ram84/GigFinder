@@ -6,9 +6,7 @@ import WorkerList from '../components/workerList';
 import WorkerState from '../context/worker/WorkerState';
 import JobState from '../context/job/JobState';
 import JobList from '../components/jobList';
-import UserJobList from '../components/userJobList';
-import './job.scss';
-
+import WorkerJobList from '../components/workerJobList';
 
 function Profile(props) {
   const userContext = useContext(UserContext);
@@ -55,7 +53,6 @@ function Profile(props) {
       <h1>Loading!</h1>
     );
   }
-
   const resumeFilePath = `../resumes/${worker.last_name}.pdf`;
   return (
     <Fragment>
@@ -70,7 +67,7 @@ function Profile(props) {
         <Page pageNumber={pageNumber} />
       </Document>
       {loggedInUser.id === application.worker_id &&
-        <UserJobList />
+        <WorkerJobList />
       }
     </Fragment>
   );
