@@ -12,11 +12,11 @@ function Home(props) {
       <h1>Welcome to GigFinder!</h1>
       <SearchBar query={query} setQuery={setQuery} />    
       <JobList />
-      <img
+      {/* <img
         className="hiring"
         src={'../images/building-804526_1920.jpg'}
         alt={'hiring'}
-        />
+        /> */}
      
       </span>
       

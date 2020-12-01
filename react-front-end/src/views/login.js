@@ -2,6 +2,7 @@ import React, { useContext, dispatch } from 'react';
 import { Container, Col, Row, Button, Form, FormGroup, Label, Input, FormFeedback, FormText } from 'reactstrap';
 import { useHistory } from 'react-router-dom';
 import UserContext from '../context/user/userContext.js';
+import './job.scss';
 
 function Login() {
   const userContext = useContext(UserContext);
@@ -38,7 +39,7 @@ function Login() {
   };
 
   return (
-    <div>
+    <div className="login_home">
       <h1>Super secure login page</h1>
       <Container>
         <Row>
