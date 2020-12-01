@@ -1,7 +1,7 @@
 import React, { Fragment, useState, useContext } from "react";
 import "./jobListItem.scss";
 import { Row, Col, Button } from 'reactstrap';
-import { Link } from 'react-router-dom';
+import { NavLink, Link } from 'react-router-dom';
 import ApplicationContext from '../context/application/applicationContext.js';
 import WorkerContext from '../context/worker/workerContext.js';
 // import Results from '../views/results.js';
@@ -25,6 +25,7 @@ export default function EmployerJobApplicationListItem(props) {
   //const worker = workers.find();
   const worker = workers.find(({ id }) => id === app.worker_id);
   console.log(worker);
+  const profileLink = `workers/${worker.id}`;
   const onSubmitDecline = (e, app) => {
     e.preventDefault();
     declineApplication(app.id);
@@ -36,14 +37,17 @@ export default function EmployerJobApplicationListItem(props) {
   return (
     <Fragment>
       <Row>
-        <p>{worker.first_name} {worker.last_name} {worker.id}</p>
-        <p>{app.date_applied}</p>
-        {app.status === 'Pending' &&
+        {app.status === 'Pending' && <Fragment>
+          <p>{worker.first_name} {worker.last_name}</p>
+          {/* <p>{app.date_applied}</p> */}
           <Button onClick={(e) => onSubmitDecline(e, app)}>Decline</Button>
-        }
-        <br />
-        {app.status === 'Pending' &&
+          {/* } */}
+          <br />
+          {/* {app.status === 'Pending' && */}
           <Button onClick={(e) => onSubmitAccept(e, app)}>Accept</Button>
+          <Button onClick={(e) => onSubmitAccept(e, app)}>Worker Profile</Button>
+          <Link to={profileLink} className="Button">Profile</Link>
+        </Fragment>
         }
       </Row>
     </Fragment>

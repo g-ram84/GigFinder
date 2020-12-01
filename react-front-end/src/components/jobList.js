@@ -36,7 +36,7 @@ export default function JobList() {
   });
   return (
     <>
-      <h1>Job Search JoblistItems</h1>
+      {/* <h1>Job Search JoblistItems</h1> */}
       <span>{myJobs}</span>
     </>
   );

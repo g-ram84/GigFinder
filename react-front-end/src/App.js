@@ -9,7 +9,6 @@ import Home from './views/home';
 import Job from './views/job';
 import Login from './views/login';
 import Register from './views/register';
-//import Results from './views/results';
 import Profile from './views/profile';
 import Thanks from './views/thanks';
 import NavBar from './views/navBar';

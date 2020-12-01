@@ -52,7 +52,6 @@ export default function EmployerJobList() {
   });
   return (
     <>
-      <h1>realEmployerJoblistItems</h1>
       <span>{myJobs}</span>
     </>
   );

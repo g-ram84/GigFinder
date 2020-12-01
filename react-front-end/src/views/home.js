@@ -16,7 +16,6 @@ function Home(props) {
       <span className="title">
         <h1>Welcome to GigFinder!</h1>
         <SearchBar query={query} setQuery={setQuery} />
-        <h1>{loggedInUserType}</h1>
         {loggedInUserType && loggedInUserType == 2 ? <EmployerJobList /> : <JobList />}
       </span>
 
