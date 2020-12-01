@@ -54,7 +54,27 @@ const getJobsAppliedForByWorkerId = function(worker_id, db) {
     });
 };
 
+const getEmployerJobsAndApplicationsById = function(employer_id, db) {
+  return db.query(`SELECT jobs.*, applications.worker_id, applications.id as application_id, applications.status, workers.*
+  FROM jobs FULL JOIN applications ON jobs.id= applications.job_id
+  FULL JOIN workers ON workers.id = applications.worker_id
+  WHERE jobs.employer_id = $1;`, [employer_id])
+    .then((res) => {
+      return res.rows;
+    }).catch(err => {
+      console.log(err);
+    });
+};
+const getEmployerJobs = function(employer_id, db) {
+  return db.query(`SELECT jobs.* FROM jobs WHERE jobs.employer_id = $1;`, [employer_id])
+    .then((res) => {
+      return res.rows;
+    }).catch(err => {
+      console.log(err);
+    });
+};
 
 
-module.exports = { getAllJobs, getJobById, addNewJob, getJobsAppliedForByWorkerId };
+
+module.exports = { getAllJobs, getJobById, addNewJob, getJobsAppliedForByWorkerId, getEmployerJobs };
 

@@ -31,6 +31,17 @@ module.exports = function(router, helper, db) {
       });
   });
 
+  router.get("/employer/:id", (req, res) => {
+    const employer_id = req.params.id;
+    helper.getEmployerJobs(employer_id, db)
+      .then(data => {
+        res.json(data);
+      })
+      .catch(e => {
+        res.status(500);
+      });
+  });
+
   router.post("/", (req, res) => {
     const newJob = req.body.job;
     //console.log(newJob);

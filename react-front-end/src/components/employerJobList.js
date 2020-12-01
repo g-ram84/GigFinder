@@ -1,19 +1,23 @@
-import React, { Fragment, useContext, useEffect } from "react";
-import JobListItem from "./jobListItem.js";
+import React, { useContext, useEffect } from "react";
+import EmployerJobListItem from "./employerJobListItem.js";
 import "./jobListItem.scss";
-
 import JobContext from '../context/job/jobContext.js';
 import UserContext from '../context/user/userContext.js';
+import ApplicationContext from '../context/application/applicationContext.js';
 
-export default function JobList(props) {
+export default function EmployerJobList() {
   const jobContext = useContext(JobContext);
   const userContext = useContext(UserContext);
+  const applicationContext = useContext(ApplicationContext);
+  const { getAllApplications } = applicationContext;
+  const { employerJobs, getEmployerJobs } = jobContext;
   const { loggedInUser } = userContext;
-  const { userJobs, getUserJobs } = jobContext;
   useEffect(() => {
-    getUserJobs(loggedInUser.id);
+    getEmployerJobs(loggedInUser.id);
+    getAllApplications();
   }, []);
-  const myJobs = userJobs.map(job => {
+
+  const myJobs = employerJobs.map(job => {
     const date = new Date(job.job_date);
     const year = date.getFullYear();
     let month = date.getMonth() + 1;
@@ -25,8 +29,9 @@ export default function JobList(props) {
       month = '0' + month;
     }
     const startDate = `${year}-${month}-${dt}`;
+
     return (
-      <JobListItem
+      <EmployerJobListItem
         key={job.id}
         jobId={job.id}
         title={job.job_title}
@@ -36,14 +41,13 @@ export default function JobList(props) {
         active={job.active}
         positions={job.positions}
         description={job.job_description}
-        company={job.employer_id}
+        employer_id={job.employer_id}
       />
-
     );
   });
   return (
     <>
-      <h1>UserJoblist</h1>
+      <h1>realEmployerJoblistItems</h1>
       <span>{myJobs}</span>
     </>
   );

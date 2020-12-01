@@ -67,31 +67,36 @@ export default function SeeApplications(props) {
         console.log(err);
       });
   };
-  const myApplications = applications.map(application => {
+
+  if (applications) {
+
+
+    const myApplications = applications.map(application => {
+      return (
+        <div>
+          {
+            <MyApplications
+              email={application.email}
+              status={application.status}
+              date={application.date_applied}
+              jobs={application.job_title}
+              worker={application.worker_id}
+            />
+          }
+          {application.status === 'Pending' &&
+            <Button onClick={onSubmitDecline}>Decline Application</Button>
+          }
+          <br />
+          {application.status === 'Pending' &&
+            <Button onClick={(e) => onSubmitAccept(e, application)}>Accept Application</Button>
+          }
+        </div>
+      );
+    });
     return (
-      <div>
-        {
-          <MyApplications
-            email={application.email}
-            status={application.status}
-            date={application.date_applied}
-            jobs={application.job_title}
-            worker={application.worker_id}
-          />
-        }
-        {application.status === 'Pending' &&
-          <Button onClick={onSubmitDecline}>Decline Application</Button>
-        }
-        <br />
-        {application.status === 'Pending' &&
-          <Button onClick={(e) => onSubmitAccept(e, application)}>Accept Application</Button>
-        }
-      </div>
+      myApplications
     );
-  });
-  return (
-    myApplications
-  );
+  }
 };
 
 //console.log(SeeApplications);

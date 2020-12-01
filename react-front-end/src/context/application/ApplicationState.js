@@ -5,6 +5,7 @@ import ApplicationReducer from './applicationReducer';
 import {
   ADD_APPLICATION,
   GET_APPLICATIONS,
+  GET_ALL_APPLICATIONS,
   DECLINE_APPLICATION,
   ACCEPT_APPLICATION
 } from '../types';
@@ -27,6 +28,17 @@ const ApplicationState = props => {
   //     payload: res.data
   //   });
   // };
+
+  const getAllApplications = async () => {
+    const res = await axios({
+      method: 'get',
+      url: `/api/applications`
+    });
+    dispatch({
+      type: GET_ALL_APPLICATIONS,
+      payload: res.data
+    });
+  };
 
   const getApplications = async (job_id) => {
     const res = await axios({
@@ -64,7 +76,7 @@ const ApplicationState = props => {
   };
 
   const acceptApplication = async (id, application) => {
-    console.log("acceptAPPLICATIONHERE")
+    console.log("acceptAPPLICATIONHERE");
     const res = await axios({
       method: 'put',
       url: `/api/applications/accept/${id}`,
@@ -78,12 +90,14 @@ const ApplicationState = props => {
       payload: application
     });
   };
-  
+
 
   return (
     <ApplicationContext.Provider
       value={{
         applications: state.applications,
+        allApplications: state.allApplications,
+        getAllApplications,
         addNewApplication,
         getApplications,
         declineApplication,
