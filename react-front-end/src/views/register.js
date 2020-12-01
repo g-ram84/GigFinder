@@ -1,10 +1,12 @@
 import React, {useState} from 'react';
 import {Button, Form, FormGroup, Label, Input } from 'reactstrap';
+import './job.scss';
+
 
 const Register = (props) => {
     const [showMode, setShowMode] = useState('')
     return (
-      <div>
+      <div className="register">
       <button onClick={()=> setShowMode('employer')}>Register as Employer</button>
       <button onClick={()=> setShowMode('worker')}>Register as Worker</button>
       {showMode === 'worker' &&

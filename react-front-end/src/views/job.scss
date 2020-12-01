@@ -1,3 +1,21 @@
+.login_home {
+  background-image: url('/../../images/building-804526_1920.jpg');
+  background-size: 100% 100%;
+  height: 100vh;
+  opacity: 80%;
+  color: red;
+}
+.register {
+  background-image: url('/../../images/application-1883453_1920.jpg');
+  background-size: 100% 100%;
+  height: 100vh;
+  opacity: 80%;
+}
+
+// .navbar-custom { 
+//   background-color: lightgreen; 
+// } 
+
 .job_header {
   font-size: 30px;
   text-transform: capitalize;
@@ -16,16 +34,20 @@
   padding-top: 0.5rem;
 }
 
-.jobs_item {
+#jobs_item {
   margin-top: 1rem;
   margin-bottom: 1rem;
   border-style: solid;
   border-width: medium;
-  border-color: #2590cf;
+  border-color: white;
   border-radius: 1rem;
   margin-left: 3rem;
   margin-right: 3rem;
   background-origin: border-box;
+  background-image: url('/../../images/ian-schneider-TamMbr4okv4-unsplash.jpg');
+  background-size: 100% 100%;
+  height: 100vh;
+  opacity: 80%;
 }
 
 .start_date {

@@ -10,9 +10,16 @@ function Home(props) {
     <div className="home_page">
       <span className="title">
       <h1>Welcome to GigFinder!</h1>
-      <SearchBar query={query} setQuery={setQuery} />
+      <SearchBar query={query} setQuery={setQuery} />    
       <JobList />
+      {/* <img
+        className="hiring"
+        src={'../images/building-804526_1920.jpg'}
+        alt={'hiring'}
+        /> */}
+     
       </span>
+      
     </div>
   );
 }

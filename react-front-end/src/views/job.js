@@ -3,6 +3,7 @@ import { ExternalLink } from 'react-external-link';
 import JobList from '../components/jobList';
 import './job.scss';
 import axios from 'axios';
+import '../styles/homePage.scss'
 import Apply from '../components/apply';
 import SeeApplications from '../components/seeApplications';
 
@@ -37,7 +38,12 @@ function Job(props) {
   console.log("THIS IS THE WHOLE JOB", job);
   console.log("loggedinUSER", loggedInUser);
   return (
-    <div className="jobs_item">
+    <div id="jobs_item">
+        {/* <img
+        className="resume"
+        src={'../images/application-2580867_1920.jpg'}
+        alt={'resume'}
+        /> */}
       <header className="job_header">
         <span>{job.name}</span>
         <br /> Is looking for

@@ -29,13 +29,14 @@ const NavBar = (props) => {
   return (
     <div>
       <Navbar color="dark" dark expand="md">
-        <NavbarBrand tag={RRNavLink} exact to="/" activeClassName="active" onClick={clearJobs}>GigFinder</NavbarBrand>
+        
         <NavbarToggler onClick={toggle} />
         <Collapse isOpen={isOpen} navbar>
           <Nav className="mr-auto" navbar>
           </Nav>
           {loggedInUserType === 0 &&
             <Fragment>
+              <NavbarBrand tag={RRNavLink} exact to="/" activeClassName="active" onClick={clearJobs}>GigFinder</NavbarBrand>
               <NavbarText>
                 <NavLink tag={RRNavLink} exact to="/login" activeClassName="active">Login</NavLink>
               </NavbarText>
@@ -46,6 +47,7 @@ const NavBar = (props) => {
           }
           {loggedInUserType === 1 &&
             <Fragment>
+              <NavbarBrand tag={RRNavLink} exact to="/" activeClassName="active" onClick={clearJobs}>GigFinder</NavbarBrand>
               <NavbarText>{loginMessage}</NavbarText>
               <NavbarText>
                 <NavLink tag={RRNavLink} exact to={`/workers/${loggedInUser.id}`} >My Profile</NavLink>
@@ -57,6 +59,7 @@ const NavBar = (props) => {
           }
           {loggedInUserType === 2 &&
             <Fragment>
+              <NavbarBrand tag={RRNavLink} exact to="/" activeClassName="active" onClick={clearJobs}>GigFinder</NavbarBrand>
               <NavbarText>{loginMessage}</NavbarText>
               <NavbarText>
                 <NavLink tag={RRNavLink} exact to="/addJob">Add New Job</NavLink>

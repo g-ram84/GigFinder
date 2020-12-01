@@ -43,7 +43,7 @@ export default function JobList(props) {
   });
   return (
     <>
-      <h1>UserJoblist</h1>
+      <h1>Jobs I've Applied For:</h1>
       <span>{myJobs}</span>
     </>
   );
