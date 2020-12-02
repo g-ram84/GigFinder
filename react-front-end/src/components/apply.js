@@ -35,21 +35,23 @@ export default function Apply(props) {
   };
 
 
-  console.log("props", props);
-  const onSubmit = e => {
-    e.preventDefault();
-    applicationContext.addNewApplication(newApp);
-  };
+  // console.log("props", props);
+  // const onSubmit = e => {
+  //   e.preventDefault();
+  
+  // };
 
-  //const history = useHistory();
   const redirect = () => {
-    history.push('/thanks');
+    applicationContext.addNewApplication(newApp)
+    .then(() => {
+      history.push('/thanks')
+    })
   };
   console.log("aplication", newApp);
   return (
     <div>
-      <Form onSubmit={onSubmit}>
-        <Button onClick={redirect}>Apply Now!</Button>
+      <Form >
+        <Button id="Button" onClick={redirect}>Apply Now!</Button>
       </Form>
     </div>
   );
