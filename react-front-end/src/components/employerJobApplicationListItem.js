@@ -1,7 +1,7 @@
 import React, { Fragment, useState, useContext } from "react";
 import "./jobListItem.scss";
 import { Row, Col, Button, Container } from 'reactstrap';
-import { NavLink, Link } from 'react-router-dom';
+import { NavLink, Link, useHistory } from 'react-router-dom';
 import ApplicationContext from '../context/application/applicationContext.js';
 import WorkerContext from '../context/worker/workerContext.js';
 // import Results from '../views/results.js';
@@ -16,15 +16,37 @@ export default function EmployerJobApplicationListItem(props) {
   let workerLast = "";
   const app = props.application;
 
-  const onSubmitAccept = (e, app) => {
-    e.preventDefault();
-    acceptApplication(app.id);
+  // const redirect = () => {
+  //   applicationContext.addNewApplication(newApp)
+  //   .then(() => {
+  //     history.push('/thanks')
+  //   })
+  // };
+
+  const history = useHistory()
+  const redirectAccept = (e, app) => {
+    acceptApplication(app.id)
+    .then(() => {
+      history.push('/approve')
+    })
   };
 
-  const onSubmitDecline = (e, app) => {
-    e.preventDefault();
-    declineApplication(app.id);
+  const redirectDecline = (e, app) => {
+    declineApplication(app.id)
+    .then(() => {
+      history.push('/decline')
+    })
   };
+
+  // const onSubmitAccept = (e, app) => {
+  //   e.preventDefault();
+  //   acceptApplication(app.id);
+  // };
+
+  // const onSubmitDecline = (e, app) => {
+  //   e.preventDefault();
+  //   declineApplication(app.id);
+  // };
 
   const worker = workers.find(({ id }) => id === app.worker_id);
   if (worker) {
@@ -41,8 +63,8 @@ export default function EmployerJobApplicationListItem(props) {
               <Link className="profile-link" to={profileLink}>{workerFirst} {workerLast}</Link>
             </Row>
             <Row>
-              <Button id="Button" onClick={(e) => onSubmitDecline(e, app)}>Decline</Button>
-              <Button id="Button" onClick={(e) => onSubmitAccept(e, app)}>Accept</Button>
+              <Button id="Button" onClick={(e) => redirectDecline(e, app)}>Decline</Button>
+              <Button id="Button" onClick={(e) => redirectAccept(e, app)}>Accept</Button>
             </Row>
           </Container>
         </Fragment>

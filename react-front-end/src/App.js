@@ -4,7 +4,8 @@ import axios from 'axios';
 import './App.css';
 import './components/jobListItem';
 import AddJob from './views/addJob';
-import Favourites from './views/favourites';
+import Approve from './views/approve';
+import Decline from './views/decline';
 import Home from './views/home';
 import Job from './views/job';
 import Login from './views/login';
@@ -29,14 +30,13 @@ function App() {
               <Router>
                 <NavBar />
                 <Route exact path='/' component={Home} />
-                <Route exact path='/addJob' component={AddJob} />
-                <Route exact path='/favourites' component={Favourites} />
-                <Route exact path='/jobs/:id' component={Job} />
+                <Route exact path='/addJob' component={AddJob} />                <Route exact path='/jobs/:id' component={Job} />
                 <Route exact path='/login' component={Login} />
                 <Route exact path='/workers/:id' component={Profile} />
                 <Route exact path='/register' component={Register} />
+                <Route exact path='/approve' component={Approve} />
                 <Route exact path='/thanks' component={Thanks} />
-                {/* <Route exact path='/results' component={Results} /> */}
+                <Route exact path='/decline' component={Decline} />
               </Router>
             </ApplicationState>
           </WorkerState>
