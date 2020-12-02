@@ -10,7 +10,7 @@ const classNames = require('classnames');
 
 
 export default function JobListItem(props) {
-  //console.log(props);
+  console.log(props);
   return (
     <Fragment>
       <div className="job_item">

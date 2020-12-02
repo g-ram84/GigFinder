@@ -11,11 +11,14 @@ function Home(props) {
   const userContext = useContext(UserContext);
   const { loggedInUser, loggedInUserType } = userContext;
   const [query, setQuery] = useState('');
+  console.log("loggedinTYPE", loggedInUserType)
   return (
     <div className="home_page">
       <span className="title">
         <h1>Welcome to GigFinder!</h1>
+        {loggedInUserType !== 2 &&
         <SearchBar query={query} setQuery={setQuery} />
+        }
         {loggedInUserType && loggedInUserType == 2 ? <EmployerJobList /> : <JobList />}
       </span>
 

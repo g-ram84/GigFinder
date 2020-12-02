@@ -32,7 +32,7 @@ export default function EmployerJobApplicationList(props) {
   }
   return (
     <>
-      <h3 className="h3">There are no Applicants.</h3>
+      <h3 className="h3">Nobody has applied yet.</h3>
     </>
   );
 }

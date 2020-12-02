@@ -45,7 +45,9 @@ export default function WorkerJobList(props) {
     });
     return (
       <>
-        <h1>WorkerJoblistItems</h1>
+      <div className="h2">
+        <h2>My Saved Jobs</h2>
+      </div>
         <span>{myJobs}</span>
       </>
     );
