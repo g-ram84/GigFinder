@@ -18,15 +18,16 @@ INSERT INTO employers (name, contact_name, email, phone_number, password, websit
 INSERT INTO employers (name, contact_name, email, phone_number, password, website, description) VALUES ('Blogtags','Philippine Python','ppython7@pbs.org','604-217-8636','Vgn9nG6GP','prnewswire.com','varius ut blandit non interdum in ante vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia');
 
 --JOBS SEEDS
-INSERT INTO jobs (job_title, hourly_wage, job_date, job_active, positions, job_description, employer_id, job_location) VALUES ('musician', 29, '2020/12/02', true, 2, 'Guitar player wanted for a NYE performance (online - Covid friendly)', 2, 'Location 2');
-INSERT INTO jobs (job_title, hourly_wage, job_date, job_active, positions, job_description, employer_id, job_location) VALUES ('musician', 17, '2020/12/01', true, 1, 'Restaurant looking for jazz pianist for 2 nights a week during the holidays.', 1, 'Location 1');
-INSERT INTO jobs (job_title, hourly_wage, job_date, job_active, positions, job_description, employer_id, job_location) VALUES ('labourer', 26, '2020/12/02', true, 3, 'Drywaller needed for 4 days end of December', 3, 'Location 3');
-INSERT INTO jobs (job_title, hourly_wage, job_date, job_active, positions, job_description, employer_id, job_location) VALUES ('handyman', 17, '2020/12/02', true, 2, 'Jack/Jill of all trades needed for a renovation project', 4, 'Location 4');
-INSERT INTO jobs (job_title, hourly_wage, job_date, job_active, positions, job_description, employer_id, job_location) VALUES ('musician', 20, '2020/12/01', true, 1, 'Cover band looking for drummer.', 5, 'Location 5');
-INSERT INTO jobs (job_title, hourly_wage, job_date, job_active, positions, job_description, employer_id, job_location) VALUES ('labourer', 16, '2020/12/01', true, 2, 'Help wanted on job-site clean up', 6, 'Location 6');
-INSERT INTO jobs (job_title, hourly_wage, job_date, job_active, positions, job_description, employer_id, job_location) VALUES ('cleaner', 25, '2020/12/01', true, 2, 'Busy hotel looking for housekeeping staff for the holidays', 8, 'Location 8');
-INSERT INTO jobs (job_title, hourly_wage, job_date, job_active, positions, job_description, employer_id, job_location) VALUES ('busser', 28, '2020/12/02', true, 1, 'Restaurant needs support staff for busy holiday season!', 1, 'Location 9');
-INSERT INTO jobs (job_title, hourly_wage, job_date, job_active, positions, job_description, employer_id, job_location) VALUES ('painter', 21, '2020/12/01', true, 2, 'Painters needed for large indoor project.', 2, 'Location 10');
+INSERT INTO jobs (job_title, hourly_wage, job_date, job_active, positions, job_description, employer_id, job_location) VALUES ('musician', 29, '2020/12/02', true, 2, 'purus eu magna vulputate luctus cum sociis natoque penatibus et magnis dis parturient montes nascetur ridiculus mus vivamus vestibulum sagittis sapien cum sociis natoque', 2, 'Location 2');
+INSERT INTO jobs (job_title, hourly_wage, job_date, job_active, positions, job_description, employer_id, job_location) VALUES ('musician', 17, '2020/12/01', true, 1, 'neque aenean auctor gravida sem praesent id massa id nisl venenatis lacinia aenean sit amet justo morbi ut odio cras mi pede malesuada in imperdiet et commodo vulputate', 1, 'Location 1');
+INSERT INTO jobs (job_title, hourly_wage, job_date, job_active, positions, job_description, employer_id, job_location) VALUES ('labourer', 26, '2020/12/02', true, 3, 'felis fusce posuere felis sed lacus morbi sem mauris laoreet ut rhoncus aliquet pulvinar sed nisl nunc rhoncus dui vel sem sed sagittis nam congue risus semper porta', 3, 'Location 3');
+INSERT INTO jobs (job_title, hourly_wage, job_date, job_active, positions, job_description, employer_id, job_location) VALUES ('handyman', 17, '2020/12/02', true, 2, 'vel nulla eget eros elementum pellentesque quisque porta volutpat erat quisque erat eros viverra eget congue eget semper rutrum nulla nunc purus phasellus in felis', 4, 'Location 4');
+INSERT INTO jobs (job_title, hourly_wage, job_date, job_active, positions, job_description, employer_id, job_location) VALUES ('musician', 20, '2020/12/01', true, 1, 'morbi sem mauris laoreet ut rhoncus aliquet pulvinar sed nisl nunc rhoncus dui vel sem sed sagittis nam congue risus semper porta volutpat quam pede lobortis ligula', 5, 'Location 5');
+INSERT INTO jobs (job_title, hourly_wage, job_date, job_active, positions, job_description, employer_id, job_location) VALUES ('labourer', 16, '2020/12/01', true, 2, 'vehicula condimentum curabitur in libero ut massa volutpat convallis morbi odio odio elementum eu interdum eu tincidunt in leo maecenas pulvinar lobortis est phasellus', 6, 'Location 6');
+INSERT INTO jobs (job_title, hourly_wage, job_date, job_active, positions, job_description, employer_id, job_location) VALUES ('cleaner', 25, '2020/12/01', true, 2, 'dictumst maecenas ut massa quis augue luctus tincidunt nulla mollis molestie lorem quisque', 7, 'Location 7');
+INSERT INTO jobs (job_title, hourly_wage, job_date, job_active, positions, job_description, employer_id, job_location) VALUES ('labourer', 26, '2020/12/02', true, 1, 'id ornare imperdiet sapien urna pretium nisl ut volutpat sapien arcu sed augue aliquam erat volutpat in congue etiam justo etiam pretium iaculis justo in hac habitasse', 8, 'Location 8');
+INSERT INTO jobs (job_title, hourly_wage, job_date, job_active, positions, job_description, employer_id, job_location) VALUES ('busser', 28, '2020/12/02', true, 1, 'nunc vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae mauris viverra diam vitae quam suspendisse potenti nullam porttitor lacus at', 1, 'Location 9');
+INSERT INTO jobs (job_title, hourly_wage, job_date, job_active, positions, job_description, employer_id, job_location) VALUES ('painter', 21, '2020/12/01', true, 2, 'sapien iaculis congue vivamus metus arcu adipiscing molestie hendrerit at vulputate vitae nisl aenean lectus pellentesque eget nunc donec quis orci eget orci vehicula', 2, 'Location 10');
 
 --APPLICATIONS SEEDS
 INSERT INTO applications (worker_id, job_id, status, date_applied) VALUES (1, 1, 'Pending', '12/2/2020');
@@ -42,6 +43,23 @@ INSERT INTO applications (worker_id, job_id, status, date_applied) VALUES (3, 10
 INSERT INTO applications (worker_id, job_id, status, date_applied) VALUES (4, 1, 'Pending', '12/2/2020');
 INSERT INTO applications (worker_id, job_id, status, date_applied) VALUES (5, 2, 'Pending', '12/1/2020');
 
+--SAVED EMPLOYERS SEEDS
+-- INSERT INTO saved_employers (worker_id, employer_id, favourite, rating) VALUES (1, 2, false, 5);
+-- INSERT INTO saved_employers (worker_id, employer_id, favourite, rating) VALUES (2, 7, true, 2);
+-- INSERT INTO saved_employers (worker_id, employer_id, favourite, rating) VALUES (3, 8, false, 2);
+-- INSERT INTO saved_employers (worker_id, employer_id, favourite, rating) VALUES (4, 7, true, 1);
+-- INSERT INTO saved_employers (worker_id, employer_id, favourite, rating) VALUES (5, 6, true, 4);
+-- INSERT INTO saved_employers (worker_id, employer_id, favourite, rating) VALUES (6, 6, false, 3);
+-- INSERT INTO saved_employers (worker_id, employer_id, favourite, rating) VALUES (7, 3, true, 4);
+
+--SAVED WORKER SEEDS
+-- INSERT INTO saved_workers (worker_id, employer_id, favourite, rating) VALUES (1, 2, false, 5);
+-- INSERT INTO saved_workers (worker_id, employer_id, favourite, rating) VALUES (2, 7, true, 2);
+-- INSERT INTO saved_workers (worker_id, employer_id, favourite, rating) VALUES (3, 8, false, 2);
+-- INSERT INTO saved_workers (worker_id, employer_id, favourite, rating) VALUES (4, 7, true, 1);
+-- INSERT INTO saved_workers (worker_id, employer_id, favourite, rating) VALUES (5, 6, true, 4);
+-- INSERT INTO saved_workers (worker_id, employer_id, favourite, rating) VALUES (6, 6, false, 3);
+-- INSERT INTO saved_workers (worker_id, employer_id, favourite, rating) VALUES (7, 3, true, 4);
 
 --EMPLOYER RATINGS
 INSERT INTO employer_ratings (worker_id, employer_id, rating) VALUES (1, 2, 5);
