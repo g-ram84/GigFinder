@@ -1,11 +1,6 @@
 import React, { Fragment, useState, useContext } from "react";
 import "./jobListItem.scss";
-<<<<<<< HEAD
-import '../views/job.scss'
-import { Row, Col, Button } from 'reactstrap';
-=======
 import { Row, Col, Button, Container } from 'reactstrap';
->>>>>>> 0d41d4189be9f2f94e9b21d858f5d5c7a3672b84
 import { NavLink, Link } from 'react-router-dom';
 import ApplicationContext from '../context/application/applicationContext.js';
 import WorkerContext from '../context/worker/workerContext.js';
@@ -43,11 +38,11 @@ export default function EmployerJobApplicationListItem(props) {
         {app.status === 'Pending' && <Fragment>
           <Container>
             <Row>
-            <Link to={profileLink} className="Button">{workerFirst} {workerLast}</Link>
+            <Link className="profile-link" to={profileLink}>{workerFirst} {workerLast}</Link>
             </Row>
             <Row>
-              <Button onClick={(e) => onSubmitDecline(e, app)}>Decline</Button>
-              <Button onClick={(e) => onSubmitAccept(e, app)}>Accept</Button>
+              <Button className="Button" onClick={(e) => onSubmitDecline(e, app)}>Decline</Button>
+              <Button className="Button" onClick={(e) => onSubmitAccept(e, app)}>Accept</Button>
             </Row>
           </Container>
         </Fragment>
