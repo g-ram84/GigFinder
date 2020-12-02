@@ -1,6 +1,7 @@
 import React, { useContext, useState } from 'react';
 import { Col, Row, Button, Form, FormGroup, Label, Input, FormFeedback, FormText } from 'reactstrap';
 import JobContext from '../context/job/jobContext';
+import { useHistory } from 'react-router-dom';
 import './job.scss';
 
 const AddJobForm = () => {
@@ -20,11 +21,15 @@ const AddJobForm = () => {
   });
 
   const { job_title, hourly_wage, job_date, job_active, positions, job_description, employer_id } = job;
+  const history = useHistory();
   const onChange = e => setJob({ ...job, [e.target.name]: e.target.value });
   const onSubmit = e => {
     e.preventDefault();
     jobContext.addNewJob(job)
-  };
+    .then(() => {
+      history.push('/')
+    })
+  }
 
 
 
