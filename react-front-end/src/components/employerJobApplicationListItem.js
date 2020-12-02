@@ -1,5 +1,6 @@
 import React, { Fragment, useState, useContext } from "react";
 import "./jobListItem.scss";
+import '../views/job.scss'
 import { Row, Col, Button } from 'reactstrap';
 import { NavLink, Link } from 'react-router-dom';
 import ApplicationContext from '../context/application/applicationContext.js';
@@ -37,17 +38,18 @@ export default function EmployerJobApplicationListItem(props) {
   return (
     <Fragment>
       <Row>
-        {app.status === 'Pending' && <Fragment>
-          <p>{worker.first_name} {worker.last_name}</p>
-          {/* <p>{app.date_applied}</p> */}
-          <Button onClick={(e) => onSubmitDecline(e, app)}>Decline</Button>
-          {/* } */}
-          <br />
-          {/* {app.status === 'Pending' && */}
-          <Button onClick={(e) => onSubmitAccept(e, app)}>Accept</Button>
-          <Button onClick={(e) => onSubmitAccept(e, app)}>Worker Profile</Button>
-          <Link to={profileLink} className="Button">Profile</Link>
-        </Fragment>
+        {app.status === 'Pending' &&
+
+          <Fragment>
+            <Link to={profileLink} className="profile-link">{worker.first_name} {worker.last_name}</Link>
+            <br />
+            {/* <p>{app.date_applied}</p> */}
+            <Button id="button-style" onClick={(e) => onSubmitDecline(e, app)}>Decline</Button>
+            {/* } */}
+            <br />
+            {/* {app.status === 'Pending' && */}
+            <Button id="button-style" onClick={(e) => onSubmitAccept(e, app)}>Accept</Button>
+          </Fragment>
         }
       </Row>
     </Fragment>

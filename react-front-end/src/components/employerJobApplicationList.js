@@ -1,6 +1,7 @@
 import React, { Fragment, useContext, useEffect, useState } from "react";
 import EmployerJobApplicationListItem from './employerJobApplicationListItem';
 import ApplicationContext from '../context/application/applicationContext.js';
+import './jobListItem.scss'
 export default function EmployerJobApplicationList(props) {
   const applicationContext = useContext(ApplicationContext);
   const { allApplications, getAllApplications, acceptApplication, declineApplication } = applicationContext;
@@ -23,7 +24,7 @@ export default function EmployerJobApplicationList(props) {
       });
       return (
         <>
-          <h1>Pending Applications for this Job</h1>
+          <h3 className="h3">Pending Applications for this Job</h3>
           {myApplications}
         </>
       );
@@ -31,7 +32,7 @@ export default function EmployerJobApplicationList(props) {
   }
   return (
     <>
-      <h1>There are no Applicants for this Job.</h1>
+      <h3 className="h3">There are no Applicants for this Job.</h3>
     </>
   );
 }
