@@ -6,7 +6,7 @@ export default function EmployerJobApplicationList(props) {
   const { allApplications, getAllApplications, acceptApplication, declineApplication } = applicationContext;
   useEffect(() => {
     getAllApplications();
-  }, []);
+  }, [allApplications]);
 
   if (allApplications) {
     const currentJobApplications = allApplications.filter((item) =>
