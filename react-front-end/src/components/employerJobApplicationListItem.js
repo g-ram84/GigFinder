@@ -38,11 +38,19 @@ export default function EmployerJobApplicationListItem(props) {
         {app.status === 'Pending' && <Fragment>
           <Container>
             <Row>
-            <Link className="profile-link" to={profileLink}>{workerFirst} {workerLast}</Link>
+              <Link className="profile-link" to={profileLink}>{workerFirst} {workerLast}</Link>
             </Row>
             <Row>
               <Button id="Button" onClick={(e) => onSubmitDecline(e, app)}>Decline</Button>
               <Button id="Button" onClick={(e) => onSubmitAccept(e, app)}>Accept</Button>
+            </Row>
+          </Container>
+        </Fragment>
+        }
+        {app.status === 'Accepted' && <Fragment>
+          <Container>
+            <Row>
+              <Link className="profile-link" to={profileLink}>{workerFirst} {workerLast}</Link>
             </Row>
           </Container>
         </Fragment>

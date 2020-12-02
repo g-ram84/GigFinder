@@ -7,7 +7,7 @@ export default function EmployerJobApplicationList(props) {
   const { allApplications, getAllApplications, acceptApplication, declineApplication } = applicationContext;
   useEffect(() => {
     getAllApplications();
-  }, [allApplications]);
+  }, []);
 
   if (allApplications) {
     const currentJobApplications = allApplications.filter((item) =>
@@ -24,7 +24,7 @@ export default function EmployerJobApplicationList(props) {
       });
       return (
         <>
-          <h3 className="h3">Pending Applications</h3>
+          <h3 className="h3">Applications</h3>
           {myApplications}
         </>
       );
