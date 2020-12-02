@@ -1,10 +1,13 @@
-import React, { Fragment } from "react";
+import React, { Fragment, useContext } from "react";
 import "./jobListItem.scss";
 import { Link } from 'react-router-dom';
+
+
 // import Results from '../views/results.js';
 
 
 const classNames = require('classnames');
+
 
 export default function JobListItem(props) {
   //console.log(props);

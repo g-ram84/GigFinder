@@ -41,8 +41,8 @@ export default function EmployerJobApplicationListItem(props) {
             <Link className="profile-link" to={profileLink}>{workerFirst} {workerLast}</Link>
             </Row>
             <Row>
-              <Button className="Button" onClick={(e) => onSubmitDecline(e, app)}>Decline</Button>
-              <Button className="Button" onClick={(e) => onSubmitAccept(e, app)}>Accept</Button>
+              <Button id="Button" onClick={(e) => onSubmitDecline(e, app)}>Decline</Button>
+              <Button id="Button" onClick={(e) => onSubmitAccept(e, app)}>Accept</Button>
             </Row>
           </Container>
         </Fragment>

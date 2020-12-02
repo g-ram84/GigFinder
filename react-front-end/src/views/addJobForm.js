@@ -9,12 +9,12 @@ const AddJobForm = () => {
   const [job, setJob] = useState({
     job_title: job_title,
     hourly_wage: hourly_wage,
-    job_data: job_date,
+    job_date: job_date,
     job_active: job_active,
     positions: positions,
     job_description: job_description,
     job_active: true,
-    employer_id: employer_id,
+    employer_id: 1,
     job_location: "Location",
 
   });

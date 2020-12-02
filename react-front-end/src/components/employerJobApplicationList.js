@@ -24,7 +24,7 @@ export default function EmployerJobApplicationList(props) {
       });
       return (
         <>
-          <h3 className="h3">Pending Applications for this Job</h3>
+          <h3 className="h3">Pending Applications</h3>
           {myApplications}
         </>
       );
@@ -32,7 +32,7 @@ export default function EmployerJobApplicationList(props) {
   }
   return (
     <>
-      <h3 className="h3">There are no Applicants for this Job.</h3>
+      <h3 className="h3">There are no Applicants.</h3>
     </>
   );
 }
