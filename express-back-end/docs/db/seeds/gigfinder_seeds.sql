@@ -43,23 +43,6 @@ INSERT INTO applications (worker_id, job_id, status, date_applied) VALUES (3, 10
 INSERT INTO applications (worker_id, job_id, status, date_applied) VALUES (4, 1, 'Pending', '12/2/2020');
 INSERT INTO applications (worker_id, job_id, status, date_applied) VALUES (5, 2, 'Pending', '12/1/2020');
 
---SAVED EMPLOYERS SEEDS
--- INSERT INTO saved_employers (worker_id, employer_id, favourite, rating) VALUES (1, 2, false, 5);
--- INSERT INTO saved_employers (worker_id, employer_id, favourite, rating) VALUES (2, 7, true, 2);
--- INSERT INTO saved_employers (worker_id, employer_id, favourite, rating) VALUES (3, 8, false, 2);
--- INSERT INTO saved_employers (worker_id, employer_id, favourite, rating) VALUES (4, 7, true, 1);
--- INSERT INTO saved_employers (worker_id, employer_id, favourite, rating) VALUES (5, 6, true, 4);
--- INSERT INTO saved_employers (worker_id, employer_id, favourite, rating) VALUES (6, 6, false, 3);
--- INSERT INTO saved_employers (worker_id, employer_id, favourite, rating) VALUES (7, 3, true, 4);
-
---SAVED WORKER SEEDS
--- INSERT INTO saved_workers (worker_id, employer_id, favourite, rating) VALUES (1, 2, false, 5);
--- INSERT INTO saved_workers (worker_id, employer_id, favourite, rating) VALUES (2, 7, true, 2);
--- INSERT INTO saved_workers (worker_id, employer_id, favourite, rating) VALUES (3, 8, false, 2);
--- INSERT INTO saved_workers (worker_id, employer_id, favourite, rating) VALUES (4, 7, true, 1);
--- INSERT INTO saved_workers (worker_id, employer_id, favourite, rating) VALUES (5, 6, true, 4);
--- INSERT INTO saved_workers (worker_id, employer_id, favourite, rating) VALUES (6, 6, false, 3);
--- INSERT INTO saved_workers (worker_id, employer_id, favourite, rating) VALUES (7, 3, true, 4);
 
 --EMPLOYER RATINGS
 INSERT INTO employer_ratings (worker_id, employer_id, rating) VALUES (1, 2, 5);
